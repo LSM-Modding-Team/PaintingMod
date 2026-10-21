@@ -8,10 +8,15 @@ import net.nicomar2009.paintingmod.paint.Paint;
 /** Immutable render-thread snapshot; no renderer reads mutable block entities. */
 public final class PaintModelData {
     public static final ModelProperty<PaintModelData> PROPERTY = new ModelProperty<>();
+    private final Direction up;
     private final int divisions;
     private final long occupied;
     private final int[] paints;
     public PaintModelData(int divisions, long occupied, int[] paints) {
+        this(divisions, occupied, paints, Direction.UP);
+    }
+    public PaintModelData(int divisions, long occupied, int[] paints, Direction up) {
+        this.up = up;
         this.divisions = divisions;
         this.occupied = occupied;
         this.paints = paints.clone();
@@ -21,6 +26,7 @@ public final class PaintModelData {
         Arrays.fill(colors, Paint.DEFAULT.id());
         return new PaintModelData(divisions, divisions == 4 ? -1L : (1L << (divisions * divisions * divisions)) - 1, colors);
     }
+    public Direction up() { return up; }
     public int divisions() { return divisions; }
     public boolean hasCube(int cube) { return cube >= 0 && cube < divisions * divisions * divisions && (occupied & (1L << cube)) != 0; }
     public Paint paint(int cube, Direction face) {

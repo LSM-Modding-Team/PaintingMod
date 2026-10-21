@@ -56,3 +56,5 @@ No se han ejecutado compilaciones, pruebas, generadores de datos de Minecraft
 ni el juego. El generador de recursos del repositorio solo escribe JSON e ítems.
 
 Ctrl + middle click (creative pick block with data) copies a paintable block's full face/subdivision palette and occupancy into its item. The item previews the painted, carved shape and restores it when placed, including cleaned surfaces. Ordinary middle click still selects the default block. Unlike the one-shot paint clipboard, placing the copied block does not consume its stored template in creative mode.
+
+Placement: the template's local bottom attaches to the clicked face, including walls and ceilings. The six paint_up block states store the support orientation; existing states default to up. A copied template is rotated from its saved support to the new support, moving all palette squares, occupancy and texture UVs together. Hammer targeting, rectangles, selection and collisions continue using world coordinates. Paint-only paste rotates to the destination support without changing its geometry.

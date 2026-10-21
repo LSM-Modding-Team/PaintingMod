@@ -28,7 +28,7 @@ public class PaintableBlockEntity extends BlockEntity {
         int divisions = this instanceof FinePaintBlockEntity ? 4 : this instanceof PaintableCustomBlockEntity ? 2 : 1;
         long occupied = this instanceof FinePaintBlockEntity fine ? fine.occupied()
                 : this instanceof PaintableCustomBlockEntity custom ? custom.occupied() : 1;
-        return ModelData.builder().with(PaintModelData.PROPERTY, new PaintModelData(divisions, occupied, snapshot())).build();
+        return ModelData.builder().with(PaintModelData.PROPERTY, new PaintModelData(divisions, occupied, snapshot(), getBlockState().getValue(PaintableBlock.PAINT_UP))).build();
     }
     public Paint paint(Direction face) { return Paint.fromId(paints[face.ordinal()]); }
     public boolean canPaintAt(Direction face,Vec3 hit) {return true;}

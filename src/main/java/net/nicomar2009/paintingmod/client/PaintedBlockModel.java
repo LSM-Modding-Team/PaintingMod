@@ -17,6 +17,7 @@ import net.neoforged.neoforge.client.model.DelegateBlockStateModel;
 import net.neoforged.neoforge.client.model.DynamicBlockStateModel;
 import net.nicomar2009.paintingmod.block.MiniCubePaintableBlock;
 import net.nicomar2009.paintingmod.block.PaintableCustomBlock;
+import net.nicomar2009.paintingmod.geometry.PaintOrientation;
 import net.nicomar2009.paintingmod.model.PaintModelData;
 import net.nicomar2009.paintingmod.paint.Paint;
 
@@ -47,10 +48,12 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
             Source source = sources.computeIfAbsent(paint.id(), ignored -> source(paint, level, pos, state));
             boolean boundary = boundary(cube, divisions, face);
             Direction cull = divisions == 4 || !boundary ? null : face;
+            Direction localFace = PaintOrientation.face(face, data.up(), Direction.UP);
+            int localCube = PaintOrientation.cube(cube, divisions, data.up(), Direction.UP);
             for (var part : source.parts) {
                 for (Direction direction : Direction.values())
-                    emit(part.getQuads(direction), part, source.state, face, cube, divisions, cull, level, pos, result);
-                emit(part.getQuads(null), part, source.state, face, cube, divisions, cull, level, pos, result);
+                    emit(part.getQuads(direction), part, source.state, localFace, localCube, divisions, cull, level, pos, result, data.up());
+                emit(part.getQuads(null), part, source.state, localFace, localCube, divisions, cull, level, pos, result, data.up());
             }
         }
         parts.add(result);
@@ -63,13 +66,13 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
         return new Source(sourceState, parts);
     }
     private static void emit(List<BakedQuad> quads, BlockStateModelPart part, BlockState sourceState, Direction face,
-            int cube, int divisions, Direction cull, BlockAndTintGetter level, BlockPos pos, PaintPart result) {
+            int cube, int divisions, Direction cull, BlockAndTintGetter level, BlockPos pos, PaintPart result, Direction up) {
         for (BakedQuad source : quads) {
             if (source.direction() != face) continue;
             int tint = source.materialInfo().tintIndex();
             var tintSource = tint < 0 ? null : Minecraft.getInstance().getBlockColors().getTintSource(sourceState, tint);
             int color = tintSource == null ? -1 : 0xFF000000 | tintSource.colorInWorld(sourceState, level, pos);
-            BakedQuad clipped = PaintQuadClipper.clip(source, face, cube, divisions, color, part.useAmbientOcclusion());
+            BakedQuad clipped = PaintQuadClipper.clip(source, face, cube, divisions, color, part.useAmbientOcclusion(), up);
             if (clipped != null) result.add(cull, clipped);
         }
     }

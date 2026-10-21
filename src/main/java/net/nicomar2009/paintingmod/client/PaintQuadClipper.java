@@ -5,7 +5,9 @@ import java.util.List;
 import net.minecraft.client.model.geom.builders.UVPair;
 import net.minecraft.client.resources.model.geometry.BakedQuad;
 import net.minecraft.core.Direction;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.model.pipeline.QuadBakingVertexConsumer;
+import net.nicomar2009.paintingmod.geometry.PaintOrientation;
 import org.joml.Vector3fc;
 
 /** Crop the original face UVs to a 16px, 8px or 4px square, then move it to the cut plane. */
@@ -17,7 +19,7 @@ final class PaintQuadClipper {
         }
     }
     private PaintQuadClipper() {}
-    static BakedQuad clip(BakedQuad source, Direction face, int cube, int divisions, int color, boolean ao) {
+    static BakedQuad clip(BakedQuad source, Direction face, int cube, int divisions, int color, boolean ao, Direction up) {
         if (source.direction() != face) return null;
         int x = cube % divisions, y = cube / divisions % divisions, z = cube / (divisions * divisions);
         float size = 1F / divisions;
@@ -46,21 +48,24 @@ final class PaintQuadClipper {
         if (corners.size() != 4 || distance(corners.get(0), corners.get(1)) < 1e-10F) return null;
         var material = source.materialInfo();
         var builder = new QuadBakingVertexConsumer();
-        builder.setDirection(face);
+        Direction worldFace = PaintOrientation.face(face, Direction.UP, up);
+        builder.setDirection(worldFace);
         builder.setSprite(material.sprite(), material.layer(), material.itemRenderType());
         builder.setTintIndex(-1);
         builder.setShade(material.shade());
         builder.setAmbientOcclusion(ao);
         builder.setLightEmission(0);
         for (Vertex v : corners) {
-            switch (face.getAxis()) {
-                case X -> builder.addVertex(plane, v.v, v.u);
-                case Y -> builder.addVertex(v.u, plane, v.v);
-                case Z -> builder.addVertex(v.u, v.v, plane);
-            }
+            Vec3 point = switch (face.getAxis()) {
+                case X -> new Vec3(plane, v.v, v.u);
+                case Y -> new Vec3(v.u, plane, v.v);
+                case Z -> new Vec3(v.u, v.v, plane);
+            };
+            point = PaintOrientation.rotate(point, up);
+            builder.addVertex((float) point.x, (float) point.y, (float) point.z);
             builder.setUv(v.textureU, v.textureV);
             builder.setColor(color);
-            builder.setNormal(face.getStepX(), face.getStepY(), face.getStepZ());
+            builder.setNormal(worldFace.getStepX(), worldFace.getStepY(), worldFace.getStepZ());
         }
         return builder.bakeQuad();
     }

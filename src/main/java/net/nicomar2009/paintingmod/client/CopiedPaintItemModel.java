@@ -25,7 +25,7 @@ import net.nicomar2009.paintingmod.registry.ModBlocks;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 
-/** A copied palette looks like its source block until its one-shot paste is consumed. */
+/** Render copied paint clipboards and block items from the same saved template. */
 final class CopiedPaintItemModel implements ItemModel {
     private static final Identifier BASE = Identifier.fromNamespaceAndPath("paintingmod", "block/default_cube");
     private final ItemModel fallback;
