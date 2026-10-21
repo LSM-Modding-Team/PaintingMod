@@ -21,6 +21,12 @@ public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
     public int miniSize() {return 4;}
     public int[] squareGroup(int index) {return new int[]{index};}
     public long occupied() {return ~removed;}
+    public void restoreOccupancy(long occupied) {
+        if (occupied == 0) throw new IllegalArgumentException("Empty copied block");
+        removed = ~occupied;
+        collision = null;
+        changed();
+    }
     public net.minecraft.world.phys.shapes.VoxelShape collision(BlockState state,java.util.function.Supplier<net.minecraft.world.phys.shapes.VoxelShape> build) {
         long mask=occupied();
         if(collision==null||collisionState!=state||collisionMask!=mask) {collision=build.get();collisionState=state;collisionMask=mask;}

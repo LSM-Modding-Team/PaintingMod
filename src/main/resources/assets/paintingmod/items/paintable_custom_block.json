@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"paintingmod:block/default_cube"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"paintingmod:block/default_cube"}}}

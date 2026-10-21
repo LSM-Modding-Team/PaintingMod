@@ -20,6 +20,11 @@ public class PaintableCustomBlockEntity extends PaintableBlockEntity {
     }
     protected PaintableCustomBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,BlockPos pos,BlockState state) {super(type,pos,state);}
     public int occupied() { return occupied; }
+    public void restoreOccupancy(int mask) {
+        if ((mask & 255) == 0) throw new IllegalArgumentException("Empty copied block");
+        occupied = mask & 255;
+        changed();
+    }
     public boolean hasCube(int cube) { return cube >= 0 && cube < 8 && (occupied & (1 << cube)) != 0; }
     public static int quadrant(Direction face, int x, int y, int z) {
         return switch (face.getAxis()) { case X -> z + 2*y; case Y -> x + 2*z; case Z -> x + 2*y; };

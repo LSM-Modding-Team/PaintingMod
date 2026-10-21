@@ -54,3 +54,5 @@ bloques técnicos invisibles y bloques con block entities.
 Recursos y APIs revisados estáticamente contra Minecraft 26.2 y NeoForge 26.2.0.88.
 No se han ejecutado compilaciones, pruebas, generadores de datos de Minecraft
 ni el juego. El generador de recursos del repositorio solo escribe JSON e ítems.
+
+Ctrl + middle click (creative pick block with data) copies a paintable block's full face/subdivision palette and occupancy into its item. The item previews the painted, carved shape and restores it when placed, including cleaned surfaces. Ordinary middle click still selects the default block. Unlike the one-shot paint clipboard, placing the copied block does not consume its stored template in creative mode.

@@ -29,6 +29,14 @@ public final class CopiedPaintPattern {
     public BlockPos origin() { return origin; }
     public PaintModelData modelData() { return new PaintModelData(divisions(), occupied, colors); }
     public void apply(PaintableBlockEntity destination) { destination.apply(colors.clone()); }
+    /** Full block cloning restores occupancy as well; ordinary pattern paste only applies colors. */
+    public boolean restoreBlock(PaintableBlockEntity destination) {
+        if (destination.snapshot().length != colors.length) return false;
+        if (destination instanceof FinePaintBlockEntity fine) fine.restoreOccupancy(occupied);
+        else if (destination instanceof PaintableCustomBlockEntity custom) custom.restoreOccupancy((int) occupied);
+        apply(destination);
+        return true;
+    }
     public void write(ItemStack stack) {
         CompoundTag data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         CompoundTag copy = new CompoundTag();
