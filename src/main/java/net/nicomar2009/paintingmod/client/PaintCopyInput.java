@@ -13,6 +13,7 @@ import net.nicomar2009.paintingmod.PaintingMod;
 import net.nicomar2009.paintingmod.block.PaintableBlockEntity;
 import net.nicomar2009.paintingmod.network.PaintCopyPayload;
 import net.nicomar2009.paintingmod.tool.PaintItem;
+import net.nicomar2009.paintingmod.tool.SurfacePaintTools;
 import org.lwjgl.glfw.GLFW;
 
 @EventBusSubscriber(modid = PaintingMod.MOD_ID, value = Dist.CLIENT)
@@ -20,9 +21,10 @@ public final class PaintCopyInput {
     @SubscribeEvent public static void copy(InputEvent.InteractionKeyMappingTriggered event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (!event.isUseItem() || minecraft.player == null || minecraft.level == null
-                || !(minecraft.hitResult instanceof BlockHitResult hit)
-                || !(minecraft.level.getBlockEntity(hit.getBlockPos()) instanceof PaintableBlockEntity block)
-                || !block.canPaintAt(hit.getDirection(),hit.getLocation())) return;
+                || !(minecraft.hitResult instanceof BlockHitResult hit)) return;
+        if (!SurfacePaintTools.registered(minecraft.level,hit.getBlockPos())
+                && (!(minecraft.level.getBlockEntity(hit.getBlockPos()) instanceof PaintableBlockEntity block)
+                || !block.canPaintAt(hit.getDirection(),hit.getLocation()))) return;
         var window = minecraft.getWindow();
         if (!InputConstants.isKeyDown(window, GLFW.GLFW_KEY_LEFT_CONTROL)
                 && !InputConstants.isKeyDown(window, GLFW.GLFW_KEY_RIGHT_CONTROL)) return;

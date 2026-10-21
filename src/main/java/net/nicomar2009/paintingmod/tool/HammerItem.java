@@ -13,6 +13,7 @@ public final class HammerItem extends Item {
         var level = context.getLevel();
         var pos = context.getClickedPos();
         var player = context.getPlayer();
+        if (SurfacePaintTools.registered(level,pos)) return InteractionResult.FAIL;
         var entity = level.getBlockEntity(pos);
         if (!(entity instanceof MiniCubePaintEntity) && !(entity instanceof PaintableCustomBlockEntity))
             return InteractionResult.PASS;

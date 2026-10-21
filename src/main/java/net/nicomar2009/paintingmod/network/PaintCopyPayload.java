@@ -14,6 +14,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.nicomar2009.paintingmod.PaintingMod;
 import net.nicomar2009.paintingmod.block.PaintableBlockEntity;
 import net.nicomar2009.paintingmod.tool.PaintItem;
+import net.nicomar2009.paintingmod.tool.SurfacePaintTools;
 
 /** The client sends a target, never trusted colors; the server copies its own block data. */
 public record PaintCopyPayload(BlockPos pos, boolean offHand) implements CustomPacketPayload {
@@ -34,6 +35,11 @@ public record PaintCopyPayload(BlockPos pos, boolean offHand) implements CustomP
             var hit = player.pick(player.blockInteractionRange(), 1, false);
             if (!(hit instanceof BlockHitResult blockHit) || !blockHit.getBlockPos().equals(request.pos)
                     || !level.mayInteract(player, request.pos) || !player.mayUseItemAt(request.pos, blockHit.getDirection(), stack)) return;
+            if (SurfacePaintTools.registered(level,request.pos)) {
+                if (SurfacePaintTools.copy(player,stack,blockHit))
+                    player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.paintingmod.paint_copied"));
+                return;
+            }
             if (level.getBlockEntity(request.pos) instanceof PaintableBlockEntity block
                     && block.canPaintAt(blockHit.getDirection(),blockHit.getLocation())) {
                 PaintItem.copyTo(stack, block); player.containerMenu.broadcastChanges();

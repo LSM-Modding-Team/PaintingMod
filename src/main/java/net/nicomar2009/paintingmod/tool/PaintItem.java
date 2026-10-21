@@ -14,6 +14,7 @@ public class PaintItem extends Item {
     public PaintItem(Paint paint, Properties properties) { super(properties.stacksTo(1)); this.paint = paint; }
     public static void copyTo(ItemStack stack, PaintableBlockEntity source) {
         RectanglePaintTool.clear(stack);
+        net.nicomar2009.paintingmod.api.SurfacePaintPattern.clear(stack);
         CopiedPaintPattern.capture(source).write(stack);
     }
     @Override public InteractionResult use(net.minecraft.world.level.Level level,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand) {
@@ -21,6 +22,10 @@ public class PaintItem extends Item {
     }
     @Override public InteractionResult useOn(UseOnContext context) {
         var level = context.getLevel(); var pos = context.getClickedPos(); var player = context.getPlayer();
+        InteractionResult external=SurfacePaintTools.use(context,paint,net.nicomar2009.paintingmod.api.PaintProvider.Action.APPLY);
+        if(external!=null)return external;
+        if(SurfacePaintTools.hasRectangle(context.getItemInHand())
+                || net.nicomar2009.paintingmod.api.SurfacePaintPattern.hasCopy(context.getItemInHand())) return InteractionResult.FAIL;
         if (!(level.getBlockEntity(pos) instanceof PaintableBlockEntity block)) return InteractionResult.PASS;
         if (!block.canPaintAt(context.getClickedFace(),context.getClickLocation())) return InteractionResult.PASS;
         if (player == null || player.isSpectator() || !level.mayInteract(player, pos)

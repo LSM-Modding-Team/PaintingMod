@@ -30,8 +30,14 @@ public final class RectanglePaintTool {
         if(tag.isEmpty()) stack.remove(DataComponents.CUSTOM_DATA);
         else stack.set(DataComponents.CUSTOM_DATA,CustomData.of(tag));
     }
-    public static void clear(ItemStack stack) { CompoundTag tag=tag(stack);tag.remove(KEY);write(stack,tag); }
+    public static boolean pending(ItemStack stack) { return tag(stack).contains(KEY); }
+    public static void clear(ItemStack stack) {
+        CompoundTag tag=tag(stack);tag.remove(KEY);write(stack,tag);
+        SurfacePaintTools.clearRectangle(stack);
+    }
     public static InteractionResult cancel(Level level,Player player,ItemStack stack) {
+        InteractionResult external=SurfacePaintTools.cancel(level,player,stack);
+        if(external!=null)return external;
         if(!player.isShiftKeyDown() || !tag(stack).contains(KEY)) return InteractionResult.PASS;
         if(!level.isClientSide()) { clear(stack);player.containerMenu.broadcastChanges();player.sendOverlayMessage(Component.translatable("message.paintingmod.rectangle.cancelled")); }
         return InteractionResult.SUCCESS;
@@ -106,6 +112,7 @@ public final class RectanglePaintTool {
         for(int a=bu0;a<=bu1;a++) for(int b=bv0;b<=bv1;b++) {
             int[] xyz=new int[3];xyz[axis]=normal;xyz[u]=a;xyz[v]=b;BlockPos pos=new BlockPos(xyz[0],xyz[1],xyz[2]);
             if(!level.hasChunkAt(pos))return fail(player,"unloaded");
+            if(SurfacePaintTools.registered(level,pos))continue;
             if(!(level.getBlockEntity(pos) instanceof PaintableBlockEntity block))continue;
             if(!level.mayInteract(player,pos) || !player.mayUseItemAt(pos,face,stack))return fail(player,"denied");
             int[] colors=block.snapshot(),before=colors.clone();
