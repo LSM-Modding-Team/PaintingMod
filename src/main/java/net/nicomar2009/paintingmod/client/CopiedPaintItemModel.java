@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.block.dispatch.BlockStateModelPart;
 import net.minecraft.client.renderer.item.CuboidItemModelWrapper;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.ItemModelResolver;
+import net.minecraft.client.renderer.item.ItemModels;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.item.ModelRenderProperties;
 import net.minecraft.client.resources.model.ResolvableModel;
@@ -66,7 +67,7 @@ final class CopiedPaintItemModel implements ItemModel {
             if ((quad.materialInfo().flags() & BakedQuad.FLAG_ANIMATED) != 0) { output.setAnimated(); break; }
     }
     public record Unbaked(ItemModel.Unbaked fallback) implements ItemModel.Unbaked {
-        public static final MapCodec<Unbaked> CODEC = ItemModel.Unbaked.CODEC.fieldOf("fallback").xmap(Unbaked::new, Unbaked::fallback);
+        public static final MapCodec<Unbaked> CODEC = ItemModels.CODEC.fieldOf("fallback").xmap(Unbaked::new, Unbaked::fallback);
         @Override public MapCodec<Unbaked> type() { return CODEC; }
         @Override public void resolveDependencies(ResolvableModel.Resolver resolver) {
             resolver.markDependency(BASE); fallback.resolveDependencies(resolver);
