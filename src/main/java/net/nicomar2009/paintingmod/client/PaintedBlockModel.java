@@ -59,7 +59,8 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
         for (BakedQuad source : quads) {
             if (source.direction() != face) continue;
             int tint = source.materialInfo().tintIndex();
-            int color = tint < 0 ? -1 : 0xFF000000 | Minecraft.getInstance().getBlockColors().getColor(sourceState, level, pos, tint);
+            var tintSource = tint < 0 ? null : Minecraft.getInstance().getBlockColors().getTintSource(sourceState, tint);
+            int color = tintSource == null ? -1 : 0xFF000000 | tintSource.colorInWorld(sourceState, level, pos);
             BakedQuad clipped = PaintQuadClipper.clip(source, face, cube, divisions, color, part.useAmbientOcclusion());
             if (clipped != null) result.add(cull, clipped);
         }
