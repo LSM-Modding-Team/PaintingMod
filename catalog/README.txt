@@ -20,6 +20,12 @@ No se han abierto, recorrido ni convertido mundos o archivos .schem en esta tare
 
 Cada pintura es reutilizable y tiene un ítem en la pestaña creativa del mod.
 Aplicar, copiar/pegar, lijar y seleccionar rectángulos conservan sus controles.
+Ctrl + clic derecho guarda las seis caras completas y sus subdivisiones, incluso
+si están sin pintar. Mientras haya un patrón, el ítem muestra el bloque copiado
+con sus pinturas y forma tallada. El siguiente clic derecho pega sus pinturas una
+vez y restaura el icono normal. El pegado conserva la geometría del destino.
+Los patrones anteriores siguen siendo legibles y un patrón inválido no se
+sustituye silenciosamente por la pintura base del ítem.
 La lija devuelve los ítems de pintura vanilla tratados; el checker gratuito no
 produce objetos. El limpiador no devuelve pinturas ni reconstruye cubos tallados.
 

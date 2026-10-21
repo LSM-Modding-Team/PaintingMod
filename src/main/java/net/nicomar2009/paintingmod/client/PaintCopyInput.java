@@ -32,7 +32,8 @@ public final class PaintCopyInput {
         else return;
         // Intercept before useItemOn sends its normal server packet; cancel both hands.
         event.setCanceled(true); event.setSwingHand(false);
-        if (event.getHand() == hand)
+        // The main-hand event is first even when the selected paint is in the off hand.
+        if (event.getHand() == InteractionHand.MAIN_HAND)
             ClientPacketDistributor.sendToServer(new PaintCopyPayload(hit.getBlockPos(), hand == InteractionHand.OFF_HAND));
     }
 }

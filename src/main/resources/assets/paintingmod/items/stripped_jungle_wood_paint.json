@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/stripped_jungle_wood"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/stripped_jungle_wood"}}}

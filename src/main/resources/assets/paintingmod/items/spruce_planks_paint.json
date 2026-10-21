@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/spruce_planks"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/spruce_planks"}}}

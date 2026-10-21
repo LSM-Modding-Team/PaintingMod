@@ -1,50 +1,20 @@
 package net.nicomar2009.paintingmod.tool;
 
-import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.nicomar2009.paintingmod.block.PaintableBlockEntity;
+import net.nicomar2009.paintingmod.paint.CopiedPaintPattern;
 import net.nicomar2009.paintingmod.paint.Paint;
 
 /** Reusable paint; a copied six-face palette is applied once, then normal painting resumes. */
 public class PaintItem extends Item {
-    private static final String COPY = "paintingmod_paint_copy";
     private final Paint paint;
     public PaintItem(Paint paint, Properties properties) { super(properties.stacksTo(1)); this.paint = paint; }
     public static void copyTo(ItemStack stack, PaintableBlockEntity source) {
         RectanglePaintTool.clear(stack);
-        CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
-        CompoundTag copy = new CompoundTag(); int[] colors = source.snapshot();
-        copy.putInt("paint_palette", Paint.PALETTE_VERSION);
-        copy.putBoolean("quadrants", colors.length == 24);
-        int count=colors.length/6;copy.putInt("subdivisions",count);
-        for (Direction face : Direction.values()) {
-            if (colors.length == 6) copy.putInt(face.getSerializedName(), colors[face.ordinal()]);
-            else for (int q = 0; q < count; q++) copy.putInt(face.getSerializedName()+"_"+q, colors[face.ordinal()*count+q]);
-        }
-        tag.put(COPY, copy); stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
-    }
-    private static int[] copied(CompoundTag tag) {
-        if (!tag.contains(COPY)) return null;
-        CompoundTag copy = tag.getCompoundOrEmpty(COPY);
-        int count = copy.getIntOr("subdivisions",copy.getBooleanOr("quadrants", false) ? 4 : 1);
-        if(count!=1&&count!=4&&count!=16)return null;
-        int[] colors = new int[6*count];
-        for (Direction face : Direction.values()) for (int q = 0; q < count; q++) {
-            String key = face.getSerializedName() + (count > 1 ? "_"+q : "");
-            if (!copy.contains(key)) return null;
-            int color = copy.getIntOr(key, -1);
-            int palette = copy.getIntOr("paint_palette", 1);
-            if (color < 0 || (palette < Paint.PALETTE_VERSION ? color > 16 : !Paint.validId(color))) return null;
-            color = Paint.decode(color, palette);
-            colors[face.ordinal()*count+q] = color;
-        }
-        return colors;
+        CopiedPaintPattern.capture(source).write(stack);
     }
     @Override public InteractionResult use(net.minecraft.world.level.Level level,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand) {
         return RectanglePaintTool.cancel(level,player,player.getItemInHand(hand));
@@ -59,13 +29,16 @@ public class PaintItem extends Item {
         if(rectangle!=null)return rectangle;
         if (!level.isClientSide()) {
             ItemStack stack = context.getItemInHand();
-            CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
-            int[] colors = copied(tag);
-            if (colors == null) block.paintAt(context.getClickedFace(), context.getClickLocation(), paint);
+            CopiedPaintPattern pattern = CopiedPaintPattern.read(stack);
+            if (pattern == null && CopiedPaintPattern.hasCopy(stack)) {
+                player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.paintingmod.paint_copy_invalid"));
+                return InteractionResult.FAIL;
+            }
+            if (pattern == null) block.paintAt(context.getClickedFace(), context.getClickLocation(), paint);
             else {
-                block.apply(colors); tag.remove(COPY);
-                if (tag.isEmpty()) stack.remove(DataComponents.CUSTOM_DATA);
-                else stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+                pattern.apply(block);
+                CopiedPaintPattern.clear(stack);
+                player.containerMenu.broadcastChanges();
             }
         }
         return InteractionResult.SUCCESS;

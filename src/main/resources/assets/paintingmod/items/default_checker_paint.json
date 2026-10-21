@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"paintingmod:item/default_checker_paint"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"paintingmod:item/default_checker_paint"}}}

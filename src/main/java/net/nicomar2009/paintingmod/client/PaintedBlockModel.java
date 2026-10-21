@@ -31,10 +31,18 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
         int divisions = state.getBlock() instanceof MiniCubePaintableBlock ? 4 : state.getBlock() instanceof PaintableCustomBlock ? 2 : 1;
         PaintModelData data = level.getModelData(pos).get(PaintModelData.PROPERTY);
         if (data == null || data.divisions() != divisions) data = PaintModelData.fresh(divisions);
+        collect(data, level, pos, state, parts, false);
+    }
+    void collectCopiedParts(PaintModelData data, BlockAndTintGetter level, BlockPos pos, BlockState state, List<BlockStateModelPart> parts) {
+        collect(data, level, pos, state, parts, true);
+    }
+    private void collect(PaintModelData data, BlockAndTintGetter level, BlockPos pos, BlockState state,
+            List<BlockStateModelPart> parts, boolean isolated) {
+        int divisions = data.divisions();
         var result = new PaintPart(delegate.particleMaterial());
         var sources = new HashMap<Integer, Source>();
         for (int cube = 0; cube < divisions * divisions * divisions; cube++) for (Direction face : Direction.values()) {
-            if (!exposed(data, cube, face, level, pos)) continue;
+            if (!exposed(data, cube, face, level, pos, isolated)) continue;
             Paint paint = data.paint(cube, face);
             Source source = sources.computeIfAbsent(paint.id(), ignored -> source(paint, level, pos, state));
             boolean boundary = boundary(cube, divisions, face);
@@ -69,11 +77,11 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
         int normal = switch (face.getAxis()) { case X -> cube % d; case Y -> cube / d % d; case Z -> cube / (d*d); };
         return normal == (face.getAxisDirection() == Direction.AxisDirection.POSITIVE ? d-1 : 0);
     }
-    private static boolean exposed(PaintModelData data, int cube, Direction face, BlockAndTintGetter level, BlockPos pos) {
+    private static boolean exposed(PaintModelData data, int cube, Direction face, BlockAndTintGetter level, BlockPos pos, boolean isolated) {
         if (!data.hasCube(cube)) return false;
         int d = data.divisions(), x = cube % d + face.getStepX(), y = cube / d % d + face.getStepY(), z = cube / (d*d) + face.getStepZ();
         if (x >= 0 && x < d && y >= 0 && y < d && z >= 0 && z < d) return !data.hasCube(x + d*y + d*d*z);
-        if (d != 4) return true;
+        if (isolated || d != 4) return true;
         BlockPos neighbor = pos.relative(face);
         PaintModelData other = level.getModelData(neighbor).get(PaintModelData.PROPERTY);
         if (other != null && other.divisions() == 4 && level.getBlockState(neighbor).getBlock() instanceof MiniCubePaintableBlock)

@@ -3,7 +3,7 @@
   "block.paintingmod.paintable_custom_block": "Custom Paintable Block",
   "block.paintingmod.paintable_mini_cube_block": "Paintable 4px Mini Cube Block",
   "item.paintingmod.paint_cleaner": "Paint Cleaner",
-  "message.paintingmod.paint_copied": "Six faces copied. Click another paintable block to apply once.",
+  "message.paintingmod.paint_copied": "Pattern copied. The paint shows the block; right-click another paintable block to paste once.",
   "item.paintingmod.school_sandpaper": "Sandpaper",
   "item.paintingmod.school_hammer": "Hammer",
   "itemGroup.paintingmod.painting": "Painting Mod",
@@ -352,5 +352,6 @@
   "item.paintingmod.yellow_concrete_powder_paint": "Paint: Yellow Concrete Powder",
   "item.paintingmod.yellow_glazed_terracotta_paint": "Paint: Yellow Glazed Terracotta",
   "item.paintingmod.yellow_terracotta_paint": "Paint: Yellow Terracotta",
-  "item.paintingmod.yellow_wool_paint": "Paint: Yellow Wool"
+  "item.paintingmod.yellow_wool_paint": "Paint: Yellow Wool",
+  "message.paintingmod.paint_copy_invalid": "The copied pattern is invalid. Copy it again with Ctrl + right-click."
 }

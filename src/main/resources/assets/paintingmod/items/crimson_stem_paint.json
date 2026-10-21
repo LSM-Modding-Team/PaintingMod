@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/crimson_stem"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/crimson_stem"}}}

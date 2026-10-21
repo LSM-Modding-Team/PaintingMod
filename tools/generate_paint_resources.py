@@ -16,6 +16,12 @@ def write(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n')
 
 
+def copied_preview(definition):
+    if definition['model'].get('type') != 'paintingmod:copied_pattern':
+        definition['model'] = {'type': 'paintingmod:copied_pattern', 'fallback': definition['model']}
+    return definition
+
+
 def generate(client_jar):
     catalog = json.loads((ROOT / 'catalog/vanilla-paints-26.2.json').read_text())
     entries = catalog['entries']
@@ -32,9 +38,11 @@ def generate(client_jar):
             definition = json.loads(vanilla.read(source)) if source in files else {
                 'model': {'type': 'minecraft:model', 'model': row['source_models'][0]}
             }
-            write(ASSETS / f'items/{item}.json', definition)
+            write(ASSETS / f'items/{item}.json', copied_preview(definition))
             languages['en_us'][f'item.paintingmod.{item}'] = 'Paint: ' + row['name_en']
             languages['es_es'][f'item.paintingmod.{item}'] = 'Pintura: ' + row['name_es']
+    checker = ASSETS / 'items/default_checker_paint.json'
+    write(checker, copied_preview(json.loads(checker.read_text())))
     for locale, data in languages.items():
         (ASSETS / f'lang/{locale}.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
 

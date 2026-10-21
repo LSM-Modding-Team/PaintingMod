@@ -7,5 +7,8 @@ import net.nicomar2009.paintingmod.PaintingMod;
 
 @Mod(value = PaintingMod.MOD_ID, dist = Dist.CLIENT)
 public final class PaintingClient {
-    public PaintingClient(IEventBus bus) { bus.addListener(PaintModels::bake); }
+    public PaintingClient(IEventBus bus) {
+        bus.addListener(PaintModels::bake);
+        bus.addListener(CopiedPaintItemModel::register);
+    }
 }

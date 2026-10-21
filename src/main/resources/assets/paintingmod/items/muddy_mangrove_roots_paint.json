@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/muddy_mangrove_roots"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/muddy_mangrove_roots"}}}

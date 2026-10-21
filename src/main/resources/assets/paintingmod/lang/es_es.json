@@ -3,7 +3,7 @@
   "block.paintingmod.paintable_custom_block": "Bloque pintable personalizado",
   "block.paintingmod.paintable_mini_cube_block": "Bloque pintable de minicubos de 4 px",
   "item.paintingmod.paint_cleaner": "Limpiador de pintura",
-  "message.paintingmod.paint_copied": "Se copiaron las seis caras. Haz clic en otro bloque pintable para aplicarlas una vez.",
+  "message.paintingmod.paint_copied": "Patrón copiado. La pintura muestra el bloque; haz clic derecho en otro bloque pintable para pegarlo una vez.",
   "item.paintingmod.school_sandpaper": "Lija",
   "item.paintingmod.school_hammer": "Martillo",
   "itemGroup.paintingmod.painting": "Painting Mod",
@@ -352,5 +352,6 @@
   "item.paintingmod.yellow_concrete_powder_paint": "Pintura: Cemento amarillo",
   "item.paintingmod.yellow_glazed_terracotta_paint": "Pintura: Azulejo amarillo",
   "item.paintingmod.yellow_terracotta_paint": "Pintura: Terracota amarilla",
-  "item.paintingmod.yellow_wool_paint": "Pintura: Lana amarilla"
+  "item.paintingmod.yellow_wool_paint": "Pintura: Lana amarilla",
+  "message.paintingmod.paint_copy_invalid": "El patrón copiado no es válido. Vuelve a copiarlo con Ctrl + clic derecho."
 }

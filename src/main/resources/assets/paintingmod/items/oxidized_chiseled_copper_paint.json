@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/oxidized_chiseled_copper"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/oxidized_chiseled_copper"}}}

@@ -1,1 +1,1 @@
-{"model":{"type":"minecraft:model","model":"minecraft:block/warped_hyphae"}}
+{"model":{"type":"paintingmod:copied_pattern","fallback":{"type":"minecraft:model","model":"minecraft:block/warped_hyphae"}}}
