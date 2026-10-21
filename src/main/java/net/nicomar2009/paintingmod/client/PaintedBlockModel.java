@@ -59,7 +59,7 @@ final class PaintedBlockModel extends DelegateBlockStateModel implements Dynamic
         parts.add(result);
     }
     private Source source(Paint paint, BlockAndTintGetter level, BlockPos pos, BlockState paintedState) {
-        BlockState sourceState = paint == Paint.DEFAULT ? paintedState : PaintAppearance.state(paint, level, pos);
+        BlockState sourceState = paint == Paint.DEFAULT ? paintedState : PaintAppearance.state(paint);
         BlockStateModel model = paint == Paint.DEFAULT ? delegate : models.getOrDefault(sourceState, delegate);
         var parts = new ArrayList<BlockStateModelPart>();
         model.collectParts(level, pos, sourceState, RandomSource.create(sourceState.getSeed(pos)), parts);
