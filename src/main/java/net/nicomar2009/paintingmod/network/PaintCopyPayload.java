@@ -12,8 +12,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.nicomar2009.paintingmod.PaintingMod;
-import net.nicomar2009.paintingmod.block.SchoolPaintableBlockEntity;
-import net.nicomar2009.paintingmod.tool.SchoolPaintItem;
+import net.nicomar2009.paintingmod.block.PaintableBlockEntity;
+import net.nicomar2009.paintingmod.tool.PaintItem;
 
 /** The client sends a target, never trusted colors; the server copies its own block data. */
 public record PaintCopyPayload(BlockPos pos, boolean offHand) implements CustomPacketPayload {
@@ -30,13 +30,13 @@ public record PaintCopyPayload(BlockPos pos, boolean offHand) implements CustomP
             var level = player.level();
             if (!level.hasChunkAt(request.pos) || !player.isWithinBlockInteractionRange(request.pos, 0)) return;
             var stack = player.getItemInHand(request.offHand ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
-            if (!(stack.getItem() instanceof SchoolPaintItem)) return;
+            if (!(stack.getItem() instanceof PaintItem)) return;
             var hit = player.pick(player.blockInteractionRange(), 1, false);
             if (!(hit instanceof BlockHitResult blockHit) || !blockHit.getBlockPos().equals(request.pos)
                     || !level.mayInteract(player, request.pos) || !player.mayUseItemAt(request.pos, blockHit.getDirection(), stack)) return;
-            if (level.getBlockEntity(request.pos) instanceof SchoolPaintableBlockEntity block && block.painted()
+            if (level.getBlockEntity(request.pos) instanceof PaintableBlockEntity block && block.painted()
                     && block.canPaintAt(blockHit.getDirection(),blockHit.getLocation())) {
-                SchoolPaintItem.copyTo(stack, block); player.containerMenu.broadcastChanges();
+                PaintItem.copyTo(stack, block); player.containerMenu.broadcastChanges();
                 player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.paintingmod.paint_copied"));
             }
         });

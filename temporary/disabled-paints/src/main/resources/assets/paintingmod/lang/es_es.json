@@ -1,0 +1,17 @@
+{
+  "item.paintingmod.light_school": "Pintura clara del colegio",
+  "item.paintingmod.dark_school": "Pintura oscura del colegio",
+  "item.paintingmod.street_school": "Pintura de pared de calle",
+  "item.paintingmod.classroom_white": "Pintura blanca de aula",
+  "item.paintingmod.classroom_floor_paint": "Pintura de suelo de aula",
+  "item.paintingmod.yellow_school_paint": "Pintura amarilla del colegio",
+  "item.paintingmod.white_playground_floor_paint": "Pintura de suelo claro del patio",
+  "item.paintingmod.gray_playground_floor_paint": "Pintura de suelo gris del patio",
+  "item.paintingmod.green_playground_floor_paint": "Pintura de suelo verde del patio",
+  "item.paintingmod.orange_playground_floor_paint": "Pintura de suelo naranja del patio",
+  "item.paintingmod.dark_tiled_floor_paint": "Pintura de baldosas oscuras",
+  "item.paintingmod.red_street_wall_paint": "Pintura roja de pared de calle",
+  "item.paintingmod.school_laboratory_tile_paint": "Pintura de baldosas del laboratorio",
+  "item.paintingmod.laboratory_table_tile_paint": "Pintura de baldosas de mesa del laboratorio",
+  "item.paintingmod.auditorium_parquet_paint": "Pintura de parquet del auditorio"
+}

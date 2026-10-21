@@ -11,9 +11,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.nicomar2009.paintingmod.geometry.ExactVoxelShapes;
 
 /** Full block containing 64 removable 4px cubes; precise outline targets carved holes. */
-public class SchoolMiniCubePaintableBlock extends SchoolPaintableBlock {
-    public SchoolMiniCubePaintableBlock(Properties properties) {super(properties);}
-    @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state) {return new SchoolMiniCubePaintEntity(pos,state);}
+public class MiniCubePaintableBlock extends PaintableBlock {
+    public MiniCubePaintableBlock(Properties properties) {super(properties);}
+    @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state) {return new MiniCubePaintEntity(pos,state);}
     private static VoxelShape physical(long mask) {
         if(mask==-1L)return Shapes.block();if(mask==0)return Shapes.empty();
         var boxes=new ArrayList<double[]>();
@@ -24,7 +24,7 @@ public class SchoolMiniCubePaintableBlock extends SchoolPaintableBlock {
         return ExactVoxelShapes.pixels(boxes.toArray(double[][]::new));
     }
     @Override protected VoxelShape getCollisionShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) {
-        return level.getBlockEntity(pos) instanceof SchoolMiniCubePaintEntity entity
+        return level.getBlockEntity(pos) instanceof MiniCubePaintEntity entity
                 ?entity.collision(state,()->physical(entity.occupied())):Shapes.block();
     }
     @Override protected VoxelShape getShape(BlockState state,BlockGetter level,BlockPos pos,CollisionContext context) {return getCollisionShape(state,level,pos,context);}

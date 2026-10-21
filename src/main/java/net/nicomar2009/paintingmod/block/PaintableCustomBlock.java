@@ -13,12 +13,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.nicomar2009.paintingmod.geometry.ExactVoxelShapes;
 
 /** At most 256 shared shapes built directly in a 2x2x2 grid, only when first needed. */
-public class SchoolPaintableCustomBlock extends SchoolPaintableBlock {
+public class PaintableCustomBlock extends PaintableBlock {
     private static final ConcurrentHashMap<Integer,VoxelShape> SHAPES=new ConcurrentHashMap<>();
-    public SchoolPaintableCustomBlock(Properties properties) { super(properties); }
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SchoolPaintableCustomBlockEntity(pos,state); }
+    public PaintableCustomBlock(Properties properties) { super(properties); }
+    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new PaintableCustomBlockEntity(pos,state); }
     private static VoxelShape shape(BlockGetter level,BlockPos pos) {
-        int mask=level.getBlockEntity(pos) instanceof SchoolPaintableCustomBlockEntity block ? block.occupied() : 255;
+        int mask=level.getBlockEntity(pos) instanceof PaintableCustomBlockEntity block ? block.occupied() : 255;
         if(mask==255) return Shapes.block();
         if(mask==0) return Shapes.empty();
         return SHAPES.computeIfAbsent(mask,key -> {

@@ -5,11 +5,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'src/main/resources/assets/paintingmod'
-PALETTE_SOURCE = ROOT / 'src/main/java/net/nicomar2009/paintingmod/paint/SchoolPaint.java'
-PALETTE = re.findall(r'\w+\("[^"]+", "([^"]+)"\)', PALETTE_SOURCE.read_text())
+PALETTE_SOURCE = ROOT / 'src/main/java/net/nicomar2009/paintingmod/paint/Paint.java'
+PALETTE = {paint: texture for paint, texture in enumerate(
+    re.findall(r'^    [A-Z_0-9]+\((null|"[^"\n]+")\)', PALETTE_SOURCE.read_text(), re.MULTILINE)
+) if texture != 'null'}
+PALETTE = {paint: json.loads(texture) for paint, texture in PALETTE.items()}
 FACES = ('down', 'up', 'north', 'south', 'west', 'east')
-BLOCKS = ((1, 'school_paintable_block'), (2, 'school_paintable_custom_block'),
-          (4, 'school_paintable_mini_cube_block'))
+BLOCKS = ((1, 'paintable_block'), (2, 'paintable_custom_block'),
+          (4, 'paintable_mini_cube_block'))
 
 
 def write(relative, data):
@@ -47,7 +50,7 @@ def generate():
                     'elements': [surface(divisions, cube, face)],
                 })
                 choices = []
-                for paint, texture in enumerate(PALETTE):
+                for paint, texture in PALETTE.items():
                     model = f'paintingmod:block/surfaces/{divisions}/{cube}_{face}_{paint}'
                     if paint:
                         write(f'models/block/surfaces/{divisions}/{cube}_{face}_{paint}.json', {

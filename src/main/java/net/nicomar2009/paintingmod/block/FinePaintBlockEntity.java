@@ -8,10 +8,10 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.nicomar2009.paintingmod.paint.PaintPacking;
-import net.nicomar2009.paintingmod.paint.SchoolPaint;
+import net.nicomar2009.paintingmod.paint.Paint;
 
 /** Shared 4px editable-cube storage retained for the independent minicube block. */
-public abstract class FinePaintBlockEntity extends SchoolPaintableBlockEntity {
+public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
     private final int[] squares=new int[96];
     private long removed;
     private BlockState collisionState;
@@ -30,7 +30,7 @@ public abstract class FinePaintBlockEntity extends SchoolPaintableBlockEntity {
     public static int quadrant(Direction face,int x,int y,int z) {
         return switch(face.getAxis()) {case X->z+4*y;case Y->x+4*z;case Z->x+4*y;};
     }
-    public SchoolPaint squarePaint(Direction localFace,int quadrant) {return SchoolPaint.fromId(squares[localFace.ordinal()*16+quadrant]);}
+    public Paint squarePaint(Direction localFace,int quadrant) {return Paint.fromId(squares[localFace.ordinal()*16+quadrant]);}
     private int hitCube(Direction face,Vec3 hit) {
         double x=hit.x-worldPosition.getX()-face.getStepX()*1e-6;
         double y=hit.y-worldPosition.getY()-face.getStepY()*1e-6;
@@ -47,15 +47,15 @@ public abstract class FinePaintBlockEntity extends SchoolPaintableBlockEntity {
         return exposed(cube,face,view)?square(face,hit):-1;
     }
     @Override public boolean canPaintAt(Direction face,Vec3 hit) {return hasCube(hitCube(face,hit));}
-    @Override public SchoolPaint paintAt(Direction face,Vec3 hit) {
-        int index=square(face,hit);return index<0?SchoolPaint.UNPAINTED:SchoolPaint.fromId(squares[index]);
+    @Override public Paint paintAt(Direction face,Vec3 hit) {
+        int index=square(face,hit);return index<0?Paint.UNPAINTED:Paint.fromId(squares[index]);
     }
-    @Override public SchoolPaint paint(Direction face) {return squarePaint(face,0);}
-    @Override public void paintAt(Direction face,Vec3 hit,SchoolPaint color) {
+    @Override public Paint paint(Direction face) {return squarePaint(face,0);}
+    @Override public void paintAt(Direction face,Vec3 hit,Paint color) {
         if(!canPaintAt(face,hit))return;int index=square(face,hit);
         int[] copy=snapshot();for(int square:squareGroup(index))copy[square]=color.ordinal();apply(copy);
     }
-    @Override public void paintFace(Direction face,SchoolPaint color) {
+    @Override public void paintFace(Direction face,Paint color) {
         int[] copy=snapshot();int start=face.ordinal()*16;
         Arrays.fill(copy,start,start+16,color.ordinal());apply(copy);
     }
@@ -67,7 +67,7 @@ public abstract class FinePaintBlockEntity extends SchoolPaintableBlockEntity {
         int[] copy=new int[96];
         for(int face=0;face<6;face++)for(int q=0;q<16;q++) {
             int index=colors.length==6?face:colors.length==24?face*4+(q%4)/2+2*(q/4/2):face*16+q;
-            copy[face*16+q]=SchoolPaint.fromId(colors[index]).ordinal();
+            copy[face*16+q]=Paint.fromId(colors[index]).ordinal();
         }
         if(!Arrays.equals(copy,squares)) {System.arraycopy(copy,0,squares,0,96);changed();}
     }

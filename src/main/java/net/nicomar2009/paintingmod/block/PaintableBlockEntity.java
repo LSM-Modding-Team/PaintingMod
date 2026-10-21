@@ -13,28 +13,28 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import net.nicomar2009.paintingmod.paint.SchoolPaint;
+import net.nicomar2009.paintingmod.paint.Paint;
 import net.nicomar2009.paintingmod.registry.ModBlockEntities;
 
-public class SchoolPaintableBlockEntity extends BlockEntity {
+public class PaintableBlockEntity extends BlockEntity {
     private final int[] paints = new int[6];
-    public SchoolPaintableBlockEntity(BlockPos pos, BlockState state) {
-        this(ModBlockEntities.SCHOOL_PAINTABLE.get(), pos, state);
+    public PaintableBlockEntity(BlockPos pos, BlockState state) {
+        this(ModBlockEntities.PAINTABLE.get(), pos, state);
     }
-    protected SchoolPaintableBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) { super(type, pos, state); }
-    public SchoolPaint paint(Direction face) { return SchoolPaint.fromId(paints[face.ordinal()]); }
+    protected PaintableBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) { super(type, pos, state); }
+    public Paint paint(Direction face) { return Paint.fromId(paints[face.ordinal()]); }
     public boolean canPaintAt(Direction face,Vec3 hit) {return true;}
-    public SchoolPaint paintAt(Direction face, Vec3 hit) { return paint(face); }
-    public void paintAt(Direction face, Vec3 hit, SchoolPaint color) { paintFace(face, color); }
+    public Paint paintAt(Direction face, Vec3 hit) { return paint(face); }
+    public void paintAt(Direction face, Vec3 hit, Paint color) { paintFace(face, color); }
     public int[] snapshot() { return paints.clone(); }
     public boolean painted() { for (int paint : paints) if (paint != 0) return true; return false; }
-    public void paintFace(Direction face, SchoolPaint paint) {
+    public void paintFace(Direction face, Paint paint) {
         int[] copy = snapshot(); copy[face.ordinal()] = paint.ordinal(); apply(copy);
     }
     /** Placement hook only. Loading and update packets must never call this method. */
     public void initializePlaced() {
         int[] colors = snapshot();
-        Arrays.fill(colors, SchoolPaint.DEFAULT.ordinal());
+        Arrays.fill(colors, Paint.DEFAULT.ordinal());
         apply(colors);
     }
     public void clean() { apply(new int[6]); }
@@ -45,7 +45,7 @@ public class SchoolPaintableBlockEntity extends BlockEntity {
             apply(wholeFaces); return;
         }
         if (colors.length != 6) throw new IllegalArgumentException("Expected six face colors");
-        int[] validated = Arrays.stream(colors).map(id -> SchoolPaint.fromId(id).ordinal()).toArray();
+        int[] validated = Arrays.stream(colors).map(id -> Paint.fromId(id).ordinal()).toArray();
         if (Arrays.equals(paints, validated)) return;
         System.arraycopy(validated, 0, paints, 0, 6);
         changed();
@@ -61,7 +61,7 @@ public class SchoolPaintableBlockEntity extends BlockEntity {
     @Override protected void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
         for (Direction face : Direction.values())
-            paints[face.ordinal()] = SchoolPaint.fromId(input.getIntOr("paint_" + face.getSerializedName(), 0)).ordinal();
+            paints[face.ordinal()] = Paint.fromId(input.getIntOr("paint_" + face.getSerializedName(), 0)).ordinal();
         invalidateClientGeometry();
     }
     protected void invalidateClientGeometry() {

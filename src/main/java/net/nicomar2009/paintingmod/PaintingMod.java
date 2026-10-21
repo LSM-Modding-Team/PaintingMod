@@ -11,6 +11,7 @@ public final class PaintingMod {
 
     public PaintingMod(IEventBus bus) {
         ModBlocks.BLOCKS.register(bus);
+        ModPaintItems.initialize();
         ModItems.ITEMS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModCreativeTabs.TABS.register(bus);

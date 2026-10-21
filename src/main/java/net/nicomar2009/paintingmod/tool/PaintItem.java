@@ -8,15 +8,15 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
-import net.nicomar2009.paintingmod.block.SchoolPaintableBlockEntity;
-import net.nicomar2009.paintingmod.paint.SchoolPaint;
+import net.nicomar2009.paintingmod.block.PaintableBlockEntity;
+import net.nicomar2009.paintingmod.paint.Paint;
 
 /** Reusable paint; a copied six-face palette is applied once, then normal painting resumes. */
-public class SchoolPaintItem extends Item {
+public class PaintItem extends Item {
     private static final String COPY = "paintingmod_paint_copy";
-    private final SchoolPaint paint;
-    public SchoolPaintItem(SchoolPaint paint, Properties properties) { super(properties.stacksTo(1)); this.paint = paint; }
-    public static void copyTo(ItemStack stack, SchoolPaintableBlockEntity source) {
+    private final Paint paint;
+    public PaintItem(Paint paint, Properties properties) { super(properties.stacksTo(1)); this.paint = paint; }
+    public static void copyTo(ItemStack stack, PaintableBlockEntity source) {
         RectanglePaintTool.clear(stack);
         CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         CompoundTag copy = new CompoundTag(); int[] colors = source.snapshot();
@@ -38,7 +38,7 @@ public class SchoolPaintItem extends Item {
             String key = face.getSerializedName() + (count > 1 ? "_"+q : "");
             if (!copy.contains(key)) return null;
             int color = copy.getIntOr(key, -1);
-            if (!SchoolPaint.validId(color)) return null;
+            if (!Paint.validId(color)) return null;
             colors[face.ordinal()*count+q] = color;
         }
         return colors;
@@ -48,7 +48,7 @@ public class SchoolPaintItem extends Item {
     }
     @Override public InteractionResult useOn(UseOnContext context) {
         var level = context.getLevel(); var pos = context.getClickedPos(); var player = context.getPlayer();
-        if (!(level.getBlockEntity(pos) instanceof SchoolPaintableBlockEntity block)) return InteractionResult.PASS;
+        if (!(level.getBlockEntity(pos) instanceof PaintableBlockEntity block)) return InteractionResult.PASS;
         if (!block.canPaintAt(context.getClickedFace(),context.getClickLocation())) return InteractionResult.PASS;
         if (player == null || player.isSpectator() || !level.mayInteract(player, pos)
                 || !player.mayUseItemAt(pos, context.getClickedFace(), context.getItemInHand())) return InteractionResult.FAIL;

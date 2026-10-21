@@ -1,0 +1,11 @@
+Temporary archive of the fifteen disabled paints: original registrations, palette,
+sanding/refund logic, models, textures and translations. This directory is outside
+Gradle's main Java and resource source sets and is not included in the mod or sources JAR.
+
+The active palette reserves numeric IDs 1 through 15 without registering their
+items or loading their textures. Their saved values remain unchanged; they render
+as light gray concrete while disabled. ID 0 remains UNPAINTED and ID 16 remains DEFAULT.
+The default checker item is reusable and its free finish never yields sanding refunds.
+
+Archived Java files are reference snapshots, not an alternative active source set.
+Re-enabling them requires updating names and registrations in the active implementation.

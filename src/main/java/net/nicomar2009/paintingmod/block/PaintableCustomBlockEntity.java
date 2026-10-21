@@ -8,17 +8,17 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import net.nicomar2009.paintingmod.paint.PaintPacking;
-import net.nicomar2009.paintingmod.paint.SchoolPaint;
+import net.nicomar2009.paintingmod.paint.Paint;
 import net.nicomar2009.paintingmod.registry.ModBlockEntities;
 
 /** Twenty-four colors and eight occupancy bits; no ticking or combinatorial block states. */
-public class SchoolPaintableCustomBlockEntity extends SchoolPaintableBlockEntity {
+public class PaintableCustomBlockEntity extends PaintableBlockEntity {
     private final int[] squares = new int[24];
     private int occupied = 255;
-    public SchoolPaintableCustomBlockEntity(BlockPos pos, BlockState state) {
-        this(ModBlockEntities.SCHOOL_PAINTABLE_CUSTOM.get(),pos,state);
+    public PaintableCustomBlockEntity(BlockPos pos, BlockState state) {
+        this(ModBlockEntities.PAINTABLE_CUSTOM.get(),pos,state);
     }
-    protected SchoolPaintableCustomBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,BlockPos pos,BlockState state) {super(type,pos,state);}
+    protected PaintableCustomBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,BlockPos pos,BlockState state) {super(type,pos,state);}
     public int occupied() { return occupied; }
     public boolean hasCube(int cube) { return cube >= 0 && cube < 8 && (occupied & (1 << cube)) != 0; }
     public static int quadrant(Direction face, int x, int y, int z) {
@@ -30,15 +30,15 @@ public class SchoolPaintableCustomBlockEntity extends SchoolPaintableBlockEntity
                 half(hit.y-worldPosition.getY()), half(hit.z-worldPosition.getZ()));
     }
     @Override public boolean canPaintAt(Direction face, Vec3 hit) { return hasCube(hitCube(face, hit)); }
-    public SchoolPaint squarePaint(Direction face, int quadrant) { return SchoolPaint.fromId(squares[face.ordinal()*4+quadrant]); }
-    @Override public SchoolPaint paint(Direction face) { return squarePaint(face, 0); }
-    @Override public SchoolPaint paintAt(Direction face, Vec3 hit) { return SchoolPaint.fromId(squares[square(face,hit)]); }
-    @Override public void paintAt(Direction face, Vec3 hit, SchoolPaint color) {
+    public Paint squarePaint(Direction face, int quadrant) { return Paint.fromId(squares[face.ordinal()*4+quadrant]); }
+    @Override public Paint paint(Direction face) { return squarePaint(face, 0); }
+    @Override public Paint paintAt(Direction face, Vec3 hit) { return Paint.fromId(squares[square(face,hit)]); }
+    @Override public void paintAt(Direction face, Vec3 hit, Paint color) {
         int index=square(face,hit);
         if (squares[index]==color.ordinal()) return;
         squares[index]=color.ordinal(); changed();
     }
-    @Override public void paintFace(Direction face, SchoolPaint color) {
+    @Override public void paintFace(Direction face, Paint color) {
         int[] copy=snapshot(); Arrays.fill(copy,face.ordinal()*4,face.ordinal()*4+4,color.ordinal()); apply(copy);
     }
     @Override public int[] snapshot() { return squares.clone(); }
@@ -51,7 +51,7 @@ public class SchoolPaintableCustomBlockEntity extends SchoolPaintableBlockEntity
         }
         if(colors.length!=6 && colors.length!=24) throw new IllegalArgumentException("Expected six faces or twenty-four squares");
         int[] copy=new int[24];
-        for(int i=0;i<24;i++) copy[i]=SchoolPaint.fromId(colors[colors.length==6 ? i/4 : i]).ordinal();
+        for(int i=0;i<24;i++) copy[i]=Paint.fromId(colors[colors.length==6 ? i/4 : i]).ordinal();
         if(Arrays.equals(squares,copy)) return;
         System.arraycopy(copy,0,squares,0,24); changed();
     }

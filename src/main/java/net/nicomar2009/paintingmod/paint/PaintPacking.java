@@ -15,6 +15,6 @@ public final class PaintPacking {
     }
 
     public static int unpack(long packed, int index, int bits) {
-        return SchoolPaint.fromId((int) ((packed >>> (index * bits)) & ((1 << bits) - 1))).ordinal();
+        return Paint.fromId((int) ((packed >>> (index * bits)) & ((1 << bits) - 1))).ordinal();
     }
 }
