@@ -102,6 +102,7 @@ public final class RectanglePaintTool {
         int axis=axis(face),u=uAxis(axis),v=vAxis(axis),step=face.getAxisDirection()==Direction.AxisDirection.POSITIVE?1:-1;
         int normal=Math.floorDiv(end.plane-(step>0?1:0),4),normalQuarter=Math.floorMod(end.plane-(step>0?1:0),4),normalHalf=normalQuarter/2;
         var changes=new ArrayList<Change>();int count=0;
+        int[] refunds = new int[Paint.values().length];
         for(int a=bu0;a<=bu1;a++) for(int b=bv0;b<=bv1;b++) {
             int[] xyz=new int[3];xyz[axis]=normal;xyz[u]=a;xyz[v]=b;BlockPos pos=new BlockPos(xyz[0],xyz[1],xyz[2]);
             if(!level.hasChunkAt(pos))return fail(player,"unloaded");
@@ -117,13 +118,14 @@ public final class RectanglePaintTool {
                     point[axis]=end.plane*.25;point[u]=a+(qa+size*.5)*.25;point[v]=b+(qb+size*.5)*.25;
                     int index=fine.exposedSquare(face,new net.minecraft.world.phys.Vec3(point[0],point[1],point[2]),level);
                     if(index<0)continue;
-                    int next=paint==null?0:paint.ordinal();
+                    int next=paint==null?0:paint.id();
+                    int previous=colors[index];
                     boolean changed=false;
                     for(int square:fine.squareGroup(index)) {
                         if(colors[square]==next)continue;
                         colors[square]=next;changed=true;
                     }
-                    if(changed) {count++;}
+                    if(changed) {if(paint==null && Paint.fromId(previous).refundable())refunds[previous]++;count++;}
                 }
             } else if(block instanceof PaintableCustomBlockEntity small) {
                 if(end.plane%2!=0)continue;
@@ -132,7 +134,8 @@ public final class RectanglePaintTool {
                     int[] halves=new int[3];halves[axis]=normalHalf;halves[u]=qa;halves[v]=qb;
                     if(!exposed(level,pos,face,small,halves))continue;
                     int index=face.ordinal()*4+PaintableCustomBlockEntity.quadrant(face,halves[0],halves[1],halves[2]);
-                    int next=paint==null?0:paint.ordinal();if(colors[index]==next)continue;
+                    int next=paint==null?0:paint.id();if(colors[index]==next)continue;
+                    if(paint==null && Paint.fromId(colors[index]).refundable())refunds[colors[index]]++;
                     colors[index]=next;count++;
                 }
             } else {
@@ -140,12 +143,13 @@ public final class RectanglePaintTool {
                 if(!outer)continue;
                 BlockPos neighbor=pos.relative(face);
                 if(outer&&(!level.hasChunkAt(neighbor) || level.getBlockState(neighbor).isFaceSturdy(level,neighbor,face.getOpposite())))continue;
-                int index=face.ordinal(),next=paint==null?0:paint.ordinal();
-                if(colors[index]!=next) { colors[index]=next;count++; }
+                int index=face.ordinal(),next=paint==null?0:paint.id();
+                if(colors[index]!=next) { if(paint==null && Paint.fromId(colors[index]).refundable())refunds[colors[index]]++;colors[index]=next;count++; }
             }
             if(!Arrays.equals(before,colors))changes.add(new Change(block,colors));
         }
         for(Change change:changes)change.block.apply(change.colors);
+        for(int id=2;id<refunds.length;id++)for(int i=0;i<refunds[id];i++)SandpaperItem.refund(player,Paint.fromId(id));
         clear(stack);player.containerMenu.broadcastChanges();
         player.sendOverlayMessage(Component.translatable("message.paintingmod.rectangle.done",count));return InteractionResult.SUCCESS;
     }

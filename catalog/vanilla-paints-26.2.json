@@ -1,7 +1,7 @@
 {
-  "catalog_version": 2,
+  "catalog_version": 3,
   "minecraft_version": "26.2",
-  "status": "planning_only_not_registered_as_paints",
+  "status": "vanilla_paints_implemented_archived_paints_disabled",
   "sources": {
     "version_metadata": "https://piston-meta.mojang.com/v1/packages/bdfd9856166b7171857c491f15479762f3abda99/26.2.json",
     "official_client_jar": "https://piston-data.mojang.com/v1/objects/2dc72797acbc1b63fc16a11c4ac393605f453754/client.jar",
@@ -27,17 +27,6 @@
     "excluded_glass_or_incomplete_surface_candidates": 42,
     "excluded_unique_glass_or_incomplete_surfaces": 38
   },
-  "proposed_id_plan": {
-    "unpainted": 0,
-    "default_checker": 1,
-    "vanilla_first": 2,
-    "vanilla_last": 338,
-    "archived_first": 339,
-    "archived_last": 353,
-    "minimum_storage_bits": 9,
-    "active_storage_changed": false,
-    "conversion_performed": false
-  },
   "notes": {
     "collision_exceptions": [
       "minecraft:mud",
@@ -51,13 +40,12 @@
       "minecraft:powder_snow"
     ],
     "cactus_excluded": "CactusBlock has a 14-pixel-wide outline despite top and bottom faces using a 16-pixel model element.",
-    "future_rendering": "Only complete opaque surfaces remain. Tints, opaque layered compositions and animation require future rendering support. Native source states are reference material, not functional behavior to inherit.",
-    "save_compatibility": "PaintingMod keeps its current ID 16 for DEFAULT and reserved IDs 1..15 until a later explicitly authorized conversion.",
+    "future_rendering": "Paint rendering reuses vanilla models, UVs, biome tints and animated sprites. Spatial neighbors select pillar axes and snowy grass; model variation is seeded by world position. Source gameplay and light emission are not inherited.",
+    "save_compatibility": "Palette version 2 uses IDs 0..353 and nine-bit words. Data without a palette marker is decoded with the old meanings: 0 unpainted, 1..15 archived paints, 16 checker. No world or schematic files are processed by this task.",
     "surface_review": "Static RGBA inspection of every source texture and animation frame. Grass side overlay is retained because its source model supplies a complete opaque side beneath it. Transparent and cutout materials are excluded even when their selection outline is a cube."
   },
   "entries": [
     {
-      "proposed_paint_id": 2,
       "block_id": "minecraft:acacia_log",
       "name_es": "Tronco de acacia",
       "name_en": "Acacia Log",
@@ -71,10 +59,10 @@
         "minecraft:block/acacia_log",
         "minecraft:block/acacia_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 2
     },
     {
-      "proposed_paint_id": 3,
       "block_id": "minecraft:acacia_planks",
       "name_es": "Tablones de acacia",
       "name_en": "Acacia Planks",
@@ -86,10 +74,10 @@
       "source_textures": [
         "minecraft:block/acacia_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 3
     },
     {
-      "proposed_paint_id": 4,
       "block_id": "minecraft:acacia_wood",
       "name_es": "Leño de acacia",
       "name_en": "Acacia Wood",
@@ -101,10 +89,10 @@
       "source_textures": [
         "minecraft:block/acacia_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 4
     },
     {
-      "proposed_paint_id": 5,
       "block_id": "minecraft:amethyst_block",
       "name_es": "Bloque de amatista",
       "name_en": "Block of Amethyst",
@@ -116,10 +104,10 @@
       "source_textures": [
         "minecraft:block/amethyst_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 5
     },
     {
-      "proposed_paint_id": 6,
       "block_id": "minecraft:ancient_debris",
       "name_es": "Escombros ancestrales",
       "name_en": "Ancient Debris",
@@ -132,10 +120,10 @@
         "minecraft:block/ancient_debris_side",
         "minecraft:block/ancient_debris_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 6
     },
     {
-      "proposed_paint_id": 7,
       "block_id": "minecraft:andesite",
       "name_es": "Andesita",
       "name_en": "Andesite",
@@ -147,10 +135,10 @@
       "source_textures": [
         "minecraft:block/andesite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 7
     },
     {
-      "proposed_paint_id": 8,
       "block_id": "minecraft:bamboo_block",
       "name_es": "Bloque de bambú",
       "name_en": "Block of Bamboo",
@@ -165,10 +153,10 @@
         "minecraft:block/bamboo_block",
         "minecraft:block/bamboo_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 8
     },
     {
-      "proposed_paint_id": 9,
       "block_id": "minecraft:bamboo_mosaic",
       "name_es": "Mosaico de bambú",
       "name_en": "Bamboo Mosaic",
@@ -180,10 +168,10 @@
       "source_textures": [
         "minecraft:block/bamboo_mosaic"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 9
     },
     {
-      "proposed_paint_id": 10,
       "block_id": "minecraft:bamboo_planks",
       "name_es": "Tablones de bambú",
       "name_en": "Bamboo Planks",
@@ -195,10 +183,10 @@
       "source_textures": [
         "minecraft:block/bamboo_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 10
     },
     {
-      "proposed_paint_id": 11,
       "block_id": "minecraft:basalt",
       "name_es": "Basalto",
       "name_en": "Basalt",
@@ -211,10 +199,10 @@
         "minecraft:block/basalt_side",
         "minecraft:block/basalt_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 11
     },
     {
-      "proposed_paint_id": 12,
       "block_id": "minecraft:bedrock",
       "name_es": "Piedra base",
       "name_en": "Bedrock",
@@ -227,10 +215,10 @@
       "source_textures": [
         "minecraft:block/bedrock"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 12
     },
     {
-      "proposed_paint_id": 13,
       "block_id": "minecraft:birch_log",
       "name_es": "Tronco de abedul",
       "name_en": "Birch Log",
@@ -244,10 +232,10 @@
         "minecraft:block/birch_log",
         "minecraft:block/birch_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 13
     },
     {
-      "proposed_paint_id": 14,
       "block_id": "minecraft:birch_planks",
       "name_es": "Tablones de abedul",
       "name_en": "Birch Planks",
@@ -259,10 +247,10 @@
       "source_textures": [
         "minecraft:block/birch_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 14
     },
     {
-      "proposed_paint_id": 15,
       "block_id": "minecraft:birch_wood",
       "name_es": "Leño de abedul",
       "name_en": "Birch Wood",
@@ -274,10 +262,10 @@
       "source_textures": [
         "minecraft:block/birch_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 15
     },
     {
-      "proposed_paint_id": 16,
       "block_id": "minecraft:black_concrete",
       "name_es": "Hormigón negro",
       "name_en": "Black Concrete",
@@ -289,10 +277,10 @@
       "source_textures": [
         "minecraft:block/black_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 16
     },
     {
-      "proposed_paint_id": 17,
       "block_id": "minecraft:black_concrete_powder",
       "name_es": "Cemento negro",
       "name_en": "Black Concrete Powder",
@@ -304,10 +292,10 @@
       "source_textures": [
         "minecraft:block/black_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 17
     },
     {
-      "proposed_paint_id": 18,
       "block_id": "minecraft:black_glazed_terracotta",
       "name_es": "Azulejo negro",
       "name_en": "Black Glazed Terracotta",
@@ -319,10 +307,10 @@
       "source_textures": [
         "minecraft:block/black_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 18
     },
     {
-      "proposed_paint_id": 19,
       "block_id": "minecraft:black_terracotta",
       "name_es": "Terracota negra",
       "name_en": "Black Terracotta",
@@ -334,10 +322,10 @@
       "source_textures": [
         "minecraft:block/black_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 19
     },
     {
-      "proposed_paint_id": 20,
       "block_id": "minecraft:black_wool",
       "name_es": "Lana negra",
       "name_en": "Black Wool",
@@ -349,10 +337,10 @@
       "source_textures": [
         "minecraft:block/black_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 20
     },
     {
-      "proposed_paint_id": 21,
       "block_id": "minecraft:blackstone",
       "name_es": "Piedra negra",
       "name_en": "Blackstone",
@@ -365,10 +353,10 @@
         "minecraft:block/blackstone",
         "minecraft:block/blackstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 21
     },
     {
-      "proposed_paint_id": 22,
       "block_id": "minecraft:blue_concrete",
       "name_es": "Hormigón azul",
       "name_en": "Blue Concrete",
@@ -380,10 +368,10 @@
       "source_textures": [
         "minecraft:block/blue_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 22
     },
     {
-      "proposed_paint_id": 23,
       "block_id": "minecraft:blue_concrete_powder",
       "name_es": "Cemento azul",
       "name_en": "Blue Concrete Powder",
@@ -395,10 +383,10 @@
       "source_textures": [
         "minecraft:block/blue_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 23
     },
     {
-      "proposed_paint_id": 24,
       "block_id": "minecraft:blue_glazed_terracotta",
       "name_es": "Azulejo azul",
       "name_en": "Blue Glazed Terracotta",
@@ -410,10 +398,10 @@
       "source_textures": [
         "minecraft:block/blue_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 24
     },
     {
-      "proposed_paint_id": 25,
       "block_id": "minecraft:blue_ice",
       "name_es": "Hielo azul",
       "name_en": "Blue Ice",
@@ -425,10 +413,10 @@
       "source_textures": [
         "minecraft:block/blue_ice"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 25
     },
     {
-      "proposed_paint_id": 26,
       "block_id": "minecraft:blue_terracotta",
       "name_es": "Terracota azul",
       "name_en": "Blue Terracotta",
@@ -440,10 +428,10 @@
       "source_textures": [
         "minecraft:block/blue_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 26
     },
     {
-      "proposed_paint_id": 27,
       "block_id": "minecraft:blue_wool",
       "name_es": "Lana azul",
       "name_en": "Blue Wool",
@@ -455,10 +443,10 @@
       "source_textures": [
         "minecraft:block/blue_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 27
     },
     {
-      "proposed_paint_id": 28,
       "block_id": "minecraft:bone_block",
       "name_es": "Bloque de huesos",
       "name_en": "Bone Block",
@@ -471,10 +459,10 @@
         "minecraft:block/bone_block_side",
         "minecraft:block/bone_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 28
     },
     {
-      "proposed_paint_id": 29,
       "block_id": "minecraft:bookshelf",
       "name_es": "Librería",
       "name_en": "Bookshelf",
@@ -487,10 +475,10 @@
         "minecraft:block/bookshelf",
         "minecraft:block/oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 29
     },
     {
-      "proposed_paint_id": 30,
       "block_id": "minecraft:brain_coral_block",
       "name_es": "Bloque de coral de cerebro",
       "name_en": "Brain Coral Block",
@@ -502,10 +490,10 @@
       "source_textures": [
         "minecraft:block/brain_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 30
     },
     {
-      "proposed_paint_id": 31,
       "block_id": "minecraft:bricks",
       "name_es": "Ladrillos",
       "name_en": "Bricks",
@@ -517,10 +505,10 @@
       "source_textures": [
         "minecraft:block/bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 31
     },
     {
-      "proposed_paint_id": 32,
       "block_id": "minecraft:brown_concrete",
       "name_es": "Hormigón marrón",
       "name_en": "Brown Concrete",
@@ -532,10 +520,10 @@
       "source_textures": [
         "minecraft:block/brown_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 32
     },
     {
-      "proposed_paint_id": 33,
       "block_id": "minecraft:brown_concrete_powder",
       "name_es": "Cemento marrón",
       "name_en": "Brown Concrete Powder",
@@ -547,10 +535,10 @@
       "source_textures": [
         "minecraft:block/brown_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 33
     },
     {
-      "proposed_paint_id": 34,
       "block_id": "minecraft:brown_glazed_terracotta",
       "name_es": "Azulejo marrón",
       "name_en": "Brown Glazed Terracotta",
@@ -562,10 +550,10 @@
       "source_textures": [
         "minecraft:block/brown_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 34
     },
     {
-      "proposed_paint_id": 35,
       "block_id": "minecraft:brown_mushroom_block",
       "name_es": "Bloque de champiñón marrón",
       "name_en": "Brown Mushroom Block",
@@ -579,10 +567,10 @@
         "minecraft:block/brown_mushroom_block",
         "minecraft:block/mushroom_block_inside"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 35
     },
     {
-      "proposed_paint_id": 36,
       "block_id": "minecraft:brown_terracotta",
       "name_es": "Terracota marrón",
       "name_en": "Brown Terracotta",
@@ -594,10 +582,10 @@
       "source_textures": [
         "minecraft:block/brown_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 36
     },
     {
-      "proposed_paint_id": 37,
       "block_id": "minecraft:brown_wool",
       "name_es": "Lana marrón",
       "name_en": "Brown Wool",
@@ -609,10 +597,10 @@
       "source_textures": [
         "minecraft:block/brown_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 37
     },
     {
-      "proposed_paint_id": 38,
       "block_id": "minecraft:bubble_coral_block",
       "name_es": "Bloque de coral de burbuja",
       "name_en": "Bubble Coral Block",
@@ -624,10 +612,10 @@
       "source_textures": [
         "minecraft:block/bubble_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 38
     },
     {
-      "proposed_paint_id": 39,
       "block_id": "minecraft:budding_amethyst",
       "name_es": "Brotador de amatista",
       "name_en": "Budding Amethyst",
@@ -639,10 +627,10 @@
       "source_textures": [
         "minecraft:block/budding_amethyst"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 39
     },
     {
-      "proposed_paint_id": 40,
       "block_id": "minecraft:calcite",
       "name_es": "Calcita",
       "name_en": "Calcite",
@@ -654,10 +642,10 @@
       "source_textures": [
         "minecraft:block/calcite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 40
     },
     {
-      "proposed_paint_id": 41,
       "block_id": "minecraft:cartography_table",
       "name_es": "Mesa de cartografía",
       "name_en": "Cartography Table",
@@ -673,10 +661,10 @@
         "minecraft:block/cartography_table_top",
         "minecraft:block/dark_oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 41
     },
     {
-      "proposed_paint_id": 42,
       "block_id": "minecraft:carved_pumpkin",
       "name_es": "Calabaza tallada",
       "name_en": "Carved Pumpkin",
@@ -690,10 +678,10 @@
         "minecraft:block/pumpkin_side",
         "minecraft:block/pumpkin_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 42
     },
     {
-      "proposed_paint_id": 43,
       "block_id": "minecraft:cherry_log",
       "name_es": "Tronco de cerezo",
       "name_en": "Cherry Log",
@@ -708,10 +696,10 @@
         "minecraft:block/cherry_log",
         "minecraft:block/cherry_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 43
     },
     {
-      "proposed_paint_id": 44,
       "block_id": "minecraft:cherry_planks",
       "name_es": "Tablones de cerezo",
       "name_en": "Cherry Planks",
@@ -723,10 +711,10 @@
       "source_textures": [
         "minecraft:block/cherry_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 44
     },
     {
-      "proposed_paint_id": 45,
       "block_id": "minecraft:cherry_wood",
       "name_es": "Leño de cerezo",
       "name_en": "Cherry Wood",
@@ -738,10 +726,10 @@
       "source_textures": [
         "minecraft:block/cherry_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 45
     },
     {
-      "proposed_paint_id": 46,
       "block_id": "minecraft:chiseled_cinnabar",
       "name_es": "Cinabrio cincelado",
       "name_en": "Chiseled Cinnabar",
@@ -753,10 +741,10 @@
       "source_textures": [
         "minecraft:block/chiseled_cinnabar"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 46
     },
     {
-      "proposed_paint_id": 47,
       "block_id": "minecraft:chiseled_copper",
       "name_es": "Cobre cincelado",
       "name_en": "Chiseled Copper",
@@ -768,10 +756,10 @@
       "source_textures": [
         "minecraft:block/chiseled_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 47
     },
     {
-      "proposed_paint_id": 48,
       "block_id": "minecraft:chiseled_deepslate",
       "name_es": "Pizarra profunda cincelada",
       "name_en": "Chiseled Deepslate",
@@ -783,10 +771,10 @@
       "source_textures": [
         "minecraft:block/chiseled_deepslate"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 48
     },
     {
-      "proposed_paint_id": 49,
       "block_id": "minecraft:chiseled_nether_bricks",
       "name_es": "Ladrillos del Nether cincelados",
       "name_en": "Chiseled Nether Bricks",
@@ -798,10 +786,10 @@
       "source_textures": [
         "minecraft:block/chiseled_nether_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 49
     },
     {
-      "proposed_paint_id": 50,
       "block_id": "minecraft:chiseled_polished_blackstone",
       "name_es": "Piedra negra pulida cincelada",
       "name_en": "Chiseled Polished Blackstone",
@@ -813,10 +801,10 @@
       "source_textures": [
         "minecraft:block/chiseled_polished_blackstone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 50
     },
     {
-      "proposed_paint_id": 51,
       "block_id": "minecraft:chiseled_quartz_block",
       "name_es": "Cuarzo cincelado",
       "name_en": "Chiseled Quartz Block",
@@ -829,10 +817,10 @@
         "minecraft:block/chiseled_quartz_block",
         "minecraft:block/chiseled_quartz_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 51
     },
     {
-      "proposed_paint_id": 52,
       "block_id": "minecraft:chiseled_red_sandstone",
       "name_es": "Arenisca roja cincelada",
       "name_en": "Chiseled Red Sandstone",
@@ -845,10 +833,10 @@
         "minecraft:block/chiseled_red_sandstone",
         "minecraft:block/red_sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 52
     },
     {
-      "proposed_paint_id": 53,
       "block_id": "minecraft:chiseled_resin_bricks",
       "name_es": "Ladrillos de resina cincelados",
       "name_en": "Chiseled Resin Bricks",
@@ -860,10 +848,10 @@
       "source_textures": [
         "minecraft:block/chiseled_resin_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 53
     },
     {
-      "proposed_paint_id": 54,
       "block_id": "minecraft:chiseled_sandstone",
       "name_es": "Arenisca cincelada",
       "name_en": "Chiseled Sandstone",
@@ -876,10 +864,10 @@
         "minecraft:block/chiseled_sandstone",
         "minecraft:block/sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 54
     },
     {
-      "proposed_paint_id": 55,
       "block_id": "minecraft:chiseled_stone_bricks",
       "name_es": "Ladrillos de piedra cincelados",
       "name_en": "Chiseled Stone Bricks",
@@ -891,10 +879,10 @@
       "source_textures": [
         "minecraft:block/chiseled_stone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 55
     },
     {
-      "proposed_paint_id": 56,
       "block_id": "minecraft:chiseled_sulfur",
       "name_es": "Azufre cincelado",
       "name_en": "Chiseled Sulfur",
@@ -906,10 +894,10 @@
       "source_textures": [
         "minecraft:block/chiseled_sulfur"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 56
     },
     {
-      "proposed_paint_id": 57,
       "block_id": "minecraft:chiseled_tuff",
       "name_es": "Toba cincelada",
       "name_en": "Chiseled Tuff",
@@ -922,10 +910,10 @@
         "minecraft:block/chiseled_tuff",
         "minecraft:block/chiseled_tuff_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 57
     },
     {
-      "proposed_paint_id": 58,
       "block_id": "minecraft:chiseled_tuff_bricks",
       "name_es": "Ladrillos de toba cincelados",
       "name_en": "Chiseled Tuff Bricks",
@@ -938,10 +926,10 @@
         "minecraft:block/chiseled_tuff_bricks",
         "minecraft:block/chiseled_tuff_bricks_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 58
     },
     {
-      "proposed_paint_id": 59,
       "block_id": "minecraft:cinnabar",
       "name_es": "Cinabrio",
       "name_en": "Cinnabar",
@@ -953,10 +941,10 @@
       "source_textures": [
         "minecraft:block/cinnabar"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 59
     },
     {
-      "proposed_paint_id": 60,
       "block_id": "minecraft:cinnabar_bricks",
       "name_es": "Ladrillos de cinabrio",
       "name_en": "Cinnabar Bricks",
@@ -968,10 +956,10 @@
       "source_textures": [
         "minecraft:block/cinnabar_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 60
     },
     {
-      "proposed_paint_id": 61,
       "block_id": "minecraft:clay",
       "name_es": "Bloque de arcilla",
       "name_en": "Clay",
@@ -983,10 +971,10 @@
       "source_textures": [
         "minecraft:block/clay"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 61
     },
     {
-      "proposed_paint_id": 62,
       "block_id": "minecraft:coal_block",
       "name_es": "Bloque de carbón",
       "name_en": "Block of Coal",
@@ -998,10 +986,10 @@
       "source_textures": [
         "minecraft:block/coal_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 62
     },
     {
-      "proposed_paint_id": 63,
       "block_id": "minecraft:coal_ore",
       "name_es": "Mena de carbón",
       "name_en": "Coal Ore",
@@ -1013,10 +1001,10 @@
       "source_textures": [
         "minecraft:block/coal_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 63
     },
     {
-      "proposed_paint_id": 64,
       "block_id": "minecraft:coarse_dirt",
       "name_es": "Tierra estéril",
       "name_en": "Coarse Dirt",
@@ -1028,10 +1016,10 @@
       "source_textures": [
         "minecraft:block/coarse_dirt"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 64
     },
     {
-      "proposed_paint_id": 65,
       "block_id": "minecraft:cobbled_deepslate",
       "name_es": "Pizarra profunda rocosa",
       "name_en": "Cobbled Deepslate",
@@ -1043,10 +1031,10 @@
       "source_textures": [
         "minecraft:block/cobbled_deepslate"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 65
     },
     {
-      "proposed_paint_id": 66,
       "block_id": "minecraft:cobblestone",
       "name_es": "Roca",
       "name_en": "Cobblestone",
@@ -1058,10 +1046,10 @@
       "source_textures": [
         "minecraft:block/cobblestone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 66
     },
     {
-      "proposed_paint_id": 67,
       "block_id": "minecraft:copper_block",
       "name_es": "Bloque de cobre",
       "name_en": "Block of Copper",
@@ -1073,10 +1061,10 @@
       "source_textures": [
         "minecraft:block/copper_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 67
     },
     {
-      "proposed_paint_id": 68,
       "block_id": "minecraft:copper_bulb",
       "name_es": "Lámpara de cobre",
       "name_en": "Copper Bulb",
@@ -1094,10 +1082,10 @@
         "minecraft:block/copper_bulb_lit_powered",
         "minecraft:block/copper_bulb_powered"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 68
     },
     {
-      "proposed_paint_id": 69,
       "block_id": "minecraft:copper_ore",
       "name_es": "Mena de cobre",
       "name_en": "Copper Ore",
@@ -1109,10 +1097,10 @@
       "source_textures": [
         "minecraft:block/copper_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 69
     },
     {
-      "proposed_paint_id": 70,
       "block_id": "minecraft:cracked_deepslate_bricks",
       "name_es": "Ladrillos de pizarra profunda agrietados",
       "name_en": "Cracked Deepslate Bricks",
@@ -1124,10 +1112,10 @@
       "source_textures": [
         "minecraft:block/cracked_deepslate_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 70
     },
     {
-      "proposed_paint_id": 71,
       "block_id": "minecraft:cracked_deepslate_tiles",
       "name_es": "Baldosas de pizarra profunda agrietadas",
       "name_en": "Cracked Deepslate Tiles",
@@ -1139,10 +1127,10 @@
       "source_textures": [
         "minecraft:block/cracked_deepslate_tiles"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 71
     },
     {
-      "proposed_paint_id": 72,
       "block_id": "minecraft:cracked_nether_bricks",
       "name_es": "Ladrillos del Nether agrietados",
       "name_en": "Cracked Nether Bricks",
@@ -1154,10 +1142,10 @@
       "source_textures": [
         "minecraft:block/cracked_nether_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 72
     },
     {
-      "proposed_paint_id": 73,
       "block_id": "minecraft:cracked_polished_blackstone_bricks",
       "name_es": "Ladrillos de piedra negra pulida agrietados",
       "name_en": "Cracked Polished Blackstone Bricks",
@@ -1169,10 +1157,10 @@
       "source_textures": [
         "minecraft:block/cracked_polished_blackstone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 73
     },
     {
-      "proposed_paint_id": 74,
       "block_id": "minecraft:cracked_stone_bricks",
       "name_es": "Ladrillos de piedra agrietados",
       "name_en": "Cracked Stone Bricks",
@@ -1184,10 +1172,10 @@
       "source_textures": [
         "minecraft:block/cracked_stone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 74
     },
     {
-      "proposed_paint_id": 75,
       "block_id": "minecraft:crafting_table",
       "name_es": "Mesa de trabajo",
       "name_en": "Crafting Table",
@@ -1202,10 +1190,10 @@
         "minecraft:block/crafting_table_top",
         "minecraft:block/oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 75
     },
     {
-      "proposed_paint_id": 76,
       "block_id": "minecraft:crimson_hyphae",
       "name_es": "Hifas carmesí",
       "name_en": "Crimson Hyphae",
@@ -1217,10 +1205,10 @@
       "source_textures": [
         "minecraft:block/crimson_stem"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 76
     },
     {
-      "proposed_paint_id": 77,
       "block_id": "minecraft:crimson_nylium",
       "name_es": "Necelio carmesí",
       "name_en": "Crimson Nylium",
@@ -1234,10 +1222,10 @@
         "minecraft:block/crimson_nylium_side",
         "minecraft:block/netherrack"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 77
     },
     {
-      "proposed_paint_id": 78,
       "block_id": "minecraft:crimson_planks",
       "name_es": "Tablones carmesí",
       "name_en": "Crimson Planks",
@@ -1249,10 +1237,10 @@
       "source_textures": [
         "minecraft:block/crimson_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 78
     },
     {
-      "proposed_paint_id": 79,
       "block_id": "minecraft:crimson_stem",
       "name_es": "Tallo carmesí",
       "name_en": "Crimson Stem",
@@ -1265,10 +1253,10 @@
         "minecraft:block/crimson_stem",
         "minecraft:block/crimson_stem_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 79
     },
     {
-      "proposed_paint_id": 80,
       "block_id": "minecraft:crying_obsidian",
       "name_es": "Obsidiana llorosa",
       "name_en": "Crying Obsidian",
@@ -1280,10 +1268,10 @@
       "source_textures": [
         "minecraft:block/crying_obsidian"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 80
     },
     {
-      "proposed_paint_id": 81,
       "block_id": "minecraft:cut_copper",
       "name_es": "Cobre cortado",
       "name_en": "Cut Copper",
@@ -1295,10 +1283,10 @@
       "source_textures": [
         "minecraft:block/cut_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 81
     },
     {
-      "proposed_paint_id": 82,
       "block_id": "minecraft:cut_red_sandstone",
       "name_es": "Arenisca roja cortada",
       "name_en": "Cut Red Sandstone",
@@ -1311,10 +1299,10 @@
         "minecraft:block/cut_red_sandstone",
         "minecraft:block/red_sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 82
     },
     {
-      "proposed_paint_id": 83,
       "block_id": "minecraft:cut_sandstone",
       "name_es": "Arenisca cortada",
       "name_en": "Cut Sandstone",
@@ -1327,10 +1315,10 @@
         "minecraft:block/cut_sandstone",
         "minecraft:block/sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 83
     },
     {
-      "proposed_paint_id": 84,
       "block_id": "minecraft:cyan_concrete",
       "name_es": "Hormigón cian",
       "name_en": "Cyan Concrete",
@@ -1342,10 +1330,10 @@
       "source_textures": [
         "minecraft:block/cyan_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 84
     },
     {
-      "proposed_paint_id": 85,
       "block_id": "minecraft:cyan_concrete_powder",
       "name_es": "Cemento cian",
       "name_en": "Cyan Concrete Powder",
@@ -1357,10 +1345,10 @@
       "source_textures": [
         "minecraft:block/cyan_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 85
     },
     {
-      "proposed_paint_id": 86,
       "block_id": "minecraft:cyan_glazed_terracotta",
       "name_es": "Azulejo cian",
       "name_en": "Cyan Glazed Terracotta",
@@ -1372,10 +1360,10 @@
       "source_textures": [
         "minecraft:block/cyan_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 86
     },
     {
-      "proposed_paint_id": 87,
       "block_id": "minecraft:cyan_terracotta",
       "name_es": "Terracota cian",
       "name_en": "Cyan Terracotta",
@@ -1387,10 +1375,10 @@
       "source_textures": [
         "minecraft:block/cyan_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 87
     },
     {
-      "proposed_paint_id": 88,
       "block_id": "minecraft:cyan_wool",
       "name_es": "Lana cian",
       "name_en": "Cyan Wool",
@@ -1402,10 +1390,10 @@
       "source_textures": [
         "minecraft:block/cyan_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 88
     },
     {
-      "proposed_paint_id": 89,
       "block_id": "minecraft:dark_oak_log",
       "name_es": "Tronco de roble oscuro",
       "name_en": "Dark Oak Log",
@@ -1419,10 +1407,10 @@
         "minecraft:block/dark_oak_log",
         "minecraft:block/dark_oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 89
     },
     {
-      "proposed_paint_id": 90,
       "block_id": "minecraft:dark_oak_planks",
       "name_es": "Tablones de roble oscuro",
       "name_en": "Dark Oak Planks",
@@ -1434,10 +1422,10 @@
       "source_textures": [
         "minecraft:block/dark_oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 90
     },
     {
-      "proposed_paint_id": 91,
       "block_id": "minecraft:dark_oak_wood",
       "name_es": "Leño de roble oscuro",
       "name_en": "Dark Oak Wood",
@@ -1449,10 +1437,10 @@
       "source_textures": [
         "minecraft:block/dark_oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 91
     },
     {
-      "proposed_paint_id": 92,
       "block_id": "minecraft:dark_prismarine",
       "name_es": "Prismarina oscura",
       "name_en": "Dark Prismarine",
@@ -1464,10 +1452,10 @@
       "source_textures": [
         "minecraft:block/dark_prismarine"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 92
     },
     {
-      "proposed_paint_id": 93,
       "block_id": "minecraft:dead_brain_coral_block",
       "name_es": "Bloque de coral de cerebro muerto",
       "name_en": "Dead Brain Coral Block",
@@ -1479,10 +1467,10 @@
       "source_textures": [
         "minecraft:block/dead_brain_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 93
     },
     {
-      "proposed_paint_id": 94,
       "block_id": "minecraft:dead_bubble_coral_block",
       "name_es": "Bloque de coral de burbuja muerto",
       "name_en": "Dead Bubble Coral Block",
@@ -1494,10 +1482,10 @@
       "source_textures": [
         "minecraft:block/dead_bubble_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 94
     },
     {
-      "proposed_paint_id": 95,
       "block_id": "minecraft:dead_fire_coral_block",
       "name_es": "Bloque de coral de fuego muerto",
       "name_en": "Dead Fire Coral Block",
@@ -1509,10 +1497,10 @@
       "source_textures": [
         "minecraft:block/dead_fire_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 95
     },
     {
-      "proposed_paint_id": 96,
       "block_id": "minecraft:dead_horn_coral_block",
       "name_es": "Bloque de coral de cuerno muerto",
       "name_en": "Dead Horn Coral Block",
@@ -1524,10 +1512,10 @@
       "source_textures": [
         "minecraft:block/dead_horn_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 96
     },
     {
-      "proposed_paint_id": 97,
       "block_id": "minecraft:dead_tube_coral_block",
       "name_es": "Bloque de coral de tubo muerto",
       "name_en": "Dead Tube Coral Block",
@@ -1539,10 +1527,10 @@
       "source_textures": [
         "minecraft:block/dead_tube_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 97
     },
     {
-      "proposed_paint_id": 98,
       "block_id": "minecraft:deepslate",
       "name_es": "Pizarra profunda",
       "name_en": "Deepslate",
@@ -1556,10 +1544,10 @@
         "minecraft:block/deepslate",
         "minecraft:block/deepslate_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 98
     },
     {
-      "proposed_paint_id": 99,
       "block_id": "minecraft:deepslate_bricks",
       "name_es": "Ladrillos de pizarra profunda",
       "name_en": "Deepslate Bricks",
@@ -1571,10 +1559,10 @@
       "source_textures": [
         "minecraft:block/deepslate_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 99
     },
     {
-      "proposed_paint_id": 100,
       "block_id": "minecraft:deepslate_coal_ore",
       "name_es": "Mena de carbón de pizarra profunda",
       "name_en": "Deepslate Coal Ore",
@@ -1586,10 +1574,10 @@
       "source_textures": [
         "minecraft:block/deepslate_coal_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 100
     },
     {
-      "proposed_paint_id": 101,
       "block_id": "minecraft:deepslate_copper_ore",
       "name_es": "Mena de cobre de pizarra profunda",
       "name_en": "Deepslate Copper Ore",
@@ -1601,10 +1589,10 @@
       "source_textures": [
         "minecraft:block/deepslate_copper_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 101
     },
     {
-      "proposed_paint_id": 102,
       "block_id": "minecraft:deepslate_diamond_ore",
       "name_es": "Mena de diamante de pizarra profunda",
       "name_en": "Deepslate Diamond Ore",
@@ -1616,10 +1604,10 @@
       "source_textures": [
         "minecraft:block/deepslate_diamond_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 102
     },
     {
-      "proposed_paint_id": 103,
       "block_id": "minecraft:deepslate_emerald_ore",
       "name_es": "Mena de esmeralda de pizarra profunda",
       "name_en": "Deepslate Emerald Ore",
@@ -1631,10 +1619,10 @@
       "source_textures": [
         "minecraft:block/deepslate_emerald_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 103
     },
     {
-      "proposed_paint_id": 104,
       "block_id": "minecraft:deepslate_gold_ore",
       "name_es": "Mena de oro de pizarra profunda",
       "name_en": "Deepslate Gold Ore",
@@ -1646,10 +1634,10 @@
       "source_textures": [
         "minecraft:block/deepslate_gold_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 104
     },
     {
-      "proposed_paint_id": 105,
       "block_id": "minecraft:deepslate_iron_ore",
       "name_es": "Mena de hierro de pizarra profunda",
       "name_en": "Deepslate Iron Ore",
@@ -1661,10 +1649,10 @@
       "source_textures": [
         "minecraft:block/deepslate_iron_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 105
     },
     {
-      "proposed_paint_id": 106,
       "block_id": "minecraft:deepslate_lapis_ore",
       "name_es": "Mena de lapislázuli de pizarra profunda",
       "name_en": "Deepslate Lapis Lazuli Ore",
@@ -1676,10 +1664,10 @@
       "source_textures": [
         "minecraft:block/deepslate_lapis_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 106
     },
     {
-      "proposed_paint_id": 107,
       "block_id": "minecraft:deepslate_redstone_ore",
       "name_es": "Mena de redstone de pizarra profunda",
       "name_en": "Deepslate Redstone Ore",
@@ -1691,10 +1679,10 @@
       "source_textures": [
         "minecraft:block/deepslate_redstone_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 107
     },
     {
-      "proposed_paint_id": 108,
       "block_id": "minecraft:deepslate_tiles",
       "name_es": "Baldosas de pizarra profunda",
       "name_en": "Deepslate Tiles",
@@ -1706,10 +1694,10 @@
       "source_textures": [
         "minecraft:block/deepslate_tiles"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 108
     },
     {
-      "proposed_paint_id": 109,
       "block_id": "minecraft:diamond_block",
       "name_es": "Bloque de diamante",
       "name_en": "Block of Diamond",
@@ -1721,10 +1709,10 @@
       "source_textures": [
         "minecraft:block/diamond_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 109
     },
     {
-      "proposed_paint_id": 110,
       "block_id": "minecraft:diamond_ore",
       "name_es": "Mena de diamante",
       "name_en": "Diamond Ore",
@@ -1736,10 +1724,10 @@
       "source_textures": [
         "minecraft:block/diamond_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 110
     },
     {
-      "proposed_paint_id": 111,
       "block_id": "minecraft:diorite",
       "name_es": "Diorita",
       "name_en": "Diorite",
@@ -1751,10 +1739,10 @@
       "source_textures": [
         "minecraft:block/diorite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 111
     },
     {
-      "proposed_paint_id": 112,
       "block_id": "minecraft:dirt",
       "name_es": "Tierra",
       "name_en": "Dirt",
@@ -1766,10 +1754,10 @@
       "source_textures": [
         "minecraft:block/dirt"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 112
     },
     {
-      "proposed_paint_id": 113,
       "block_id": "minecraft:dried_kelp_block",
       "name_es": "Bloque de algas secas",
       "name_en": "Dried Kelp Block",
@@ -1783,10 +1771,10 @@
         "minecraft:block/dried_kelp_side",
         "minecraft:block/dried_kelp_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 113
     },
     {
-      "proposed_paint_id": 114,
       "block_id": "minecraft:dripstone_block",
       "name_es": "Bloque de caliza",
       "name_en": "Dripstone Block",
@@ -1798,10 +1786,10 @@
       "source_textures": [
         "minecraft:block/dripstone_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 114
     },
     {
-      "proposed_paint_id": 115,
       "block_id": "minecraft:emerald_block",
       "name_es": "Bloque de esmeralda",
       "name_en": "Block of Emerald",
@@ -1813,10 +1801,10 @@
       "source_textures": [
         "minecraft:block/emerald_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 115
     },
     {
-      "proposed_paint_id": 116,
       "block_id": "minecraft:emerald_ore",
       "name_es": "Mena de esmeralda",
       "name_en": "Emerald Ore",
@@ -1828,10 +1816,10 @@
       "source_textures": [
         "minecraft:block/emerald_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 116
     },
     {
-      "proposed_paint_id": 117,
       "block_id": "minecraft:end_stone",
       "name_es": "Piedra del End",
       "name_en": "End Stone",
@@ -1843,10 +1831,10 @@
       "source_textures": [
         "minecraft:block/end_stone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 117
     },
     {
-      "proposed_paint_id": 118,
       "block_id": "minecraft:end_stone_bricks",
       "name_es": "Ladrillos de piedra del End",
       "name_en": "End Stone Bricks",
@@ -1858,10 +1846,10 @@
       "source_textures": [
         "minecraft:block/end_stone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 118
     },
     {
-      "proposed_paint_id": 119,
       "block_id": "minecraft:exposed_chiseled_copper",
       "name_es": "Cobre cincelado expuesto",
       "name_en": "Exposed Chiseled Copper",
@@ -1873,10 +1861,10 @@
       "source_textures": [
         "minecraft:block/exposed_chiseled_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 119
     },
     {
-      "proposed_paint_id": 120,
       "block_id": "minecraft:exposed_copper",
       "name_es": "Cobre expuesto",
       "name_en": "Exposed Copper",
@@ -1888,10 +1876,10 @@
       "source_textures": [
         "minecraft:block/exposed_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 120
     },
     {
-      "proposed_paint_id": 121,
       "block_id": "minecraft:exposed_copper_bulb",
       "name_es": "Lámpara de cobre expuesto",
       "name_en": "Exposed Copper Bulb",
@@ -1909,10 +1897,10 @@
         "minecraft:block/exposed_copper_bulb_lit_powered",
         "minecraft:block/exposed_copper_bulb_powered"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 121
     },
     {
-      "proposed_paint_id": 122,
       "block_id": "minecraft:exposed_cut_copper",
       "name_es": "Cobre cortado expuesto",
       "name_en": "Exposed Cut Copper",
@@ -1924,10 +1912,10 @@
       "source_textures": [
         "minecraft:block/exposed_cut_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 122
     },
     {
-      "proposed_paint_id": 123,
       "block_id": "minecraft:fire_coral_block",
       "name_es": "Bloque de coral de fuego",
       "name_en": "Fire Coral Block",
@@ -1939,10 +1927,10 @@
       "source_textures": [
         "minecraft:block/fire_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 123
     },
     {
-      "proposed_paint_id": 124,
       "block_id": "minecraft:fletching_table",
       "name_es": "Mesa de flechas",
       "name_en": "Fletching Table",
@@ -1957,10 +1945,10 @@
         "minecraft:block/fletching_table_side",
         "minecraft:block/fletching_table_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 124
     },
     {
-      "proposed_paint_id": 125,
       "block_id": "minecraft:gilded_blackstone",
       "name_es": "Piedra negra áurea",
       "name_en": "Gilded Blackstone",
@@ -1972,10 +1960,10 @@
       "source_textures": [
         "minecraft:block/gilded_blackstone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 125
     },
     {
-      "proposed_paint_id": 126,
       "block_id": "minecraft:glowstone",
       "name_es": "Piedra luminosa",
       "name_en": "Glowstone",
@@ -1987,10 +1975,10 @@
       "source_textures": [
         "minecraft:block/glowstone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 126
     },
     {
-      "proposed_paint_id": 127,
       "block_id": "minecraft:gold_block",
       "name_es": "Bloque de oro",
       "name_en": "Block of Gold",
@@ -2002,10 +1990,10 @@
       "source_textures": [
         "minecraft:block/gold_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 127
     },
     {
-      "proposed_paint_id": 128,
       "block_id": "minecraft:gold_ore",
       "name_es": "Mena de oro",
       "name_en": "Gold Ore",
@@ -2017,10 +2005,10 @@
       "source_textures": [
         "minecraft:block/gold_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 128
     },
     {
-      "proposed_paint_id": 129,
       "block_id": "minecraft:granite",
       "name_es": "Granito",
       "name_en": "Granite",
@@ -2032,10 +2020,10 @@
       "source_textures": [
         "minecraft:block/granite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 129
     },
     {
-      "proposed_paint_id": 130,
       "block_id": "minecraft:grass_block",
       "name_es": "Césped",
       "name_en": "Grass Block",
@@ -2053,10 +2041,10 @@
         "minecraft:block/grass_block_top"
       ],
       "uses_tint": true,
-      "surface_coverage_note": "Opaque full-face side texture below the tinted overlay; no uncovered surface pixels."
+      "surface_coverage_note": "Opaque full-face side texture below the tinted overlay; no uncovered surface pixels.",
+      "paint_id": 130
     },
     {
-      "proposed_paint_id": 131,
       "block_id": "minecraft:gravel",
       "name_es": "Grava",
       "name_en": "Gravel",
@@ -2068,10 +2056,10 @@
       "source_textures": [
         "minecraft:block/gravel"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 131
     },
     {
-      "proposed_paint_id": 132,
       "block_id": "minecraft:gray_concrete",
       "name_es": "Hormigón gris",
       "name_en": "Gray Concrete",
@@ -2083,10 +2071,10 @@
       "source_textures": [
         "minecraft:block/gray_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 132
     },
     {
-      "proposed_paint_id": 133,
       "block_id": "minecraft:gray_concrete_powder",
       "name_es": "Cemento gris",
       "name_en": "Gray Concrete Powder",
@@ -2098,10 +2086,10 @@
       "source_textures": [
         "minecraft:block/gray_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 133
     },
     {
-      "proposed_paint_id": 134,
       "block_id": "minecraft:gray_glazed_terracotta",
       "name_es": "Azulejo gris",
       "name_en": "Gray Glazed Terracotta",
@@ -2113,10 +2101,10 @@
       "source_textures": [
         "minecraft:block/gray_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 134
     },
     {
-      "proposed_paint_id": 135,
       "block_id": "minecraft:gray_terracotta",
       "name_es": "Terracota gris",
       "name_en": "Gray Terracotta",
@@ -2128,10 +2116,10 @@
       "source_textures": [
         "minecraft:block/gray_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 135
     },
     {
-      "proposed_paint_id": 136,
       "block_id": "minecraft:gray_wool",
       "name_es": "Lana gris",
       "name_en": "Gray Wool",
@@ -2143,10 +2131,10 @@
       "source_textures": [
         "minecraft:block/gray_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 136
     },
     {
-      "proposed_paint_id": 137,
       "block_id": "minecraft:green_concrete",
       "name_es": "Hormigón verde",
       "name_en": "Green Concrete",
@@ -2158,10 +2146,10 @@
       "source_textures": [
         "minecraft:block/green_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 137
     },
     {
-      "proposed_paint_id": 138,
       "block_id": "minecraft:green_concrete_powder",
       "name_es": "Cemento verde",
       "name_en": "Green Concrete Powder",
@@ -2173,10 +2161,10 @@
       "source_textures": [
         "minecraft:block/green_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 138
     },
     {
-      "proposed_paint_id": 139,
       "block_id": "minecraft:green_glazed_terracotta",
       "name_es": "Azulejo verde",
       "name_en": "Green Glazed Terracotta",
@@ -2188,10 +2176,10 @@
       "source_textures": [
         "minecraft:block/green_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 139
     },
     {
-      "proposed_paint_id": 140,
       "block_id": "minecraft:green_terracotta",
       "name_es": "Terracota verde",
       "name_en": "Green Terracotta",
@@ -2203,10 +2191,10 @@
       "source_textures": [
         "minecraft:block/green_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 140
     },
     {
-      "proposed_paint_id": 141,
       "block_id": "minecraft:green_wool",
       "name_es": "Lana verde",
       "name_en": "Green Wool",
@@ -2218,10 +2206,10 @@
       "source_textures": [
         "minecraft:block/green_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 141
     },
     {
-      "proposed_paint_id": 142,
       "block_id": "minecraft:hay_block",
       "name_es": "Bala de heno",
       "name_en": "Hay Bale",
@@ -2235,10 +2223,10 @@
         "minecraft:block/hay_block_side",
         "minecraft:block/hay_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 142
     },
     {
-      "proposed_paint_id": 143,
       "block_id": "minecraft:honeycomb_block",
       "name_es": "Bloque de panal",
       "name_en": "Honeycomb Block",
@@ -2250,10 +2238,10 @@
       "source_textures": [
         "minecraft:block/honeycomb_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 143
     },
     {
-      "proposed_paint_id": 144,
       "block_id": "minecraft:horn_coral_block",
       "name_es": "Bloque de coral de cuerno",
       "name_en": "Horn Coral Block",
@@ -2265,10 +2253,10 @@
       "source_textures": [
         "minecraft:block/horn_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 144
     },
     {
-      "proposed_paint_id": 145,
       "block_id": "minecraft:iron_block",
       "name_es": "Bloque de hierro",
       "name_en": "Block of Iron",
@@ -2280,10 +2268,10 @@
       "source_textures": [
         "minecraft:block/iron_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 145
     },
     {
-      "proposed_paint_id": 146,
       "block_id": "minecraft:iron_ore",
       "name_es": "Mena de hierro",
       "name_en": "Iron Ore",
@@ -2295,10 +2283,10 @@
       "source_textures": [
         "minecraft:block/iron_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 146
     },
     {
-      "proposed_paint_id": 147,
       "block_id": "minecraft:jack_o_lantern",
       "name_es": "Calabaza de Halloween",
       "name_en": "Jack o'Lantern",
@@ -2312,10 +2300,10 @@
         "minecraft:block/pumpkin_side",
         "minecraft:block/pumpkin_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 147
     },
     {
-      "proposed_paint_id": 148,
       "block_id": "minecraft:jungle_log",
       "name_es": "Tronco de jungla",
       "name_en": "Jungle Log",
@@ -2329,10 +2317,10 @@
         "minecraft:block/jungle_log",
         "minecraft:block/jungle_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 148
     },
     {
-      "proposed_paint_id": 149,
       "block_id": "minecraft:jungle_planks",
       "name_es": "Tablones de jungla",
       "name_en": "Jungle Planks",
@@ -2344,10 +2332,10 @@
       "source_textures": [
         "minecraft:block/jungle_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 149
     },
     {
-      "proposed_paint_id": 150,
       "block_id": "minecraft:jungle_wood",
       "name_es": "Leño de jungla",
       "name_en": "Jungle Wood",
@@ -2359,10 +2347,10 @@
       "source_textures": [
         "minecraft:block/jungle_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 150
     },
     {
-      "proposed_paint_id": 151,
       "block_id": "minecraft:lapis_block",
       "name_es": "Bloque de lapislázuli",
       "name_en": "Block of Lapis Lazuli",
@@ -2374,10 +2362,10 @@
       "source_textures": [
         "minecraft:block/lapis_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 151
     },
     {
-      "proposed_paint_id": 152,
       "block_id": "minecraft:lapis_ore",
       "name_es": "Mena de lapislázuli",
       "name_en": "Lapis Lazuli Ore",
@@ -2389,10 +2377,10 @@
       "source_textures": [
         "minecraft:block/lapis_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 152
     },
     {
-      "proposed_paint_id": 153,
       "block_id": "minecraft:light_blue_concrete",
       "name_es": "Hormigón azul claro",
       "name_en": "Light Blue Concrete",
@@ -2404,10 +2392,10 @@
       "source_textures": [
         "minecraft:block/light_blue_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 153
     },
     {
-      "proposed_paint_id": 154,
       "block_id": "minecraft:light_blue_concrete_powder",
       "name_es": "Cemento azul claro",
       "name_en": "Light Blue Concrete Powder",
@@ -2419,10 +2407,10 @@
       "source_textures": [
         "minecraft:block/light_blue_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 154
     },
     {
-      "proposed_paint_id": 155,
       "block_id": "minecraft:light_blue_glazed_terracotta",
       "name_es": "Azulejo azul claro",
       "name_en": "Light Blue Glazed Terracotta",
@@ -2434,10 +2422,10 @@
       "source_textures": [
         "minecraft:block/light_blue_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 155
     },
     {
-      "proposed_paint_id": 156,
       "block_id": "minecraft:light_blue_terracotta",
       "name_es": "Terracota azul claro",
       "name_en": "Light Blue Terracotta",
@@ -2449,10 +2437,10 @@
       "source_textures": [
         "minecraft:block/light_blue_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 156
     },
     {
-      "proposed_paint_id": 157,
       "block_id": "minecraft:light_blue_wool",
       "name_es": "Lana azul claro",
       "name_en": "Light Blue Wool",
@@ -2464,10 +2452,10 @@
       "source_textures": [
         "minecraft:block/light_blue_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 157
     },
     {
-      "proposed_paint_id": 158,
       "block_id": "minecraft:light_gray_concrete",
       "name_es": "Hormigón gris claro",
       "name_en": "Light Gray Concrete",
@@ -2479,10 +2467,10 @@
       "source_textures": [
         "minecraft:block/light_gray_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 158
     },
     {
-      "proposed_paint_id": 159,
       "block_id": "minecraft:light_gray_concrete_powder",
       "name_es": "Cemento gris claro",
       "name_en": "Light Gray Concrete Powder",
@@ -2494,10 +2482,10 @@
       "source_textures": [
         "minecraft:block/light_gray_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 159
     },
     {
-      "proposed_paint_id": 160,
       "block_id": "minecraft:light_gray_glazed_terracotta",
       "name_es": "Azulejo gris claro",
       "name_en": "Light Gray Glazed Terracotta",
@@ -2509,10 +2497,10 @@
       "source_textures": [
         "minecraft:block/light_gray_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 160
     },
     {
-      "proposed_paint_id": 161,
       "block_id": "minecraft:light_gray_terracotta",
       "name_es": "Terracota gris claro",
       "name_en": "Light Gray Terracotta",
@@ -2524,10 +2512,10 @@
       "source_textures": [
         "minecraft:block/light_gray_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 161
     },
     {
-      "proposed_paint_id": 162,
       "block_id": "minecraft:light_gray_wool",
       "name_es": "Lana gris claro",
       "name_en": "Light Gray Wool",
@@ -2539,10 +2527,10 @@
       "source_textures": [
         "minecraft:block/light_gray_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 162
     },
     {
-      "proposed_paint_id": 163,
       "block_id": "minecraft:lime_concrete",
       "name_es": "Hormigón verde lima",
       "name_en": "Lime Concrete",
@@ -2554,10 +2542,10 @@
       "source_textures": [
         "minecraft:block/lime_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 163
     },
     {
-      "proposed_paint_id": 164,
       "block_id": "minecraft:lime_concrete_powder",
       "name_es": "Cemento verde lima",
       "name_en": "Lime Concrete Powder",
@@ -2569,10 +2557,10 @@
       "source_textures": [
         "minecraft:block/lime_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 164
     },
     {
-      "proposed_paint_id": 165,
       "block_id": "minecraft:lime_glazed_terracotta",
       "name_es": "Azulejo verde lima",
       "name_en": "Lime Glazed Terracotta",
@@ -2584,10 +2572,10 @@
       "source_textures": [
         "minecraft:block/lime_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 165
     },
     {
-      "proposed_paint_id": 166,
       "block_id": "minecraft:lime_terracotta",
       "name_es": "Terracota verde lima",
       "name_en": "Lime Terracotta",
@@ -2599,10 +2587,10 @@
       "source_textures": [
         "minecraft:block/lime_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 166
     },
     {
-      "proposed_paint_id": 167,
       "block_id": "minecraft:lime_wool",
       "name_es": "Lana verde lima",
       "name_en": "Lime Wool",
@@ -2614,10 +2602,10 @@
       "source_textures": [
         "minecraft:block/lime_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 167
     },
     {
-      "proposed_paint_id": 168,
       "block_id": "minecraft:lodestone",
       "name_es": "Magnetita",
       "name_en": "Lodestone",
@@ -2630,10 +2618,10 @@
         "minecraft:block/lodestone_side",
         "minecraft:block/lodestone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 168
     },
     {
-      "proposed_paint_id": 169,
       "block_id": "minecraft:loom",
       "name_es": "Telar",
       "name_en": "Loom",
@@ -2648,10 +2636,10 @@
         "minecraft:block/loom_side",
         "minecraft:block/loom_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 169
     },
     {
-      "proposed_paint_id": 170,
       "block_id": "minecraft:magenta_concrete",
       "name_es": "Hormigón magenta",
       "name_en": "Magenta Concrete",
@@ -2663,10 +2651,10 @@
       "source_textures": [
         "minecraft:block/magenta_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 170
     },
     {
-      "proposed_paint_id": 171,
       "block_id": "minecraft:magenta_concrete_powder",
       "name_es": "Cemento magenta",
       "name_en": "Magenta Concrete Powder",
@@ -2678,10 +2666,10 @@
       "source_textures": [
         "minecraft:block/magenta_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 171
     },
     {
-      "proposed_paint_id": 172,
       "block_id": "minecraft:magenta_glazed_terracotta",
       "name_es": "Azulejo magenta",
       "name_en": "Magenta Glazed Terracotta",
@@ -2693,10 +2681,10 @@
       "source_textures": [
         "minecraft:block/magenta_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 172
     },
     {
-      "proposed_paint_id": 173,
       "block_id": "minecraft:magenta_terracotta",
       "name_es": "Terracota magenta",
       "name_en": "Magenta Terracotta",
@@ -2708,10 +2696,10 @@
       "source_textures": [
         "minecraft:block/magenta_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 173
     },
     {
-      "proposed_paint_id": 174,
       "block_id": "minecraft:magenta_wool",
       "name_es": "Lana magenta",
       "name_en": "Magenta Wool",
@@ -2723,10 +2711,10 @@
       "source_textures": [
         "minecraft:block/magenta_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 174
     },
     {
-      "proposed_paint_id": 175,
       "block_id": "minecraft:magma_block",
       "name_es": "Bloque de magma",
       "name_en": "Magma Block",
@@ -2738,10 +2726,10 @@
       "source_textures": [
         "minecraft:block/magma"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 175
     },
     {
-      "proposed_paint_id": 176,
       "block_id": "minecraft:mangrove_log",
       "name_es": "Tronco de mangle",
       "name_en": "Mangrove Log",
@@ -2755,10 +2743,10 @@
         "minecraft:block/mangrove_log",
         "minecraft:block/mangrove_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 176
     },
     {
-      "proposed_paint_id": 177,
       "block_id": "minecraft:mangrove_planks",
       "name_es": "Tablones de mangle",
       "name_en": "Mangrove Planks",
@@ -2770,10 +2758,10 @@
       "source_textures": [
         "minecraft:block/mangrove_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 177
     },
     {
-      "proposed_paint_id": 178,
       "block_id": "minecraft:mangrove_wood",
       "name_es": "Leño de mangle",
       "name_en": "Mangrove Wood",
@@ -2785,10 +2773,10 @@
       "source_textures": [
         "minecraft:block/mangrove_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 178
     },
     {
-      "proposed_paint_id": 179,
       "block_id": "minecraft:melon",
       "name_es": "Sandía",
       "name_en": "Melon",
@@ -2801,10 +2789,10 @@
         "minecraft:block/melon_side",
         "minecraft:block/melon_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 179
     },
     {
-      "proposed_paint_id": 180,
       "block_id": "minecraft:moss_block",
       "name_es": "Bloque de musgo",
       "name_en": "Moss Block",
@@ -2816,10 +2804,10 @@
       "source_textures": [
         "minecraft:block/moss_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 180
     },
     {
-      "proposed_paint_id": 181,
       "block_id": "minecraft:mossy_cobblestone",
       "name_es": "Roca musgosa",
       "name_en": "Mossy Cobblestone",
@@ -2831,10 +2819,10 @@
       "source_textures": [
         "minecraft:block/mossy_cobblestone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 181
     },
     {
-      "proposed_paint_id": 182,
       "block_id": "minecraft:mossy_stone_bricks",
       "name_es": "Ladrillos de piedra musgosos",
       "name_en": "Mossy Stone Bricks",
@@ -2846,10 +2834,10 @@
       "source_textures": [
         "minecraft:block/mossy_stone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 182
     },
     {
-      "proposed_paint_id": 183,
       "block_id": "minecraft:mud",
       "name_es": "Barro",
       "name_en": "Mud",
@@ -2861,10 +2849,10 @@
       "source_textures": [
         "minecraft:block/mud"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 183
     },
     {
-      "proposed_paint_id": 184,
       "block_id": "minecraft:mud_bricks",
       "name_es": "Ladrillos de adobe",
       "name_en": "Mud Bricks",
@@ -2876,10 +2864,10 @@
       "source_textures": [
         "minecraft:block/mud_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 184
     },
     {
-      "proposed_paint_id": 185,
       "block_id": "minecraft:muddy_mangrove_roots",
       "name_es": "Raíces de mangle embarradas",
       "name_en": "Muddy Mangrove Roots",
@@ -2892,10 +2880,10 @@
         "minecraft:block/muddy_mangrove_roots_side",
         "minecraft:block/muddy_mangrove_roots_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 185
     },
     {
-      "proposed_paint_id": 186,
       "block_id": "minecraft:mushroom_stem",
       "name_es": "Tallo de champiñón",
       "name_en": "Mushroom Stem",
@@ -2909,10 +2897,10 @@
         "minecraft:block/mushroom_block_inside",
         "minecraft:block/mushroom_stem"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 186
     },
     {
-      "proposed_paint_id": 187,
       "block_id": "minecraft:mycelium",
       "name_es": "Micelio",
       "name_en": "Mycelium",
@@ -2929,10 +2917,10 @@
         "minecraft:block/mycelium_side",
         "minecraft:block/mycelium_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 187
     },
     {
-      "proposed_paint_id": 188,
       "block_id": "minecraft:nether_bricks",
       "name_es": "Ladrillos del Nether",
       "name_en": "Nether Bricks",
@@ -2944,10 +2932,10 @@
       "source_textures": [
         "minecraft:block/nether_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 188
     },
     {
-      "proposed_paint_id": 189,
       "block_id": "minecraft:nether_gold_ore",
       "name_es": "Mena de oro del Nether",
       "name_en": "Nether Gold Ore",
@@ -2959,10 +2947,10 @@
       "source_textures": [
         "minecraft:block/nether_gold_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 189
     },
     {
-      "proposed_paint_id": 190,
       "block_id": "minecraft:nether_quartz_ore",
       "name_es": "Mena de cuarzo del Nether",
       "name_en": "Nether Quartz Ore",
@@ -2974,10 +2962,10 @@
       "source_textures": [
         "minecraft:block/nether_quartz_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 190
     },
     {
-      "proposed_paint_id": 191,
       "block_id": "minecraft:nether_wart_block",
       "name_es": "Bloque de verrugas del Nether",
       "name_en": "Nether Wart Block",
@@ -2989,10 +2977,10 @@
       "source_textures": [
         "minecraft:block/nether_wart_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 191
     },
     {
-      "proposed_paint_id": 192,
       "block_id": "minecraft:netherite_block",
       "name_es": "Bloque de netherita",
       "name_en": "Block of Netherite",
@@ -3004,10 +2992,10 @@
       "source_textures": [
         "minecraft:block/netherite_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 192
     },
     {
-      "proposed_paint_id": 193,
       "block_id": "minecraft:netherrack",
       "name_es": "Netherrack",
       "name_en": "Netherrack",
@@ -3019,10 +3007,10 @@
       "source_textures": [
         "minecraft:block/netherrack"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 193
     },
     {
-      "proposed_paint_id": 194,
       "block_id": "minecraft:note_block",
       "name_es": "Bloque musical",
       "name_en": "Note Block",
@@ -3034,10 +3022,10 @@
       "source_textures": [
         "minecraft:block/note_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 194
     },
     {
-      "proposed_paint_id": 195,
       "block_id": "minecraft:oak_log",
       "name_es": "Tronco de roble",
       "name_en": "Oak Log",
@@ -3051,10 +3039,10 @@
         "minecraft:block/oak_log",
         "minecraft:block/oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 195
     },
     {
-      "proposed_paint_id": 196,
       "block_id": "minecraft:oak_planks",
       "name_es": "Tablones de roble",
       "name_en": "Oak Planks",
@@ -3066,10 +3054,10 @@
       "source_textures": [
         "minecraft:block/oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 196
     },
     {
-      "proposed_paint_id": 197,
       "block_id": "minecraft:oak_wood",
       "name_es": "Leño de roble",
       "name_en": "Oak Wood",
@@ -3081,10 +3069,10 @@
       "source_textures": [
         "minecraft:block/oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 197
     },
     {
-      "proposed_paint_id": 198,
       "block_id": "minecraft:observer",
       "name_es": "Observador",
       "name_en": "Observer",
@@ -3101,10 +3089,10 @@
         "minecraft:block/observer_side",
         "minecraft:block/observer_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 198
     },
     {
-      "proposed_paint_id": 199,
       "block_id": "minecraft:obsidian",
       "name_es": "Obsidiana",
       "name_en": "Obsidian",
@@ -3116,10 +3104,10 @@
       "source_textures": [
         "minecraft:block/obsidian"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 199
     },
     {
-      "proposed_paint_id": 200,
       "block_id": "minecraft:ochre_froglight",
       "name_es": "Ranaluz ocre",
       "name_en": "Ochre Froglight",
@@ -3133,10 +3121,10 @@
         "minecraft:block/ochre_froglight_side",
         "minecraft:block/ochre_froglight_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 200
     },
     {
-      "proposed_paint_id": 201,
       "block_id": "minecraft:orange_concrete",
       "name_es": "Hormigón naranja",
       "name_en": "Orange Concrete",
@@ -3148,10 +3136,10 @@
       "source_textures": [
         "minecraft:block/orange_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 201
     },
     {
-      "proposed_paint_id": 202,
       "block_id": "minecraft:orange_concrete_powder",
       "name_es": "Cemento naranja",
       "name_en": "Orange Concrete Powder",
@@ -3163,10 +3151,10 @@
       "source_textures": [
         "minecraft:block/orange_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 202
     },
     {
-      "proposed_paint_id": 203,
       "block_id": "minecraft:orange_glazed_terracotta",
       "name_es": "Azulejo naranja",
       "name_en": "Orange Glazed Terracotta",
@@ -3178,10 +3166,10 @@
       "source_textures": [
         "minecraft:block/orange_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 203
     },
     {
-      "proposed_paint_id": 204,
       "block_id": "minecraft:orange_terracotta",
       "name_es": "Terracota naranja",
       "name_en": "Orange Terracotta",
@@ -3193,10 +3181,10 @@
       "source_textures": [
         "minecraft:block/orange_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 204
     },
     {
-      "proposed_paint_id": 205,
       "block_id": "minecraft:orange_wool",
       "name_es": "Lana naranja",
       "name_en": "Orange Wool",
@@ -3208,10 +3196,10 @@
       "source_textures": [
         "minecraft:block/orange_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 205
     },
     {
-      "proposed_paint_id": 206,
       "block_id": "minecraft:oxidized_chiseled_copper",
       "name_es": "Cobre cincelado oxidado",
       "name_en": "Oxidized Chiseled Copper",
@@ -3223,10 +3211,10 @@
       "source_textures": [
         "minecraft:block/oxidized_chiseled_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 206
     },
     {
-      "proposed_paint_id": 207,
       "block_id": "minecraft:oxidized_copper",
       "name_es": "Cobre oxidado",
       "name_en": "Oxidized Copper",
@@ -3238,10 +3226,10 @@
       "source_textures": [
         "minecraft:block/oxidized_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 207
     },
     {
-      "proposed_paint_id": 208,
       "block_id": "minecraft:oxidized_copper_bulb",
       "name_es": "Lámpara de cobre oxidado",
       "name_en": "Oxidized Copper Bulb",
@@ -3259,10 +3247,10 @@
         "minecraft:block/oxidized_copper_bulb_lit_powered",
         "minecraft:block/oxidized_copper_bulb_powered"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 208
     },
     {
-      "proposed_paint_id": 209,
       "block_id": "minecraft:oxidized_cut_copper",
       "name_es": "Cobre cortado oxidado",
       "name_en": "Oxidized Cut Copper",
@@ -3274,10 +3262,10 @@
       "source_textures": [
         "minecraft:block/oxidized_cut_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 209
     },
     {
-      "proposed_paint_id": 210,
       "block_id": "minecraft:packed_ice",
       "name_es": "Hielo compacto",
       "name_en": "Packed Ice",
@@ -3289,10 +3277,10 @@
       "source_textures": [
         "minecraft:block/packed_ice"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 210
     },
     {
-      "proposed_paint_id": 211,
       "block_id": "minecraft:packed_mud",
       "name_es": "Adobe",
       "name_en": "Packed Mud",
@@ -3304,10 +3292,10 @@
       "source_textures": [
         "minecraft:block/packed_mud"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 211
     },
     {
-      "proposed_paint_id": 212,
       "block_id": "minecraft:pale_moss_block",
       "name_es": "Bloque de musgo pálido",
       "name_en": "Pale Moss Block",
@@ -3319,10 +3307,10 @@
       "source_textures": [
         "minecraft:block/pale_moss_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 212
     },
     {
-      "proposed_paint_id": 213,
       "block_id": "minecraft:pale_oak_log",
       "name_es": "Tronco de roble pálido",
       "name_en": "Pale Oak Log",
@@ -3336,10 +3324,10 @@
         "minecraft:block/pale_oak_log",
         "minecraft:block/pale_oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 213
     },
     {
-      "proposed_paint_id": 214,
       "block_id": "minecraft:pale_oak_planks",
       "name_es": "Tablones de roble pálido",
       "name_en": "Pale Oak Planks",
@@ -3351,10 +3339,10 @@
       "source_textures": [
         "minecraft:block/pale_oak_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 214
     },
     {
-      "proposed_paint_id": 215,
       "block_id": "minecraft:pale_oak_wood",
       "name_es": "Leño de roble pálido",
       "name_en": "Pale Oak Wood",
@@ -3366,10 +3354,10 @@
       "source_textures": [
         "minecraft:block/pale_oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 215
     },
     {
-      "proposed_paint_id": 216,
       "block_id": "minecraft:pearlescent_froglight",
       "name_es": "Ranaluz nacarada",
       "name_en": "Pearlescent Froglight",
@@ -3383,10 +3371,10 @@
         "minecraft:block/pearlescent_froglight_side",
         "minecraft:block/pearlescent_froglight_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 216
     },
     {
-      "proposed_paint_id": 217,
       "block_id": "minecraft:pink_concrete",
       "name_es": "Hormigón rosa",
       "name_en": "Pink Concrete",
@@ -3398,10 +3386,10 @@
       "source_textures": [
         "minecraft:block/pink_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 217
     },
     {
-      "proposed_paint_id": 218,
       "block_id": "minecraft:pink_concrete_powder",
       "name_es": "Cemento rosa",
       "name_en": "Pink Concrete Powder",
@@ -3413,10 +3401,10 @@
       "source_textures": [
         "minecraft:block/pink_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 218
     },
     {
-      "proposed_paint_id": 219,
       "block_id": "minecraft:pink_glazed_terracotta",
       "name_es": "Azulejo rosa",
       "name_en": "Pink Glazed Terracotta",
@@ -3428,10 +3416,10 @@
       "source_textures": [
         "minecraft:block/pink_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 219
     },
     {
-      "proposed_paint_id": 220,
       "block_id": "minecraft:pink_terracotta",
       "name_es": "Terracota rosa",
       "name_en": "Pink Terracotta",
@@ -3443,10 +3431,10 @@
       "source_textures": [
         "minecraft:block/pink_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 220
     },
     {
-      "proposed_paint_id": 221,
       "block_id": "minecraft:pink_wool",
       "name_es": "Lana rosa",
       "name_en": "Pink Wool",
@@ -3458,10 +3446,10 @@
       "source_textures": [
         "minecraft:block/pink_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 221
     },
     {
-      "proposed_paint_id": 222,
       "block_id": "minecraft:podzol",
       "name_es": "Podsol",
       "name_en": "Podzol",
@@ -3478,10 +3466,10 @@
         "minecraft:block/podzol_side",
         "minecraft:block/podzol_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 222
     },
     {
-      "proposed_paint_id": 223,
       "block_id": "minecraft:polished_andesite",
       "name_es": "Andesita pulida",
       "name_en": "Polished Andesite",
@@ -3493,10 +3481,10 @@
       "source_textures": [
         "minecraft:block/polished_andesite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 223
     },
     {
-      "proposed_paint_id": 224,
       "block_id": "minecraft:polished_basalt",
       "name_es": "Basalto pulido",
       "name_en": "Polished Basalt",
@@ -3509,10 +3497,10 @@
         "minecraft:block/polished_basalt_side",
         "minecraft:block/polished_basalt_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 224
     },
     {
-      "proposed_paint_id": 225,
       "block_id": "minecraft:polished_blackstone",
       "name_es": "Piedra negra pulida",
       "name_en": "Polished Blackstone",
@@ -3524,10 +3512,10 @@
       "source_textures": [
         "minecraft:block/polished_blackstone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 225
     },
     {
-      "proposed_paint_id": 226,
       "block_id": "minecraft:polished_blackstone_bricks",
       "name_es": "Ladrillos de piedra negra pulida",
       "name_en": "Polished Blackstone Bricks",
@@ -3539,10 +3527,10 @@
       "source_textures": [
         "minecraft:block/polished_blackstone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 226
     },
     {
-      "proposed_paint_id": 227,
       "block_id": "minecraft:polished_cinnabar",
       "name_es": "Cinabrio pulido",
       "name_en": "Polished Cinnabar",
@@ -3554,10 +3542,10 @@
       "source_textures": [
         "minecraft:block/polished_cinnabar"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 227
     },
     {
-      "proposed_paint_id": 228,
       "block_id": "minecraft:polished_deepslate",
       "name_es": "Pizarra profunda pulida",
       "name_en": "Polished Deepslate",
@@ -3569,10 +3557,10 @@
       "source_textures": [
         "minecraft:block/polished_deepslate"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 228
     },
     {
-      "proposed_paint_id": 229,
       "block_id": "minecraft:polished_diorite",
       "name_es": "Diorita pulida",
       "name_en": "Polished Diorite",
@@ -3584,10 +3572,10 @@
       "source_textures": [
         "minecraft:block/polished_diorite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 229
     },
     {
-      "proposed_paint_id": 230,
       "block_id": "minecraft:polished_granite",
       "name_es": "Granito pulido",
       "name_en": "Polished Granite",
@@ -3599,10 +3587,10 @@
       "source_textures": [
         "minecraft:block/polished_granite"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 230
     },
     {
-      "proposed_paint_id": 231,
       "block_id": "minecraft:polished_sulfur",
       "name_es": "Azufre pulido",
       "name_en": "Polished Sulfur",
@@ -3614,10 +3602,10 @@
       "source_textures": [
         "minecraft:block/polished_sulfur"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 231
     },
     {
-      "proposed_paint_id": 232,
       "block_id": "minecraft:polished_tuff",
       "name_es": "Toba pulida",
       "name_en": "Polished Tuff",
@@ -3629,10 +3617,10 @@
       "source_textures": [
         "minecraft:block/polished_tuff"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 232
     },
     {
-      "proposed_paint_id": 233,
       "block_id": "minecraft:powder_snow",
       "name_es": "Nieve polvo",
       "name_en": "Powder Snow",
@@ -3644,10 +3632,10 @@
       "source_textures": [
         "minecraft:block/powder_snow"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 233
     },
     {
-      "proposed_paint_id": 234,
       "block_id": "minecraft:prismarine",
       "name_es": "Prismarina",
       "name_en": "Prismarine",
@@ -3659,10 +3647,10 @@
       "source_textures": [
         "minecraft:block/prismarine"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 234
     },
     {
-      "proposed_paint_id": 235,
       "block_id": "minecraft:prismarine_bricks",
       "name_es": "Ladrillos de prismarina",
       "name_en": "Prismarine Bricks",
@@ -3674,10 +3662,10 @@
       "source_textures": [
         "minecraft:block/prismarine_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 235
     },
     {
-      "proposed_paint_id": 236,
       "block_id": "minecraft:pumpkin",
       "name_es": "Calabaza",
       "name_en": "Pumpkin",
@@ -3690,10 +3678,10 @@
         "minecraft:block/pumpkin_side",
         "minecraft:block/pumpkin_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 236
     },
     {
-      "proposed_paint_id": 237,
       "block_id": "minecraft:purple_concrete",
       "name_es": "Hormigón morado",
       "name_en": "Purple Concrete",
@@ -3705,10 +3693,10 @@
       "source_textures": [
         "minecraft:block/purple_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 237
     },
     {
-      "proposed_paint_id": 238,
       "block_id": "minecraft:purple_concrete_powder",
       "name_es": "Cemento morado",
       "name_en": "Purple Concrete Powder",
@@ -3720,10 +3708,10 @@
       "source_textures": [
         "minecraft:block/purple_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 238
     },
     {
-      "proposed_paint_id": 239,
       "block_id": "minecraft:purple_glazed_terracotta",
       "name_es": "Azulejo morado",
       "name_en": "Purple Glazed Terracotta",
@@ -3735,10 +3723,10 @@
       "source_textures": [
         "minecraft:block/purple_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 239
     },
     {
-      "proposed_paint_id": 240,
       "block_id": "minecraft:purple_terracotta",
       "name_es": "Terracota morada",
       "name_en": "Purple Terracotta",
@@ -3750,10 +3738,10 @@
       "source_textures": [
         "minecraft:block/purple_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 240
     },
     {
-      "proposed_paint_id": 241,
       "block_id": "minecraft:purple_wool",
       "name_es": "Lana morada",
       "name_en": "Purple Wool",
@@ -3765,10 +3753,10 @@
       "source_textures": [
         "minecraft:block/purple_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 241
     },
     {
-      "proposed_paint_id": 242,
       "block_id": "minecraft:purpur_block",
       "name_es": "Bloque de purpur",
       "name_en": "Purpur Block",
@@ -3780,10 +3768,10 @@
       "source_textures": [
         "minecraft:block/purpur_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 242
     },
     {
-      "proposed_paint_id": 243,
       "block_id": "minecraft:purpur_pillar",
       "name_es": "Pilar de purpur",
       "name_en": "Purpur Pillar",
@@ -3797,10 +3785,10 @@
         "minecraft:block/purpur_pillar_side",
         "minecraft:block/purpur_pillar_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 243
     },
     {
-      "proposed_paint_id": 244,
       "block_id": "minecraft:quartz_block",
       "name_es": "Cuarzo",
       "name_en": "Block of Quartz",
@@ -3813,10 +3801,10 @@
         "minecraft:block/quartz_block_side",
         "minecraft:block/quartz_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 244
     },
     {
-      "proposed_paint_id": 245,
       "block_id": "minecraft:quartz_bricks",
       "name_es": "Ladrillos de cuarzo",
       "name_en": "Quartz Bricks",
@@ -3828,10 +3816,10 @@
       "source_textures": [
         "minecraft:block/quartz_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 245
     },
     {
-      "proposed_paint_id": 246,
       "block_id": "minecraft:quartz_pillar",
       "name_es": "Pilar de cuarzo",
       "name_en": "Quartz Pillar",
@@ -3845,10 +3833,10 @@
         "minecraft:block/quartz_pillar_side",
         "minecraft:block/quartz_pillar_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 246
     },
     {
-      "proposed_paint_id": 247,
       "block_id": "minecraft:raw_copper_block",
       "name_es": "Bloque de cobre en bruto",
       "name_en": "Block of Raw Copper",
@@ -3860,10 +3848,10 @@
       "source_textures": [
         "minecraft:block/raw_copper_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 247
     },
     {
-      "proposed_paint_id": 248,
       "block_id": "minecraft:raw_gold_block",
       "name_es": "Bloque de oro en bruto",
       "name_en": "Block of Raw Gold",
@@ -3875,10 +3863,10 @@
       "source_textures": [
         "minecraft:block/raw_gold_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 248
     },
     {
-      "proposed_paint_id": 249,
       "block_id": "minecraft:raw_iron_block",
       "name_es": "Bloque de hierro en bruto",
       "name_en": "Block of Raw Iron",
@@ -3890,10 +3878,10 @@
       "source_textures": [
         "minecraft:block/raw_iron_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 249
     },
     {
-      "proposed_paint_id": 250,
       "block_id": "minecraft:red_concrete",
       "name_es": "Hormigón rojo",
       "name_en": "Red Concrete",
@@ -3905,10 +3893,10 @@
       "source_textures": [
         "minecraft:block/red_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 250
     },
     {
-      "proposed_paint_id": 251,
       "block_id": "minecraft:red_concrete_powder",
       "name_es": "Cemento rojo",
       "name_en": "Red Concrete Powder",
@@ -3920,10 +3908,10 @@
       "source_textures": [
         "minecraft:block/red_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 251
     },
     {
-      "proposed_paint_id": 252,
       "block_id": "minecraft:red_glazed_terracotta",
       "name_es": "Azulejo rojo",
       "name_en": "Red Glazed Terracotta",
@@ -3935,10 +3923,10 @@
       "source_textures": [
         "minecraft:block/red_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 252
     },
     {
-      "proposed_paint_id": 253,
       "block_id": "minecraft:red_mushroom_block",
       "name_es": "Bloque de champiñón rojo",
       "name_en": "Red Mushroom Block",
@@ -3952,10 +3940,10 @@
         "minecraft:block/mushroom_block_inside",
         "minecraft:block/red_mushroom_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 253
     },
     {
-      "proposed_paint_id": 254,
       "block_id": "minecraft:red_nether_bricks",
       "name_es": "Ladrillos del Nether rojos",
       "name_en": "Red Nether Bricks",
@@ -3967,10 +3955,10 @@
       "source_textures": [
         "minecraft:block/red_nether_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 254
     },
     {
-      "proposed_paint_id": 255,
       "block_id": "minecraft:red_sand",
       "name_es": "Arena roja",
       "name_en": "Red Sand",
@@ -3982,10 +3970,10 @@
       "source_textures": [
         "minecraft:block/red_sand"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 255
     },
     {
-      "proposed_paint_id": 256,
       "block_id": "minecraft:red_sandstone",
       "name_es": "Arenisca roja",
       "name_en": "Red Sandstone",
@@ -3999,10 +3987,10 @@
         "minecraft:block/red_sandstone_bottom",
         "minecraft:block/red_sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 256
     },
     {
-      "proposed_paint_id": 257,
       "block_id": "minecraft:red_terracotta",
       "name_es": "Terracota roja",
       "name_en": "Red Terracotta",
@@ -4014,10 +4002,10 @@
       "source_textures": [
         "minecraft:block/red_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 257
     },
     {
-      "proposed_paint_id": 258,
       "block_id": "minecraft:red_wool",
       "name_es": "Lana roja",
       "name_en": "Red Wool",
@@ -4029,10 +4017,10 @@
       "source_textures": [
         "minecraft:block/red_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 258
     },
     {
-      "proposed_paint_id": 259,
       "block_id": "minecraft:redstone_block",
       "name_es": "Bloque de redstone",
       "name_en": "Block of Redstone",
@@ -4044,10 +4032,10 @@
       "source_textures": [
         "minecraft:block/redstone_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 259
     },
     {
-      "proposed_paint_id": 260,
       "block_id": "minecraft:redstone_lamp",
       "name_es": "Lámpara de redstone",
       "name_en": "Redstone Lamp",
@@ -4061,10 +4049,10 @@
         "minecraft:block/redstone_lamp",
         "minecraft:block/redstone_lamp_on"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 260
     },
     {
-      "proposed_paint_id": 261,
       "block_id": "minecraft:redstone_ore",
       "name_es": "Mena de redstone",
       "name_en": "Redstone Ore",
@@ -4076,10 +4064,10 @@
       "source_textures": [
         "minecraft:block/redstone_ore"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 261
     },
     {
-      "proposed_paint_id": 262,
       "block_id": "minecraft:reinforced_deepslate",
       "name_es": "Pizarra profunda reforzada",
       "name_en": "Reinforced Deepslate",
@@ -4093,10 +4081,10 @@
         "minecraft:block/reinforced_deepslate_side",
         "minecraft:block/reinforced_deepslate_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 262
     },
     {
-      "proposed_paint_id": 263,
       "block_id": "minecraft:resin_block",
       "name_es": "Bloque de resina",
       "name_en": "Block of Resin",
@@ -4108,10 +4096,10 @@
       "source_textures": [
         "minecraft:block/resin_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 263
     },
     {
-      "proposed_paint_id": 264,
       "block_id": "minecraft:resin_bricks",
       "name_es": "Ladrillos de resina",
       "name_en": "Resin Bricks",
@@ -4123,10 +4111,10 @@
       "source_textures": [
         "minecraft:block/resin_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 264
     },
     {
-      "proposed_paint_id": 265,
       "block_id": "minecraft:respawn_anchor",
       "name_es": "Nexo de reaparición",
       "name_en": "Respawn Anchor",
@@ -4149,10 +4137,10 @@
         "minecraft:block/respawn_anchor_top",
         "minecraft:block/respawn_anchor_top_off"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 265
     },
     {
-      "proposed_paint_id": 266,
       "block_id": "minecraft:rooted_dirt",
       "name_es": "Tierra enraizada",
       "name_en": "Rooted Dirt",
@@ -4164,10 +4152,10 @@
       "source_textures": [
         "minecraft:block/rooted_dirt"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 266
     },
     {
-      "proposed_paint_id": 267,
       "block_id": "minecraft:sand",
       "name_es": "Arena",
       "name_en": "Sand",
@@ -4179,10 +4167,10 @@
       "source_textures": [
         "minecraft:block/sand"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 267
     },
     {
-      "proposed_paint_id": 268,
       "block_id": "minecraft:sandstone",
       "name_es": "Arenisca",
       "name_en": "Sandstone",
@@ -4196,10 +4184,10 @@
         "minecraft:block/sandstone_bottom",
         "minecraft:block/sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 268
     },
     {
-      "proposed_paint_id": 269,
       "block_id": "minecraft:sculk",
       "name_es": "Sculk",
       "name_en": "Sculk",
@@ -4212,10 +4200,10 @@
       "source_textures": [
         "minecraft:block/sculk"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 269
     },
     {
-      "proposed_paint_id": 270,
       "block_id": "minecraft:sea_lantern",
       "name_es": "Linterna marina",
       "name_en": "Sea Lantern",
@@ -4227,10 +4215,10 @@
       "source_textures": [
         "minecraft:block/sea_lantern"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 270
     },
     {
-      "proposed_paint_id": 271,
       "block_id": "minecraft:shroomlight",
       "name_es": "Brillongo",
       "name_en": "Shroomlight",
@@ -4242,10 +4230,10 @@
       "source_textures": [
         "minecraft:block/shroomlight"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 271
     },
     {
-      "proposed_paint_id": 272,
       "block_id": "minecraft:smithing_table",
       "name_es": "Mesa de herrería",
       "name_en": "Smithing Table",
@@ -4260,10 +4248,10 @@
         "minecraft:block/smithing_table_side",
         "minecraft:block/smithing_table_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 272
     },
     {
-      "proposed_paint_id": 273,
       "block_id": "minecraft:smooth_basalt",
       "name_es": "Basalto liso",
       "name_en": "Smooth Basalt",
@@ -4275,10 +4263,10 @@
       "source_textures": [
         "minecraft:block/smooth_basalt"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 273
     },
     {
-      "proposed_paint_id": 274,
       "block_id": "minecraft:smooth_quartz",
       "name_es": "Bloque de cuarzo liso",
       "name_en": "Smooth Quartz Block",
@@ -4290,10 +4278,10 @@
       "source_textures": [
         "minecraft:block/quartz_block_bottom"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 274
     },
     {
-      "proposed_paint_id": 275,
       "block_id": "minecraft:smooth_red_sandstone",
       "name_es": "Arenisca roja lisa",
       "name_en": "Smooth Red Sandstone",
@@ -4305,10 +4293,10 @@
       "source_textures": [
         "minecraft:block/red_sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 275
     },
     {
-      "proposed_paint_id": 276,
       "block_id": "minecraft:smooth_sandstone",
       "name_es": "Arenisca lisa",
       "name_en": "Smooth Sandstone",
@@ -4320,10 +4308,10 @@
       "source_textures": [
         "minecraft:block/sandstone_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 276
     },
     {
-      "proposed_paint_id": 277,
       "block_id": "minecraft:smooth_stone",
       "name_es": "Piedra lisa",
       "name_en": "Smooth Stone",
@@ -4335,10 +4323,10 @@
       "source_textures": [
         "minecraft:block/smooth_stone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 277
     },
     {
-      "proposed_paint_id": 278,
       "block_id": "minecraft:snow_block",
       "name_es": "Bloque de nieve",
       "name_en": "Snow Block",
@@ -4350,10 +4338,10 @@
       "source_textures": [
         "minecraft:block/snow"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 278
     },
     {
-      "proposed_paint_id": 279,
       "block_id": "minecraft:soul_sand",
       "name_es": "Arena de almas",
       "name_en": "Soul Sand",
@@ -4365,10 +4353,10 @@
       "source_textures": [
         "minecraft:block/soul_sand"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 279
     },
     {
-      "proposed_paint_id": 280,
       "block_id": "minecraft:soul_soil",
       "name_es": "Tierra de almas",
       "name_en": "Soul Soil",
@@ -4380,10 +4368,10 @@
       "source_textures": [
         "minecraft:block/soul_soil"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 280
     },
     {
-      "proposed_paint_id": 281,
       "block_id": "minecraft:sponge",
       "name_es": "Esponja",
       "name_en": "Sponge",
@@ -4395,10 +4383,10 @@
       "source_textures": [
         "minecraft:block/sponge"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 281
     },
     {
-      "proposed_paint_id": 282,
       "block_id": "minecraft:spruce_log",
       "name_es": "Tronco de abeto",
       "name_en": "Spruce Log",
@@ -4412,10 +4400,10 @@
         "minecraft:block/spruce_log",
         "minecraft:block/spruce_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 282
     },
     {
-      "proposed_paint_id": 283,
       "block_id": "minecraft:spruce_planks",
       "name_es": "Tablones de abeto",
       "name_en": "Spruce Planks",
@@ -4427,10 +4415,10 @@
       "source_textures": [
         "minecraft:block/spruce_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 283
     },
     {
-      "proposed_paint_id": 284,
       "block_id": "minecraft:spruce_wood",
       "name_es": "Leño de abeto",
       "name_en": "Spruce Wood",
@@ -4442,10 +4430,10 @@
       "source_textures": [
         "minecraft:block/spruce_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 284
     },
     {
-      "proposed_paint_id": 285,
       "block_id": "minecraft:stone",
       "name_es": "Piedra",
       "name_en": "Stone",
@@ -4458,10 +4446,10 @@
       "source_textures": [
         "minecraft:block/stone"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 285
     },
     {
-      "proposed_paint_id": 286,
       "block_id": "minecraft:stone_bricks",
       "name_es": "Ladrillos de piedra",
       "name_en": "Stone Bricks",
@@ -4473,10 +4461,10 @@
       "source_textures": [
         "minecraft:block/stone_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 286
     },
     {
-      "proposed_paint_id": 287,
       "block_id": "minecraft:stripped_acacia_log",
       "name_es": "Tronco de acacia sin corteza",
       "name_en": "Stripped Acacia Log",
@@ -4490,10 +4478,10 @@
         "minecraft:block/stripped_acacia_log",
         "minecraft:block/stripped_acacia_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 287
     },
     {
-      "proposed_paint_id": 288,
       "block_id": "minecraft:stripped_acacia_wood",
       "name_es": "Leño de acacia sin corteza",
       "name_en": "Stripped Acacia Wood",
@@ -4505,10 +4493,10 @@
       "source_textures": [
         "minecraft:block/stripped_acacia_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 288
     },
     {
-      "proposed_paint_id": 289,
       "block_id": "minecraft:stripped_bamboo_block",
       "name_es": "Bloque de bambú pelado",
       "name_en": "Block of Stripped Bamboo",
@@ -4523,10 +4511,10 @@
         "minecraft:block/stripped_bamboo_block",
         "minecraft:block/stripped_bamboo_block_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 289
     },
     {
-      "proposed_paint_id": 290,
       "block_id": "minecraft:stripped_birch_log",
       "name_es": "Tronco de abedul sin corteza",
       "name_en": "Stripped Birch Log",
@@ -4540,10 +4528,10 @@
         "minecraft:block/stripped_birch_log",
         "minecraft:block/stripped_birch_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 290
     },
     {
-      "proposed_paint_id": 291,
       "block_id": "minecraft:stripped_birch_wood",
       "name_es": "Leño de abedul sin corteza",
       "name_en": "Stripped Birch Wood",
@@ -4555,10 +4543,10 @@
       "source_textures": [
         "minecraft:block/stripped_birch_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 291
     },
     {
-      "proposed_paint_id": 292,
       "block_id": "minecraft:stripped_cherry_log",
       "name_es": "Tronco de cerezo sin corteza",
       "name_en": "Stripped Cherry Log",
@@ -4573,10 +4561,10 @@
         "minecraft:block/stripped_cherry_log",
         "minecraft:block/stripped_cherry_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 292
     },
     {
-      "proposed_paint_id": 293,
       "block_id": "minecraft:stripped_cherry_wood",
       "name_es": "Leño de cerezo sin corteza",
       "name_en": "Stripped Cherry Wood",
@@ -4588,10 +4576,10 @@
       "source_textures": [
         "minecraft:block/stripped_cherry_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 293
     },
     {
-      "proposed_paint_id": 294,
       "block_id": "minecraft:stripped_crimson_hyphae",
       "name_es": "Hifas carmesí peladas",
       "name_en": "Stripped Crimson Hyphae",
@@ -4603,10 +4591,10 @@
       "source_textures": [
         "minecraft:block/stripped_crimson_stem"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 294
     },
     {
-      "proposed_paint_id": 295,
       "block_id": "minecraft:stripped_crimson_stem",
       "name_es": "Tallo carmesí pelado",
       "name_en": "Stripped Crimson Stem",
@@ -4619,10 +4607,10 @@
         "minecraft:block/stripped_crimson_stem",
         "minecraft:block/stripped_crimson_stem_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 295
     },
     {
-      "proposed_paint_id": 296,
       "block_id": "minecraft:stripped_dark_oak_log",
       "name_es": "Tronco de roble oscuro sin corteza",
       "name_en": "Stripped Dark Oak Log",
@@ -4636,10 +4624,10 @@
         "minecraft:block/stripped_dark_oak_log",
         "minecraft:block/stripped_dark_oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 296
     },
     {
-      "proposed_paint_id": 297,
       "block_id": "minecraft:stripped_dark_oak_wood",
       "name_es": "Leño de roble oscuro sin corteza",
       "name_en": "Stripped Dark Oak Wood",
@@ -4651,10 +4639,10 @@
       "source_textures": [
         "minecraft:block/stripped_dark_oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 297
     },
     {
-      "proposed_paint_id": 298,
       "block_id": "minecraft:stripped_jungle_log",
       "name_es": "Tronco de jungla sin corteza",
       "name_en": "Stripped Jungle Log",
@@ -4668,10 +4656,10 @@
         "minecraft:block/stripped_jungle_log",
         "minecraft:block/stripped_jungle_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 298
     },
     {
-      "proposed_paint_id": 299,
       "block_id": "minecraft:stripped_jungle_wood",
       "name_es": "Leño de jungla sin corteza",
       "name_en": "Stripped Jungle Wood",
@@ -4683,10 +4671,10 @@
       "source_textures": [
         "minecraft:block/stripped_jungle_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 299
     },
     {
-      "proposed_paint_id": 300,
       "block_id": "minecraft:stripped_mangrove_log",
       "name_es": "Tronco de mangle sin corteza",
       "name_en": "Stripped Mangrove Log",
@@ -4700,10 +4688,10 @@
         "minecraft:block/stripped_mangrove_log",
         "minecraft:block/stripped_mangrove_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 300
     },
     {
-      "proposed_paint_id": 301,
       "block_id": "minecraft:stripped_mangrove_wood",
       "name_es": "Leño de mangle sin corteza",
       "name_en": "Stripped Mangrove Wood",
@@ -4715,10 +4703,10 @@
       "source_textures": [
         "minecraft:block/stripped_mangrove_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 301
     },
     {
-      "proposed_paint_id": 302,
       "block_id": "minecraft:stripped_oak_log",
       "name_es": "Tronco de roble sin corteza",
       "name_en": "Stripped Oak Log",
@@ -4732,10 +4720,10 @@
         "minecraft:block/stripped_oak_log",
         "minecraft:block/stripped_oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 302
     },
     {
-      "proposed_paint_id": 303,
       "block_id": "minecraft:stripped_oak_wood",
       "name_es": "Leño de roble sin corteza",
       "name_en": "Stripped Oak Wood",
@@ -4747,10 +4735,10 @@
       "source_textures": [
         "minecraft:block/stripped_oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 303
     },
     {
-      "proposed_paint_id": 304,
       "block_id": "minecraft:stripped_pale_oak_log",
       "name_es": "Tronco de roble pálido sin corteza",
       "name_en": "Stripped Pale Oak Log",
@@ -4764,10 +4752,10 @@
         "minecraft:block/stripped_pale_oak_log",
         "minecraft:block/stripped_pale_oak_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 304
     },
     {
-      "proposed_paint_id": 305,
       "block_id": "minecraft:stripped_pale_oak_wood",
       "name_es": "Leño de roble pálido sin corteza",
       "name_en": "Stripped Pale Oak Wood",
@@ -4779,10 +4767,10 @@
       "source_textures": [
         "minecraft:block/stripped_pale_oak_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 305
     },
     {
-      "proposed_paint_id": 306,
       "block_id": "minecraft:stripped_spruce_log",
       "name_es": "Tronco de abeto sin corteza",
       "name_en": "Stripped Spruce Log",
@@ -4796,10 +4784,10 @@
         "minecraft:block/stripped_spruce_log",
         "minecraft:block/stripped_spruce_log_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 306
     },
     {
-      "proposed_paint_id": 307,
       "block_id": "minecraft:stripped_spruce_wood",
       "name_es": "Leño de abeto sin corteza",
       "name_en": "Stripped Spruce Wood",
@@ -4811,10 +4799,10 @@
       "source_textures": [
         "minecraft:block/stripped_spruce_log"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 307
     },
     {
-      "proposed_paint_id": 308,
       "block_id": "minecraft:stripped_warped_hyphae",
       "name_es": "Hifas distorsionadas peladas",
       "name_en": "Stripped Warped Hyphae",
@@ -4826,10 +4814,10 @@
       "source_textures": [
         "minecraft:block/stripped_warped_stem"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 308
     },
     {
-      "proposed_paint_id": 309,
       "block_id": "minecraft:stripped_warped_stem",
       "name_es": "Tallo distorsionado pelado",
       "name_en": "Stripped Warped Stem",
@@ -4842,10 +4830,10 @@
         "minecraft:block/stripped_warped_stem",
         "minecraft:block/stripped_warped_stem_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 309
     },
     {
-      "proposed_paint_id": 310,
       "block_id": "minecraft:sulfur",
       "name_es": "Azufre",
       "name_en": "Sulfur",
@@ -4857,10 +4845,10 @@
       "source_textures": [
         "minecraft:block/sulfur"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 310
     },
     {
-      "proposed_paint_id": 311,
       "block_id": "minecraft:sulfur_bricks",
       "name_es": "Ladrillos de azufre",
       "name_en": "Sulfur Bricks",
@@ -4872,10 +4860,10 @@
       "source_textures": [
         "minecraft:block/sulfur_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 311
     },
     {
-      "proposed_paint_id": 312,
       "block_id": "minecraft:target",
       "name_es": "Diana",
       "name_en": "Target",
@@ -4888,10 +4876,10 @@
         "minecraft:block/target_side",
         "minecraft:block/target_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 312
     },
     {
-      "proposed_paint_id": 313,
       "block_id": "minecraft:terracotta",
       "name_es": "Terracota",
       "name_en": "Terracotta",
@@ -4903,10 +4891,10 @@
       "source_textures": [
         "minecraft:block/terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 313
     },
     {
-      "proposed_paint_id": 314,
       "block_id": "minecraft:tnt",
       "name_es": "Dinamita",
       "name_en": "TNT",
@@ -4920,10 +4908,10 @@
         "minecraft:block/tnt_side",
         "minecraft:block/tnt_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 314
     },
     {
-      "proposed_paint_id": 315,
       "block_id": "minecraft:tube_coral_block",
       "name_es": "Bloque de coral de tubo",
       "name_en": "Tube Coral Block",
@@ -4935,10 +4923,10 @@
       "source_textures": [
         "minecraft:block/tube_coral_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 315
     },
     {
-      "proposed_paint_id": 316,
       "block_id": "minecraft:tuff",
       "name_es": "Toba",
       "name_en": "Tuff",
@@ -4950,10 +4938,10 @@
       "source_textures": [
         "minecraft:block/tuff"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 316
     },
     {
-      "proposed_paint_id": 317,
       "block_id": "minecraft:tuff_bricks",
       "name_es": "Ladrillos de toba",
       "name_en": "Tuff Bricks",
@@ -4965,10 +4953,10 @@
       "source_textures": [
         "minecraft:block/tuff_bricks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 317
     },
     {
-      "proposed_paint_id": 318,
       "block_id": "minecraft:verdant_froglight",
       "name_es": "Ranaluz verde",
       "name_en": "Verdant Froglight",
@@ -4982,10 +4970,10 @@
         "minecraft:block/verdant_froglight_side",
         "minecraft:block/verdant_froglight_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 318
     },
     {
-      "proposed_paint_id": 319,
       "block_id": "minecraft:warped_hyphae",
       "name_es": "Hifas distorsionadas",
       "name_en": "Warped Hyphae",
@@ -4997,10 +4985,10 @@
       "source_textures": [
         "minecraft:block/warped_stem"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 319
     },
     {
-      "proposed_paint_id": 320,
       "block_id": "minecraft:warped_nylium",
       "name_es": "Necelio distorsionado",
       "name_en": "Warped Nylium",
@@ -5014,10 +5002,10 @@
         "minecraft:block/warped_nylium",
         "minecraft:block/warped_nylium_side"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 320
     },
     {
-      "proposed_paint_id": 321,
       "block_id": "minecraft:warped_planks",
       "name_es": "Tablones distorsionados",
       "name_en": "Warped Planks",
@@ -5029,10 +5017,10 @@
       "source_textures": [
         "minecraft:block/warped_planks"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 321
     },
     {
-      "proposed_paint_id": 322,
       "block_id": "minecraft:warped_stem",
       "name_es": "Tallo distorsionado",
       "name_en": "Warped Stem",
@@ -5045,10 +5033,10 @@
         "minecraft:block/warped_stem",
         "minecraft:block/warped_stem_top"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 322
     },
     {
-      "proposed_paint_id": 323,
       "block_id": "minecraft:warped_wart_block",
       "name_es": "Bloque de verrugas distorsionadas",
       "name_en": "Warped Wart Block",
@@ -5060,10 +5048,10 @@
       "source_textures": [
         "minecraft:block/warped_wart_block"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 323
     },
     {
-      "proposed_paint_id": 324,
       "block_id": "minecraft:weathered_chiseled_copper",
       "name_es": "Cobre cincelado degradado",
       "name_en": "Weathered Chiseled Copper",
@@ -5075,10 +5063,10 @@
       "source_textures": [
         "minecraft:block/weathered_chiseled_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 324
     },
     {
-      "proposed_paint_id": 325,
       "block_id": "minecraft:weathered_copper",
       "name_es": "Cobre degradado",
       "name_en": "Weathered Copper",
@@ -5090,10 +5078,10 @@
       "source_textures": [
         "minecraft:block/weathered_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 325
     },
     {
-      "proposed_paint_id": 326,
       "block_id": "minecraft:weathered_copper_bulb",
       "name_es": "Lámpara de cobre degradado",
       "name_en": "Weathered Copper Bulb",
@@ -5111,10 +5099,10 @@
         "minecraft:block/weathered_copper_bulb_lit_powered",
         "minecraft:block/weathered_copper_bulb_powered"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 326
     },
     {
-      "proposed_paint_id": 327,
       "block_id": "minecraft:weathered_cut_copper",
       "name_es": "Cobre cortado degradado",
       "name_en": "Weathered Cut Copper",
@@ -5126,10 +5114,10 @@
       "source_textures": [
         "minecraft:block/weathered_cut_copper"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 327
     },
     {
-      "proposed_paint_id": 328,
       "block_id": "minecraft:wet_sponge",
       "name_es": "Esponja mojada",
       "name_en": "Wet Sponge",
@@ -5141,10 +5129,10 @@
       "source_textures": [
         "minecraft:block/wet_sponge"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 328
     },
     {
-      "proposed_paint_id": 329,
       "block_id": "minecraft:white_concrete",
       "name_es": "Hormigón blanco",
       "name_en": "White Concrete",
@@ -5156,10 +5144,10 @@
       "source_textures": [
         "minecraft:block/white_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 329
     },
     {
-      "proposed_paint_id": 330,
       "block_id": "minecraft:white_concrete_powder",
       "name_es": "Cemento blanco",
       "name_en": "White Concrete Powder",
@@ -5171,10 +5159,10 @@
       "source_textures": [
         "minecraft:block/white_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 330
     },
     {
-      "proposed_paint_id": 331,
       "block_id": "minecraft:white_glazed_terracotta",
       "name_es": "Azulejo blanco",
       "name_en": "White Glazed Terracotta",
@@ -5186,10 +5174,10 @@
       "source_textures": [
         "minecraft:block/white_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 331
     },
     {
-      "proposed_paint_id": 332,
       "block_id": "minecraft:white_terracotta",
       "name_es": "Terracota blanca",
       "name_en": "White Terracotta",
@@ -5201,10 +5189,10 @@
       "source_textures": [
         "minecraft:block/white_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 332
     },
     {
-      "proposed_paint_id": 333,
       "block_id": "minecraft:white_wool",
       "name_es": "Lana blanca",
       "name_en": "White Wool",
@@ -5216,10 +5204,10 @@
       "source_textures": [
         "minecraft:block/white_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 333
     },
     {
-      "proposed_paint_id": 334,
       "block_id": "minecraft:yellow_concrete",
       "name_es": "Hormigón amarillo",
       "name_en": "Yellow Concrete",
@@ -5231,10 +5219,10 @@
       "source_textures": [
         "minecraft:block/yellow_concrete"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 334
     },
     {
-      "proposed_paint_id": 335,
       "block_id": "minecraft:yellow_concrete_powder",
       "name_es": "Cemento amarillo",
       "name_en": "Yellow Concrete Powder",
@@ -5246,10 +5234,10 @@
       "source_textures": [
         "minecraft:block/yellow_concrete_powder"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 335
     },
     {
-      "proposed_paint_id": 336,
       "block_id": "minecraft:yellow_glazed_terracotta",
       "name_es": "Azulejo amarillo",
       "name_en": "Yellow Glazed Terracotta",
@@ -5261,10 +5249,10 @@
       "source_textures": [
         "minecraft:block/yellow_glazed_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 336
     },
     {
-      "proposed_paint_id": 337,
       "block_id": "minecraft:yellow_terracotta",
       "name_es": "Terracota amarilla",
       "name_en": "Yellow Terracotta",
@@ -5276,10 +5264,10 @@
       "source_textures": [
         "minecraft:block/yellow_terracotta"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 337
     },
     {
-      "proposed_paint_id": 338,
       "block_id": "minecraft:yellow_wool",
       "name_es": "Lana amarilla",
       "name_en": "Yellow Wool",
@@ -5291,7 +5279,8 @@
       "source_textures": [
         "minecraft:block/yellow_wool"
       ],
-      "uses_tint": false
+      "uses_tint": false,
+      "paint_id": 338
     }
   ],
   "duplicates": [
@@ -6077,11 +6066,23 @@
       "equivalent_excluded_blocks": []
     }
   ],
-  "future_paint_behavior": {
+  "id_plan": {
+    "unpainted": 0,
+    "default_checker": 1,
+    "vanilla_first": 2,
+    "vanilla_last": 338,
+    "archived_first": 339,
+    "archived_last": 353,
+    "minimum_storage_bits": 9,
+    "active_storage_changed": true,
+    "conversion_performed": false,
+    "palette_version": 2
+  },
+  "paint_behavior": {
     "light_emission": 0,
     "inherit_source_light_emission": false,
     "multi_texture_selection": "relative_position_of_painted_blocks",
-    "multi_texture_rule": "Multiple textures must be selected according to the position of painted blocks and their spatial relationships. Vanilla source block logic is not inherited.",
-    "implemented_in_game": false
+    "multi_texture_rule": "Original face textures and UVs are sampled in block coordinates. Pillar axes follow matching painted or vanilla neighbors; grass is snowy below snow paint or snow blocks. Native default states are used otherwise, with random variants seeded by world position.",
+    "implemented_in_game": true
   }
 }

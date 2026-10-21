@@ -1,4 +1,4 @@
-source_palette,source_id,paint_key,original_block_name,proposed_paint_id
+source_palette,source_id,paint_key,original_block_name,target_paint_id
 lsmmod_original;paintingmod_v1,0,UNPAINTED,school_paintable_block,0
 lsmmod_original;paintingmod_v1,1,LIGHT,light_school_wall,339
 lsmmod_original;paintingmod_v1,2,DARK,dark_school_wall,340

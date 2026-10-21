@@ -1,41 +1,50 @@
-Catálogo de pinturas vanilla para Minecraft Java 26.2
+Catálogo activo de pinturas vanilla para Minecraft Java 26.2
 
-TOTAL: 337 bloques/apariencias únicos con superficies completas y opacas.
-De los 402 candidatos cúbicos sin block entities, se excluyen 42 por
-cristal o superficies incompletas/translúcidas y se agrupan 23 duplicados visuales.
-La lista completa está en vanilla-paints-26.2.csv. El JSON conserva los modelos,
-texturas, clases, criterios, fuentes y las exclusiones, con sus valores alfa.
+337 pinturas vanilla, sin cristales ni superficies incompletas/translúcidas.
+La lista completa está en vanilla-paints-26.2.csv. El JSON conserva modelos,
+texturas, clases, fuentes, criterios y exclusiones con sus valores alfa.
 
-Numeración PROPUESTA (todavía no usada por el mod):
+Numeración activa de la paleta versión 2:
 0: UNPAINTED, sin pintar.
-1: default_checker, cuadros grises.
-2–338: los 337 bloques vanilla, por ID de bloque en orden alfabético.
-339–353: las quince pinturas archivadas, manteniendo su orden original.
-La tabla paint-id-conversion.csv contiene las correspondencias exactas.
-Un futuro almacenamiento directo de estos IDs necesitará al menos 9 bits.
-El guardado actual de cinco bits y su paleta no se modifican en esta tarea.
+1: default_checker, cuadros grises, acabado gratuito de los bloques nuevos.
+2–338: las 337 pinturas vanilla, por ID de bloque en orden alfabético.
+339–353: IDs reservados para las quince pinturas archivadas, todavía inactivas.
+La tabla paint-id-conversion.csv mantiene sus correspondencias originales.
+El catálogo completo necesita nueve bits por ID; cada palabra guarda siete IDs.
+
+La paleta se identifica al guardar bloques y patrones copiados. Los lectores
+reconocen los campos antiguos de tres, cuatro y cinco bits. En datos sin versión,
+0 sigue siendo sin pintar, 1–15 identifican las pinturas archivadas y 16 el checker.
+Al leer se conserva su significado, sin confundirlos con las pinturas vanilla.
+No se han abierto, recorrido ni convertido mundos o archivos .schem en esta tarea.
+
+Cada pintura es reutilizable y tiene un ítem en la pestaña creativa del mod.
+Aplicar, copiar/pegar, lijar y seleccionar rectángulos conservan sus controles.
+La lija devuelve los ítems de pintura vanilla tratados; el checker gratuito no
+produce objetos. El limpiador no devuelve pinturas ni reconstruye cubos tallados.
+
+Renderizado:
+- Las pinturas no emiten luz ni ejecutan lógica del bloque vanilla original.
+- Cada cara conserva las texturas y UV del modelo vanilla, recortados a 16/8/4px.
+- Los ejes de troncos y pilares siguen los vecinos pintados o vanilla coincidentes.
+- El césped se ve nevado bajo nieve vanilla o pintada.
+- Los demás estados parten del estado predeterminado de la apariencia vanilla;
+  las variantes aleatorias se eligen de forma estable según la posición mundial.
+- Se mantienen tintes por bioma, animaciones y overlays opacos completos.
+- Geometría, selección y colisión dependen exclusivamente de los cubos presentes.
+- El modelo recibe snapshots inmutables de pintura y ocupación, sincronizados
+  después de editar o cargar datos, y actualiza las apariencias vecinas.
 
 «Entero» exige contorno cúbico de 16 × 16 × 16 y una superficie completa opaca.
-Se excluyen todos los cristales, las hojas, las rejillas, las raíces de mangle,
-el hielo transparente, el hielo escarchado y los bloques de miel y slime.
-El hielo compacto y el hielo azul permanecen: sus texturas son completas y opacas.
-El césped permanece: su overlay se compone sobre una cara base completa y opaca.
+De los 402 candidatos sin block entities, 42 se excluyen por transparencia y
+23 duplicados visuales se agrupan, dejando las 337 apariencias activas.
+Se excluyen cristal, hojas, rejillas, raíces de mangle, hielo transparente,
+hielo escarchado, miel y slime. Hielo compacto y azul permanecen por ser opacos.
+El overlay del césped se compone sobre una cara base completa y opaca.
 No se exige colisión maciza: barro, nieve en polvo y arena de almas son casos expresos.
-También se excluyen cactus, formas parciales, pistones que dejan de ser cúbicos al
-extenderse, losas incluso con estado doble, fluidos y bloques técnicos invisibles.
-Una entrada representa un bloque, no cada orientación, estado o fotograma.
+Se excluyen también formas parciales, pistones extensibles, losas, fluidos,
+bloques técnicos invisibles y bloques con block entities.
 
-Comportamiento de las futuras pinturas:
-- Ninguna emitirá luz, aunque el bloque vanilla original sea luminoso.
-- En los bloques con varias texturas, su elección será relativa a la posición
-  de los bloques pintados y a sus relaciones espaciales.
-- No se heredará la lógica funcional del bloque vanilla de origen.
-Estas reglas quedan definidas para la futura integración; todavía no se registran
-las pinturas vanilla ni se implementa su renderizado en el juego.
-
-Método: inspección estática del cliente oficial 26.2, sus modelos/blockstates,
-la jerarquía de clases EntityBlock y los píxeles RGBA de todas las texturas y
-fotogramas. Los overlays se consideran junto con su base opaca. Sin ejecutar
-Minecraft, compilaciones, generadores de datos del juego ni pruebas.
-No se han convertido mundos, NBT, patrones copiados ni archivos .schem.
-DEFAULT sigue guardándose como ID 16 en la paleta activa.
+Recursos y APIs revisados estáticamente contra Minecraft 26.2 y NeoForge 26.2.0.88.
+No se han ejecutado compilaciones, pruebas, generadores de datos de Minecraft
+ni el juego. El generador de recursos del repositorio solo escribe JSON e ítems.

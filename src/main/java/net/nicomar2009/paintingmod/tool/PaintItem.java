@@ -20,6 +20,7 @@ public class PaintItem extends Item {
         RectanglePaintTool.clear(stack);
         CompoundTag tag = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag();
         CompoundTag copy = new CompoundTag(); int[] colors = source.snapshot();
+        copy.putInt("paint_palette", Paint.PALETTE_VERSION);
         copy.putBoolean("quadrants", colors.length == 24);
         int count=colors.length/6;copy.putInt("subdivisions",count);
         for (Direction face : Direction.values()) {
@@ -38,7 +39,9 @@ public class PaintItem extends Item {
             String key = face.getSerializedName() + (count > 1 ? "_"+q : "");
             if (!copy.contains(key)) return null;
             int color = copy.getIntOr(key, -1);
-            if (!Paint.validId(color)) return null;
+            int palette = copy.getIntOr("paint_palette", 1);
+            if (color < 0 || (palette < Paint.PALETTE_VERSION ? color > 16 : !Paint.validId(color))) return null;
+            color = Paint.decode(color, palette);
             colors[face.ordinal()*count+q] = color;
         }
         return colors;

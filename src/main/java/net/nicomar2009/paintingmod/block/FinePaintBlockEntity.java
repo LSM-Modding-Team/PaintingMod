@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import net.nicomar2009.paintingmod.paint.PaintPacking;
 import net.nicomar2009.paintingmod.paint.Paint;
+import net.nicomar2009.paintingmod.paint.PaintStorage;
 
 /** Shared 4px editable-cube storage retained for the independent minicube block. */
 public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
@@ -53,11 +53,11 @@ public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
     @Override public Paint paint(Direction face) {return squarePaint(face,0);}
     @Override public void paintAt(Direction face,Vec3 hit,Paint color) {
         if(!canPaintAt(face,hit))return;int index=square(face,hit);
-        int[] copy=snapshot();for(int square:squareGroup(index))copy[square]=color.ordinal();apply(copy);
+        int[] copy=snapshot();for(int square:squareGroup(index))copy[square]=color.id();apply(copy);
     }
     @Override public void paintFace(Direction face,Paint color) {
         int[] copy=snapshot();int start=face.ordinal()*16;
-        Arrays.fill(copy,start,start+16,color.ordinal());apply(copy);
+        Arrays.fill(copy,start,start+16,color.id());apply(copy);
     }
     @Override public int[] snapshot() {return squares.clone();}
     @Override public boolean painted() {for(int color:squares)if(color!=0)return true;return false;}
@@ -67,7 +67,7 @@ public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
         int[] copy=new int[96];
         for(int face=0;face<6;face++)for(int q=0;q<16;q++) {
             int index=colors.length==6?face:colors.length==24?face*4+(q%4)/2+2*(q/4/2):face*16+q;
-            copy[face*16+q]=Paint.fromId(colors[index]).ordinal();
+            copy[face*16+q]=Paint.fromId(colors[index]).id();
         }
         if(!Arrays.equals(copy,squares)) {System.arraycopy(copy,0,squares,0,96);changed();}
     }
@@ -98,34 +98,14 @@ public abstract class FinePaintBlockEntity extends PaintableBlockEntity {
     @Override protected void saveAdditional(ValueOutput output) {
         output.putLong("removed", removed);
         output.putLong("occupied", occupied());
-        output.putInt("paint_bits", 5);
-        for (int face = 0; face < 6; face++) {
-            output.putLong("paints_" + face, PaintPacking.pack(squares, face * 16, 12, 5));
-            output.putLong("paints_high_" + face, PaintPacking.pack(squares, face * 16 + 12, 4, 5));
-        }
+        PaintStorage.header(output);
+        for (int face = 0; face < 6; face++)
+            PaintStorage.write(output, squares, face * 16, 16, "paints_" + face, "paints_high_" + face, "paints_extra_" + face);
     }
     @Override protected void loadAdditional(ValueInput input) {
         removed = ~input.getLongOr("occupied", ~input.getLongOr("removed", 0));
-        int bits = input.getIntOr("paint_bits", 4) == 5 ? 5 : 4;
-        int split = bits == 5 ? 12 : 16;
-        for (int face = 0; face < 6; face++) {
-            long low = input.getLongOr("paints_" + face, 0);
-            long high = input.getLongOr("paints_high_" + face, 0);
-            for (int q = 0; q < 16; q++)
-                squares[face * 16 + q] = PaintPacking.unpack(
-                        q < split ? low : high, q < split ? q : q - split, bits);
-        }
+        for (int face = 0; face < 6; face++)
+            PaintStorage.read(input, squares, face * 16, 16, 4, "paints_" + face, "paints_high_" + face, "paints_extra_" + face);
         invalidateClientGeometry();
-    }
-    @Override protected void invalidateClientGeometry() {
-        super.invalidateClientGeometry();
-        // Neighbor caps depend on this mask too; refresh after the BE packet has been applied.
-        if(level!=null&&level.isClientSide())for(Direction direction:Direction.values()) {
-            BlockPos neighbor=worldPosition.relative(direction);
-            if(level.hasChunkAt(neighbor)&&level.getBlockEntity(neighbor) instanceof FinePaintBlockEntity) {
-                BlockState state=level.getBlockState(neighbor);
-                level.sendBlockUpdated(neighbor,state,state,net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
-            }
-        }
     }
 }

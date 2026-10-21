@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import net.nicomar2009.paintingmod.paint.PaintPacking;
 import net.nicomar2009.paintingmod.paint.Paint;
+import net.nicomar2009.paintingmod.paint.PaintStorage;
 import net.nicomar2009.paintingmod.registry.ModBlockEntities;
 
 /** Twenty-four colors and eight occupancy bits; no ticking or combinatorial block states. */
@@ -35,11 +35,11 @@ public class PaintableCustomBlockEntity extends PaintableBlockEntity {
     @Override public Paint paintAt(Direction face, Vec3 hit) { return Paint.fromId(squares[square(face,hit)]); }
     @Override public void paintAt(Direction face, Vec3 hit, Paint color) {
         int index=square(face,hit);
-        if (squares[index]==color.ordinal()) return;
-        squares[index]=color.ordinal(); changed();
+        if (squares[index]==color.id()) return;
+        squares[index]=color.id(); changed();
     }
     @Override public void paintFace(Direction face, Paint color) {
-        int[] copy=snapshot(); Arrays.fill(copy,face.ordinal()*4,face.ordinal()*4+4,color.ordinal()); apply(copy);
+        int[] copy=snapshot(); Arrays.fill(copy,face.ordinal()*4,face.ordinal()*4+4,color.id()); apply(copy);
     }
     @Override public int[] snapshot() { return squares.clone(); }
     @Override public boolean painted() { for (int color:squares) if(color!=0) return true; return false; }
@@ -51,7 +51,7 @@ public class PaintableCustomBlockEntity extends PaintableBlockEntity {
         }
         if(colors.length!=6 && colors.length!=24) throw new IllegalArgumentException("Expected six faces or twenty-four squares");
         int[] copy=new int[24];
-        for(int i=0;i<24;i++) copy[i]=Paint.fromId(colors[colors.length==6 ? i/4 : i]).ordinal();
+        for(int i=0;i<24;i++) copy[i]=Paint.fromId(colors[colors.length==6 ? i/4 : i]).id();
         if(Arrays.equals(squares,copy)) return;
         System.arraycopy(copy,0,squares,0,24); changed();
     }
@@ -77,19 +77,12 @@ public class PaintableCustomBlockEntity extends PaintableBlockEntity {
     @Override protected void saveAdditional(ValueOutput output) {
         // The inherited six-color storage is unused: encode only this block's 24 colors.
         output.putInt("occupied",occupied);
-        output.putInt("paint_bits", 5);
-        output.putLong("paints_low", PaintPacking.pack(squares, 0, 12, 5));
-        output.putLong("paints_high", PaintPacking.pack(squares, 12, 12, 5));
+        PaintStorage.header(output);
+        PaintStorage.write(output, squares, 0, 24, "paints_low", "paints_high", "paints_extra_0", "paints_extra_1");
     }
     @Override protected void loadAdditional(ValueInput input) {
         occupied = input.getIntOr("occupied", 255) & 255;
-        int bits = input.getIntOr("paint_bits", 3);
-        bits = bits == 5 ? 5 : bits == 4 ? 4 : 3;
-        int split = bits == 5 ? 12 : 16;
-        long low = input.getLongOr("paints_low", 0), high = input.getLongOr("paints_high", 0);
-        for (int i = 0; i < squares.length; i++)
-            squares[i] = PaintPacking.unpack(i < split ? low : high,
-                    i < split ? i : i - split, bits);
+        PaintStorage.read(input, squares, 0, 24, 3, "paints_low", "paints_high", "paints_extra_0", "paints_extra_1");
         invalidateClientGeometry();
     }
 }

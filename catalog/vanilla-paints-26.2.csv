@@ -1,4 +1,4 @@
-proposed_paint_id,block_id,name_es,name_en
+paint_id,block_id,name_es,name_en
 2,minecraft:acacia_log,Tronco de acacia,Acacia Log
 3,minecraft:acacia_planks,Tablones de acacia,Acacia Planks
 4,minecraft:acacia_wood,Leño de acacia,Acacia Wood

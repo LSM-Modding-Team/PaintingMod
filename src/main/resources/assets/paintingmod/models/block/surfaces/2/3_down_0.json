@@ -1,1 +1,0 @@
-{"parent":"minecraft:block/block","render_type":"minecraft:solid","textures":{"surface":"minecraft:block/light_gray_concrete","particle":"#surface"},"elements":[{"from":[8,8,0],"to":[16,16,8],"faces":{"down":{"texture":"#surface","uv":[8,8,16,16]}}}]}
