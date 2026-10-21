@@ -1,0 +1,6143 @@
+{
+  "catalog_version": 1,
+  "minecraft_version": "26.2",
+  "status": "planning_only_not_registered_as_paints",
+  "sources": {
+    "version_metadata": "https://piston-meta.mojang.com/v1/packages/bdfd9856166b7171857c491f15479762f3abda99/26.2.json",
+    "official_client_jar": "https://piston-data.mojang.com/v1/objects/2dc72797acbc1b63fc16a11c4ac393605f453754/client.jar",
+    "official_client_sha1": "2dc72797acbc1b63fc16a11c4ac393605f453754",
+    "spanish_language_sha1": "3467adf0d69263961bcd29a0997e0d62afe7202b",
+    "registry_source": "net.minecraft.world.level.block.Blocks, static inspection of official class files; CFR 0.152 for source review"
+  },
+  "criteria": {
+    "full_cube": "Complete 16x16x16 outline and cubic appearance throughout its block states; transparent/cutout cubic blocks are included. Collision may differ from the outline.",
+    "block_entities": "Excluded when the registered class or its superclass implements EntityBlock.",
+    "duplicates": "One block representative per unique set of face textures, decoded RGBA pixels, animation metadata and tint-index usage; waxed and infested equivalents use the ordinary block.",
+    "states": "One entry per block ID, not per orientation, powered state, age, snowy state or random model. All source model alternatives are recorded.",
+    "order": "Block IDs in lexicographic order for this frozen 26.2 catalog.",
+    "not_included": "Air, fluids, invisible technical blocks, partial shapes, slabs (including double states), stairs, pistons with non-cubic extended states and blocks with block entities."
+  },
+  "counts": {
+    "reviewed_vanilla_blockstate_definitions": 1199,
+    "full_cube_candidates_without_block_entities": 402,
+    "duplicate_visual_entries_removed": 27,
+    "unique_vanilla_entries": 375,
+    "cube_model_candidates_excluded_for_block_entities": 26
+  },
+  "proposed_id_plan": {
+    "unpainted": 0,
+    "default_checker": 1,
+    "vanilla_first": 2,
+    "vanilla_last": 376,
+    "archived_first": 377,
+    "archived_last": 391,
+    "minimum_storage_bits": 9,
+    "active_storage_changed": false,
+    "conversion_performed": false
+  },
+  "notes": {
+    "collision_exceptions": [
+      "minecraft:honey_block",
+      "minecraft:mud",
+      "minecraft:powder_snow",
+      "minecraft:soul_sand"
+    ],
+    "multipart_cube_models": [
+      "minecraft:brown_mushroom_block",
+      "minecraft:red_mushroom_block",
+      "minecraft:mushroom_stem",
+      "minecraft:mangrove_roots",
+      "minecraft:powder_snow"
+    ],
+    "cactus_excluded": "CactusBlock has a 14-pixel-wide outline despite top and bottom faces using a 16-pixel model element.",
+    "technical_block_included": "Frosted ice is included because it is a visible full cube without a block entity; availability as a normal inventory block is not a criterion.",
+    "future_rendering": "Tinted, translucent, cutout, layered, animated and state-dependent materials need their own implementation when enabled as paints. This catalog does not implement them.",
+    "save_compatibility": "PaintingMod keeps its current ID 16 for DEFAULT and reserved IDs 1..15 until a later explicitly authorized conversion."
+  },
+  "entries": [
+    {
+      "proposed_paint_id": 2,
+      "block_id": "minecraft:acacia_leaves",
+      "name_es": "Hojas de acacia",
+      "name_en": "Acacia Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/acacia_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/acacia_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 3,
+      "block_id": "minecraft:acacia_log",
+      "name_es": "Tronco de acacia",
+      "name_en": "Acacia Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/acacia_log",
+        "minecraft:block/acacia_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/acacia_log",
+        "minecraft:block/acacia_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 4,
+      "block_id": "minecraft:acacia_planks",
+      "name_es": "Tablones de acacia",
+      "name_en": "Acacia Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/acacia_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/acacia_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 5,
+      "block_id": "minecraft:acacia_wood",
+      "name_es": "Leño de acacia",
+      "name_en": "Acacia Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/acacia_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/acacia_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 6,
+      "block_id": "minecraft:amethyst_block",
+      "name_es": "Bloque de amatista",
+      "name_en": "Block of Amethyst",
+      "block_class": "AmethystBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/amethyst_block"
+      ],
+      "source_textures": [
+        "minecraft:block/amethyst_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 7,
+      "block_id": "minecraft:ancient_debris",
+      "name_es": "Escombros ancestrales",
+      "name_en": "Ancient Debris",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/ancient_debris"
+      ],
+      "source_textures": [
+        "minecraft:block/ancient_debris_side",
+        "minecraft:block/ancient_debris_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 8,
+      "block_id": "minecraft:andesite",
+      "name_es": "Andesita",
+      "name_en": "Andesite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/andesite"
+      ],
+      "source_textures": [
+        "minecraft:block/andesite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 9,
+      "block_id": "minecraft:azalea_leaves",
+      "name_es": "Hojas de azalea",
+      "name_en": "Azalea Leaves",
+      "block_class": "UntintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/azalea_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/azalea_leaves"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 10,
+      "block_id": "minecraft:bamboo_block",
+      "name_es": "Bloque de bambú",
+      "name_en": "Block of Bamboo",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bamboo_block_x",
+        "minecraft:block/bamboo_block_y",
+        "minecraft:block/bamboo_block_z"
+      ],
+      "source_textures": [
+        "minecraft:block/bamboo_block",
+        "minecraft:block/bamboo_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 11,
+      "block_id": "minecraft:bamboo_mosaic",
+      "name_es": "Mosaico de bambú",
+      "name_en": "Bamboo Mosaic",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bamboo_mosaic"
+      ],
+      "source_textures": [
+        "minecraft:block/bamboo_mosaic"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 12,
+      "block_id": "minecraft:bamboo_planks",
+      "name_es": "Tablones de bambú",
+      "name_en": "Bamboo Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bamboo_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/bamboo_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 13,
+      "block_id": "minecraft:basalt",
+      "name_es": "Basalto",
+      "name_en": "Basalt",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/basalt"
+      ],
+      "source_textures": [
+        "minecraft:block/basalt_side",
+        "minecraft:block/basalt_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 14,
+      "block_id": "minecraft:bedrock",
+      "name_es": "Piedra base",
+      "name_en": "Bedrock",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bedrock",
+        "minecraft:block/bedrock_mirrored"
+      ],
+      "source_textures": [
+        "minecraft:block/bedrock"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 15,
+      "block_id": "minecraft:birch_leaves",
+      "name_es": "Hojas de abedul",
+      "name_en": "Birch Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/birch_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/birch_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 16,
+      "block_id": "minecraft:birch_log",
+      "name_es": "Tronco de abedul",
+      "name_en": "Birch Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/birch_log",
+        "minecraft:block/birch_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/birch_log",
+        "minecraft:block/birch_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 17,
+      "block_id": "minecraft:birch_planks",
+      "name_es": "Tablones de abedul",
+      "name_en": "Birch Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/birch_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/birch_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 18,
+      "block_id": "minecraft:birch_wood",
+      "name_es": "Leño de abedul",
+      "name_en": "Birch Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/birch_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/birch_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 19,
+      "block_id": "minecraft:black_concrete",
+      "name_es": "Hormigón negro",
+      "name_en": "Black Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/black_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 20,
+      "block_id": "minecraft:black_concrete_powder",
+      "name_es": "Cemento negro",
+      "name_en": "Black Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/black_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 21,
+      "block_id": "minecraft:black_glazed_terracotta",
+      "name_es": "Azulejo negro",
+      "name_en": "Black Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/black_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 22,
+      "block_id": "minecraft:black_stained_glass",
+      "name_es": "Cristal tintado de negro",
+      "name_en": "Black Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/black_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 23,
+      "block_id": "minecraft:black_terracotta",
+      "name_es": "Terracota negra",
+      "name_en": "Black Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/black_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 24,
+      "block_id": "minecraft:black_wool",
+      "name_es": "Lana negra",
+      "name_en": "Black Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/black_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/black_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 25,
+      "block_id": "minecraft:blackstone",
+      "name_es": "Piedra negra",
+      "name_en": "Blackstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blackstone"
+      ],
+      "source_textures": [
+        "minecraft:block/blackstone",
+        "minecraft:block/blackstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 26,
+      "block_id": "minecraft:blue_concrete",
+      "name_es": "Hormigón azul",
+      "name_en": "Blue Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 27,
+      "block_id": "minecraft:blue_concrete_powder",
+      "name_es": "Cemento azul",
+      "name_en": "Blue Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 28,
+      "block_id": "minecraft:blue_glazed_terracotta",
+      "name_es": "Azulejo azul",
+      "name_en": "Blue Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 29,
+      "block_id": "minecraft:blue_ice",
+      "name_es": "Hielo azul",
+      "name_en": "Blue Ice",
+      "block_class": "HalfTransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_ice"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_ice"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 30,
+      "block_id": "minecraft:blue_stained_glass",
+      "name_es": "Cristal tintado de azul",
+      "name_en": "Blue Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 31,
+      "block_id": "minecraft:blue_terracotta",
+      "name_es": "Terracota azul",
+      "name_en": "Blue Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 32,
+      "block_id": "minecraft:blue_wool",
+      "name_es": "Lana azul",
+      "name_en": "Blue Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/blue_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/blue_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 33,
+      "block_id": "minecraft:bone_block",
+      "name_es": "Bloque de huesos",
+      "name_en": "Bone Block",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bone_block"
+      ],
+      "source_textures": [
+        "minecraft:block/bone_block_side",
+        "minecraft:block/bone_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 34,
+      "block_id": "minecraft:bookshelf",
+      "name_es": "Librería",
+      "name_en": "Bookshelf",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bookshelf"
+      ],
+      "source_textures": [
+        "minecraft:block/bookshelf",
+        "minecraft:block/oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 35,
+      "block_id": "minecraft:brain_coral_block",
+      "name_es": "Bloque de coral de cerebro",
+      "name_en": "Brain Coral Block",
+      "block_class": "CoralBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brain_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/brain_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 36,
+      "block_id": "minecraft:bricks",
+      "name_es": "Ladrillos",
+      "name_en": "Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 37,
+      "block_id": "minecraft:brown_concrete",
+      "name_es": "Hormigón marrón",
+      "name_en": "Brown Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 38,
+      "block_id": "minecraft:brown_concrete_powder",
+      "name_es": "Cemento marrón",
+      "name_en": "Brown Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 39,
+      "block_id": "minecraft:brown_glazed_terracotta",
+      "name_es": "Azulejo marrón",
+      "name_en": "Brown Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 40,
+      "block_id": "minecraft:brown_mushroom_block",
+      "name_es": "Bloque de champiñón marrón",
+      "name_en": "Brown Mushroom Block",
+      "block_class": "HugeMushroomBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_mushroom_block",
+        "minecraft:block/mushroom_block_inside"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_mushroom_block",
+        "minecraft:block/mushroom_block_inside"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 41,
+      "block_id": "minecraft:brown_stained_glass",
+      "name_es": "Cristal tintado de marrón",
+      "name_en": "Brown Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 42,
+      "block_id": "minecraft:brown_terracotta",
+      "name_es": "Terracota marrón",
+      "name_en": "Brown Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 43,
+      "block_id": "minecraft:brown_wool",
+      "name_es": "Lana marrón",
+      "name_en": "Brown Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/brown_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/brown_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 44,
+      "block_id": "minecraft:bubble_coral_block",
+      "name_es": "Bloque de coral de burbuja",
+      "name_en": "Bubble Coral Block",
+      "block_class": "CoralBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/bubble_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/bubble_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 45,
+      "block_id": "minecraft:budding_amethyst",
+      "name_es": "Brotador de amatista",
+      "name_en": "Budding Amethyst",
+      "block_class": "BuddingAmethystBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/budding_amethyst"
+      ],
+      "source_textures": [
+        "minecraft:block/budding_amethyst"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 46,
+      "block_id": "minecraft:calcite",
+      "name_es": "Calcita",
+      "name_en": "Calcite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/calcite"
+      ],
+      "source_textures": [
+        "minecraft:block/calcite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 47,
+      "block_id": "minecraft:cartography_table",
+      "name_es": "Mesa de cartografía",
+      "name_en": "Cartography Table",
+      "block_class": "CartographyTableBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cartography_table"
+      ],
+      "source_textures": [
+        "minecraft:block/cartography_table_side1",
+        "minecraft:block/cartography_table_side2",
+        "minecraft:block/cartography_table_side3",
+        "minecraft:block/cartography_table_top",
+        "minecraft:block/dark_oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 48,
+      "block_id": "minecraft:carved_pumpkin",
+      "name_es": "Calabaza tallada",
+      "name_en": "Carved Pumpkin",
+      "block_class": "CarvedPumpkinBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/carved_pumpkin"
+      ],
+      "source_textures": [
+        "minecraft:block/carved_pumpkin",
+        "minecraft:block/pumpkin_side",
+        "minecraft:block/pumpkin_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 49,
+      "block_id": "minecraft:cherry_leaves",
+      "name_es": "Hojas de cerezo",
+      "name_en": "Cherry Leaves",
+      "block_class": "UntintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cherry_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/cherry_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 50,
+      "block_id": "minecraft:cherry_log",
+      "name_es": "Tronco de cerezo",
+      "name_en": "Cherry Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cherry_log_x",
+        "minecraft:block/cherry_log_y",
+        "minecraft:block/cherry_log_z"
+      ],
+      "source_textures": [
+        "minecraft:block/cherry_log",
+        "minecraft:block/cherry_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 51,
+      "block_id": "minecraft:cherry_planks",
+      "name_es": "Tablones de cerezo",
+      "name_en": "Cherry Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cherry_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/cherry_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 52,
+      "block_id": "minecraft:cherry_wood",
+      "name_es": "Leño de cerezo",
+      "name_en": "Cherry Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cherry_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/cherry_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 53,
+      "block_id": "minecraft:chiseled_cinnabar",
+      "name_es": "Cinabrio cincelado",
+      "name_en": "Chiseled Cinnabar",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_cinnabar"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_cinnabar"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 54,
+      "block_id": "minecraft:chiseled_copper",
+      "name_es": "Cobre cincelado",
+      "name_en": "Chiseled Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 55,
+      "block_id": "minecraft:chiseled_deepslate",
+      "name_es": "Pizarra profunda cincelada",
+      "name_en": "Chiseled Deepslate",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_deepslate"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_deepslate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 56,
+      "block_id": "minecraft:chiseled_nether_bricks",
+      "name_es": "Ladrillos del Nether cincelados",
+      "name_en": "Chiseled Nether Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_nether_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_nether_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 57,
+      "block_id": "minecraft:chiseled_polished_blackstone",
+      "name_es": "Piedra negra pulida cincelada",
+      "name_en": "Chiseled Polished Blackstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_polished_blackstone"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_polished_blackstone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 58,
+      "block_id": "minecraft:chiseled_quartz_block",
+      "name_es": "Cuarzo cincelado",
+      "name_en": "Chiseled Quartz Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_quartz_block"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_quartz_block",
+        "minecraft:block/chiseled_quartz_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 59,
+      "block_id": "minecraft:chiseled_red_sandstone",
+      "name_es": "Arenisca roja cincelada",
+      "name_en": "Chiseled Red Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_red_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_red_sandstone",
+        "minecraft:block/red_sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 60,
+      "block_id": "minecraft:chiseled_resin_bricks",
+      "name_es": "Ladrillos de resina cincelados",
+      "name_en": "Chiseled Resin Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_resin_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_resin_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 61,
+      "block_id": "minecraft:chiseled_sandstone",
+      "name_es": "Arenisca cincelada",
+      "name_en": "Chiseled Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_sandstone",
+        "minecraft:block/sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 62,
+      "block_id": "minecraft:chiseled_stone_bricks",
+      "name_es": "Ladrillos de piedra cincelados",
+      "name_en": "Chiseled Stone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_stone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_stone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 63,
+      "block_id": "minecraft:chiseled_sulfur",
+      "name_es": "Azufre cincelado",
+      "name_en": "Chiseled Sulfur",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_sulfur"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_sulfur"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 64,
+      "block_id": "minecraft:chiseled_tuff",
+      "name_es": "Toba cincelada",
+      "name_en": "Chiseled Tuff",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_tuff"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_tuff",
+        "minecraft:block/chiseled_tuff_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 65,
+      "block_id": "minecraft:chiseled_tuff_bricks",
+      "name_es": "Ladrillos de toba cincelados",
+      "name_en": "Chiseled Tuff Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/chiseled_tuff_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/chiseled_tuff_bricks",
+        "minecraft:block/chiseled_tuff_bricks_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 66,
+      "block_id": "minecraft:cinnabar",
+      "name_es": "Cinabrio",
+      "name_en": "Cinnabar",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cinnabar"
+      ],
+      "source_textures": [
+        "minecraft:block/cinnabar"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 67,
+      "block_id": "minecraft:cinnabar_bricks",
+      "name_es": "Ladrillos de cinabrio",
+      "name_en": "Cinnabar Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cinnabar_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/cinnabar_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 68,
+      "block_id": "minecraft:clay",
+      "name_es": "Bloque de arcilla",
+      "name_en": "Clay",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/clay"
+      ],
+      "source_textures": [
+        "minecraft:block/clay"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 69,
+      "block_id": "minecraft:coal_block",
+      "name_es": "Bloque de carbón",
+      "name_en": "Block of Coal",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/coal_block"
+      ],
+      "source_textures": [
+        "minecraft:block/coal_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 70,
+      "block_id": "minecraft:coal_ore",
+      "name_es": "Mena de carbón",
+      "name_en": "Coal Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/coal_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/coal_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 71,
+      "block_id": "minecraft:coarse_dirt",
+      "name_es": "Tierra estéril",
+      "name_en": "Coarse Dirt",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/coarse_dirt"
+      ],
+      "source_textures": [
+        "minecraft:block/coarse_dirt"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 72,
+      "block_id": "minecraft:cobbled_deepslate",
+      "name_es": "Pizarra profunda rocosa",
+      "name_en": "Cobbled Deepslate",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cobbled_deepslate"
+      ],
+      "source_textures": [
+        "minecraft:block/cobbled_deepslate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 73,
+      "block_id": "minecraft:cobblestone",
+      "name_es": "Roca",
+      "name_en": "Cobblestone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cobblestone"
+      ],
+      "source_textures": [
+        "minecraft:block/cobblestone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 74,
+      "block_id": "minecraft:copper_block",
+      "name_es": "Bloque de cobre",
+      "name_en": "Block of Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/copper_block"
+      ],
+      "source_textures": [
+        "minecraft:block/copper_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 75,
+      "block_id": "minecraft:copper_bulb",
+      "name_es": "Lámpara de cobre",
+      "name_en": "Copper Bulb",
+      "block_class": "CopperBulbBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/copper_bulb",
+        "minecraft:block/copper_bulb_lit",
+        "minecraft:block/copper_bulb_lit_powered",
+        "minecraft:block/copper_bulb_powered"
+      ],
+      "source_textures": [
+        "minecraft:block/copper_bulb",
+        "minecraft:block/copper_bulb_lit",
+        "minecraft:block/copper_bulb_lit_powered",
+        "minecraft:block/copper_bulb_powered"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 76,
+      "block_id": "minecraft:copper_grate",
+      "name_es": "Rejilla de cobre",
+      "name_en": "Copper Grate",
+      "block_class": "WaterloggedTransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/copper_grate"
+      ],
+      "source_textures": [
+        "minecraft:block/copper_grate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 77,
+      "block_id": "minecraft:copper_ore",
+      "name_es": "Mena de cobre",
+      "name_en": "Copper Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/copper_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/copper_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 78,
+      "block_id": "minecraft:cracked_deepslate_bricks",
+      "name_es": "Ladrillos de pizarra profunda agrietados",
+      "name_en": "Cracked Deepslate Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cracked_deepslate_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/cracked_deepslate_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 79,
+      "block_id": "minecraft:cracked_deepslate_tiles",
+      "name_es": "Baldosas de pizarra profunda agrietadas",
+      "name_en": "Cracked Deepslate Tiles",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cracked_deepslate_tiles"
+      ],
+      "source_textures": [
+        "minecraft:block/cracked_deepslate_tiles"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 80,
+      "block_id": "minecraft:cracked_nether_bricks",
+      "name_es": "Ladrillos del Nether agrietados",
+      "name_en": "Cracked Nether Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cracked_nether_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/cracked_nether_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 81,
+      "block_id": "minecraft:cracked_polished_blackstone_bricks",
+      "name_es": "Ladrillos de piedra negra pulida agrietados",
+      "name_en": "Cracked Polished Blackstone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cracked_polished_blackstone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/cracked_polished_blackstone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 82,
+      "block_id": "minecraft:cracked_stone_bricks",
+      "name_es": "Ladrillos de piedra agrietados",
+      "name_en": "Cracked Stone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cracked_stone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/cracked_stone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 83,
+      "block_id": "minecraft:crafting_table",
+      "name_es": "Mesa de trabajo",
+      "name_en": "Crafting Table",
+      "block_class": "CraftingTableBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crafting_table"
+      ],
+      "source_textures": [
+        "minecraft:block/crafting_table_front",
+        "minecraft:block/crafting_table_side",
+        "minecraft:block/crafting_table_top",
+        "minecraft:block/oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 84,
+      "block_id": "minecraft:crimson_hyphae",
+      "name_es": "Hifas carmesí",
+      "name_en": "Crimson Hyphae",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crimson_hyphae"
+      ],
+      "source_textures": [
+        "minecraft:block/crimson_stem"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 85,
+      "block_id": "minecraft:crimson_nylium",
+      "name_es": "Necelio carmesí",
+      "name_en": "Crimson Nylium",
+      "block_class": "NyliumBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crimson_nylium"
+      ],
+      "source_textures": [
+        "minecraft:block/crimson_nylium",
+        "minecraft:block/crimson_nylium_side",
+        "minecraft:block/netherrack"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 86,
+      "block_id": "minecraft:crimson_planks",
+      "name_es": "Tablones carmesí",
+      "name_en": "Crimson Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crimson_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/crimson_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 87,
+      "block_id": "minecraft:crimson_stem",
+      "name_es": "Tallo carmesí",
+      "name_en": "Crimson Stem",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crimson_stem"
+      ],
+      "source_textures": [
+        "minecraft:block/crimson_stem",
+        "minecraft:block/crimson_stem_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 88,
+      "block_id": "minecraft:crying_obsidian",
+      "name_es": "Obsidiana llorosa",
+      "name_en": "Crying Obsidian",
+      "block_class": "CryingObsidianBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/crying_obsidian"
+      ],
+      "source_textures": [
+        "minecraft:block/crying_obsidian"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 89,
+      "block_id": "minecraft:cut_copper",
+      "name_es": "Cobre cortado",
+      "name_en": "Cut Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cut_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/cut_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 90,
+      "block_id": "minecraft:cut_red_sandstone",
+      "name_es": "Arenisca roja cortada",
+      "name_en": "Cut Red Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cut_red_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/cut_red_sandstone",
+        "minecraft:block/red_sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 91,
+      "block_id": "minecraft:cut_sandstone",
+      "name_es": "Arenisca cortada",
+      "name_en": "Cut Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cut_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/cut_sandstone",
+        "minecraft:block/sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 92,
+      "block_id": "minecraft:cyan_concrete",
+      "name_es": "Hormigón cian",
+      "name_en": "Cyan Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 93,
+      "block_id": "minecraft:cyan_concrete_powder",
+      "name_es": "Cemento cian",
+      "name_en": "Cyan Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 94,
+      "block_id": "minecraft:cyan_glazed_terracotta",
+      "name_es": "Azulejo cian",
+      "name_en": "Cyan Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 95,
+      "block_id": "minecraft:cyan_stained_glass",
+      "name_es": "Cristal tintado de cian",
+      "name_en": "Cyan Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 96,
+      "block_id": "minecraft:cyan_terracotta",
+      "name_es": "Terracota cian",
+      "name_en": "Cyan Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 97,
+      "block_id": "minecraft:cyan_wool",
+      "name_es": "Lana cian",
+      "name_en": "Cyan Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/cyan_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/cyan_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 98,
+      "block_id": "minecraft:dark_oak_leaves",
+      "name_es": "Hojas de roble oscuro",
+      "name_en": "Dark Oak Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dark_oak_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/dark_oak_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 99,
+      "block_id": "minecraft:dark_oak_log",
+      "name_es": "Tronco de roble oscuro",
+      "name_en": "Dark Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dark_oak_log",
+        "minecraft:block/dark_oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/dark_oak_log",
+        "minecraft:block/dark_oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 100,
+      "block_id": "minecraft:dark_oak_planks",
+      "name_es": "Tablones de roble oscuro",
+      "name_en": "Dark Oak Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dark_oak_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/dark_oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 101,
+      "block_id": "minecraft:dark_oak_wood",
+      "name_es": "Leño de roble oscuro",
+      "name_en": "Dark Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dark_oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/dark_oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 102,
+      "block_id": "minecraft:dark_prismarine",
+      "name_es": "Prismarina oscura",
+      "name_en": "Dark Prismarine",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dark_prismarine"
+      ],
+      "source_textures": [
+        "minecraft:block/dark_prismarine"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 103,
+      "block_id": "minecraft:dead_brain_coral_block",
+      "name_es": "Bloque de coral de cerebro muerto",
+      "name_en": "Dead Brain Coral Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dead_brain_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dead_brain_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 104,
+      "block_id": "minecraft:dead_bubble_coral_block",
+      "name_es": "Bloque de coral de burbuja muerto",
+      "name_en": "Dead Bubble Coral Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dead_bubble_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dead_bubble_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 105,
+      "block_id": "minecraft:dead_fire_coral_block",
+      "name_es": "Bloque de coral de fuego muerto",
+      "name_en": "Dead Fire Coral Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dead_fire_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dead_fire_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 106,
+      "block_id": "minecraft:dead_horn_coral_block",
+      "name_es": "Bloque de coral de cuerno muerto",
+      "name_en": "Dead Horn Coral Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dead_horn_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dead_horn_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 107,
+      "block_id": "minecraft:dead_tube_coral_block",
+      "name_es": "Bloque de coral de tubo muerto",
+      "name_en": "Dead Tube Coral Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dead_tube_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dead_tube_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 108,
+      "block_id": "minecraft:deepslate",
+      "name_es": "Pizarra profunda",
+      "name_en": "Deepslate",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate",
+        "minecraft:block/deepslate_mirrored"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate",
+        "minecraft:block/deepslate_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 109,
+      "block_id": "minecraft:deepslate_bricks",
+      "name_es": "Ladrillos de pizarra profunda",
+      "name_en": "Deepslate Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 110,
+      "block_id": "minecraft:deepslate_coal_ore",
+      "name_es": "Mena de carbón de pizarra profunda",
+      "name_en": "Deepslate Coal Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_coal_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_coal_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 111,
+      "block_id": "minecraft:deepslate_copper_ore",
+      "name_es": "Mena de cobre de pizarra profunda",
+      "name_en": "Deepslate Copper Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_copper_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_copper_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 112,
+      "block_id": "minecraft:deepslate_diamond_ore",
+      "name_es": "Mena de diamante de pizarra profunda",
+      "name_en": "Deepslate Diamond Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_diamond_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_diamond_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 113,
+      "block_id": "minecraft:deepslate_emerald_ore",
+      "name_es": "Mena de esmeralda de pizarra profunda",
+      "name_en": "Deepslate Emerald Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_emerald_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_emerald_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 114,
+      "block_id": "minecraft:deepslate_gold_ore",
+      "name_es": "Mena de oro de pizarra profunda",
+      "name_en": "Deepslate Gold Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_gold_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_gold_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 115,
+      "block_id": "minecraft:deepslate_iron_ore",
+      "name_es": "Mena de hierro de pizarra profunda",
+      "name_en": "Deepslate Iron Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_iron_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_iron_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 116,
+      "block_id": "minecraft:deepslate_lapis_ore",
+      "name_es": "Mena de lapislázuli de pizarra profunda",
+      "name_en": "Deepslate Lapis Lazuli Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_lapis_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_lapis_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 117,
+      "block_id": "minecraft:deepslate_redstone_ore",
+      "name_es": "Mena de redstone de pizarra profunda",
+      "name_en": "Deepslate Redstone Ore",
+      "block_class": "RedStoneOreBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_redstone_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_redstone_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 118,
+      "block_id": "minecraft:deepslate_tiles",
+      "name_es": "Baldosas de pizarra profunda",
+      "name_en": "Deepslate Tiles",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/deepslate_tiles"
+      ],
+      "source_textures": [
+        "minecraft:block/deepslate_tiles"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 119,
+      "block_id": "minecraft:diamond_block",
+      "name_es": "Bloque de diamante",
+      "name_en": "Block of Diamond",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/diamond_block"
+      ],
+      "source_textures": [
+        "minecraft:block/diamond_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 120,
+      "block_id": "minecraft:diamond_ore",
+      "name_es": "Mena de diamante",
+      "name_en": "Diamond Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/diamond_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/diamond_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 121,
+      "block_id": "minecraft:diorite",
+      "name_es": "Diorita",
+      "name_en": "Diorite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/diorite"
+      ],
+      "source_textures": [
+        "minecraft:block/diorite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 122,
+      "block_id": "minecraft:dirt",
+      "name_es": "Tierra",
+      "name_en": "Dirt",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dirt"
+      ],
+      "source_textures": [
+        "minecraft:block/dirt"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 123,
+      "block_id": "minecraft:dried_kelp_block",
+      "name_es": "Bloque de algas secas",
+      "name_en": "Dried Kelp Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dried_kelp_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dried_kelp_bottom",
+        "minecraft:block/dried_kelp_side",
+        "minecraft:block/dried_kelp_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 124,
+      "block_id": "minecraft:dripstone_block",
+      "name_es": "Bloque de caliza",
+      "name_en": "Dripstone Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/dripstone_block"
+      ],
+      "source_textures": [
+        "minecraft:block/dripstone_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 125,
+      "block_id": "minecraft:emerald_block",
+      "name_es": "Bloque de esmeralda",
+      "name_en": "Block of Emerald",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/emerald_block"
+      ],
+      "source_textures": [
+        "minecraft:block/emerald_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 126,
+      "block_id": "minecraft:emerald_ore",
+      "name_es": "Mena de esmeralda",
+      "name_en": "Emerald Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/emerald_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/emerald_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 127,
+      "block_id": "minecraft:end_stone",
+      "name_es": "Piedra del End",
+      "name_en": "End Stone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/end_stone"
+      ],
+      "source_textures": [
+        "minecraft:block/end_stone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 128,
+      "block_id": "minecraft:end_stone_bricks",
+      "name_es": "Ladrillos de piedra del End",
+      "name_en": "End Stone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/end_stone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/end_stone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 129,
+      "block_id": "minecraft:exposed_chiseled_copper",
+      "name_es": "Cobre cincelado expuesto",
+      "name_en": "Exposed Chiseled Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/exposed_chiseled_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/exposed_chiseled_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 130,
+      "block_id": "minecraft:exposed_copper",
+      "name_es": "Cobre expuesto",
+      "name_en": "Exposed Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/exposed_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/exposed_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 131,
+      "block_id": "minecraft:exposed_copper_bulb",
+      "name_es": "Lámpara de cobre expuesto",
+      "name_en": "Exposed Copper Bulb",
+      "block_class": "CopperBulbBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/exposed_copper_bulb",
+        "minecraft:block/exposed_copper_bulb_lit",
+        "minecraft:block/exposed_copper_bulb_lit_powered",
+        "minecraft:block/exposed_copper_bulb_powered"
+      ],
+      "source_textures": [
+        "minecraft:block/exposed_copper_bulb",
+        "minecraft:block/exposed_copper_bulb_lit",
+        "minecraft:block/exposed_copper_bulb_lit_powered",
+        "minecraft:block/exposed_copper_bulb_powered"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 132,
+      "block_id": "minecraft:exposed_copper_grate",
+      "name_es": "Rejilla de cobre expuesto",
+      "name_en": "Exposed Copper Grate",
+      "block_class": "WaterloggedTransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/exposed_copper_grate"
+      ],
+      "source_textures": [
+        "minecraft:block/exposed_copper_grate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 133,
+      "block_id": "minecraft:exposed_cut_copper",
+      "name_es": "Cobre cortado expuesto",
+      "name_en": "Exposed Cut Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/exposed_cut_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/exposed_cut_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 134,
+      "block_id": "minecraft:fire_coral_block",
+      "name_es": "Bloque de coral de fuego",
+      "name_en": "Fire Coral Block",
+      "block_class": "CoralBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/fire_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/fire_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 135,
+      "block_id": "minecraft:fletching_table",
+      "name_es": "Mesa de flechas",
+      "name_en": "Fletching Table",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/fletching_table"
+      ],
+      "source_textures": [
+        "minecraft:block/birch_planks",
+        "minecraft:block/fletching_table_front",
+        "minecraft:block/fletching_table_side",
+        "minecraft:block/fletching_table_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 136,
+      "block_id": "minecraft:flowering_azalea_leaves",
+      "name_es": "Hojas de azalea florecida",
+      "name_en": "Flowering Azalea Leaves",
+      "block_class": "UntintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/flowering_azalea_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/flowering_azalea_leaves"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 137,
+      "block_id": "minecraft:frosted_ice",
+      "name_es": "Hielo escarchado",
+      "name_en": "Frosted Ice",
+      "block_class": "FrostedIceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/frosted_ice_0",
+        "minecraft:block/frosted_ice_1",
+        "minecraft:block/frosted_ice_2",
+        "minecraft:block/frosted_ice_3"
+      ],
+      "source_textures": [
+        "minecraft:block/frosted_ice_0",
+        "minecraft:block/frosted_ice_1",
+        "minecraft:block/frosted_ice_2",
+        "minecraft:block/frosted_ice_3"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 138,
+      "block_id": "minecraft:gilded_blackstone",
+      "name_es": "Piedra negra áurea",
+      "name_en": "Gilded Blackstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gilded_blackstone"
+      ],
+      "source_textures": [
+        "minecraft:block/gilded_blackstone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 139,
+      "block_id": "minecraft:glass",
+      "name_es": "Cristal",
+      "name_en": "Glass",
+      "block_class": "TransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/glass"
+      ],
+      "source_textures": [
+        "minecraft:block/glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 140,
+      "block_id": "minecraft:glowstone",
+      "name_es": "Piedra luminosa",
+      "name_en": "Glowstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/glowstone"
+      ],
+      "source_textures": [
+        "minecraft:block/glowstone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 141,
+      "block_id": "minecraft:gold_block",
+      "name_es": "Bloque de oro",
+      "name_en": "Block of Gold",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gold_block"
+      ],
+      "source_textures": [
+        "minecraft:block/gold_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 142,
+      "block_id": "minecraft:gold_ore",
+      "name_es": "Mena de oro",
+      "name_en": "Gold Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gold_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/gold_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 143,
+      "block_id": "minecraft:granite",
+      "name_es": "Granito",
+      "name_en": "Granite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/granite"
+      ],
+      "source_textures": [
+        "minecraft:block/granite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 144,
+      "block_id": "minecraft:grass_block",
+      "name_es": "Césped",
+      "name_en": "Grass Block",
+      "block_class": "GrassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/grass_block",
+        "minecraft:block/grass_block_snow"
+      ],
+      "source_textures": [
+        "minecraft:block/dirt",
+        "minecraft:block/grass_block_side",
+        "minecraft:block/grass_block_side_overlay",
+        "minecraft:block/grass_block_snow",
+        "minecraft:block/grass_block_top"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 145,
+      "block_id": "minecraft:gravel",
+      "name_es": "Grava",
+      "name_en": "Gravel",
+      "block_class": "ColoredFallingBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gravel"
+      ],
+      "source_textures": [
+        "minecraft:block/gravel"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 146,
+      "block_id": "minecraft:gray_concrete",
+      "name_es": "Hormigón gris",
+      "name_en": "Gray Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 147,
+      "block_id": "minecraft:gray_concrete_powder",
+      "name_es": "Cemento gris",
+      "name_en": "Gray Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 148,
+      "block_id": "minecraft:gray_glazed_terracotta",
+      "name_es": "Azulejo gris",
+      "name_en": "Gray Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 149,
+      "block_id": "minecraft:gray_stained_glass",
+      "name_es": "Cristal tintado de gris",
+      "name_en": "Gray Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 150,
+      "block_id": "minecraft:gray_terracotta",
+      "name_es": "Terracota gris",
+      "name_en": "Gray Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 151,
+      "block_id": "minecraft:gray_wool",
+      "name_es": "Lana gris",
+      "name_en": "Gray Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/gray_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/gray_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 152,
+      "block_id": "minecraft:green_concrete",
+      "name_es": "Hormigón verde",
+      "name_en": "Green Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/green_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 153,
+      "block_id": "minecraft:green_concrete_powder",
+      "name_es": "Cemento verde",
+      "name_en": "Green Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/green_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 154,
+      "block_id": "minecraft:green_glazed_terracotta",
+      "name_es": "Azulejo verde",
+      "name_en": "Green Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/green_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 155,
+      "block_id": "minecraft:green_stained_glass",
+      "name_es": "Cristal tintado de verde",
+      "name_en": "Green Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/green_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 156,
+      "block_id": "minecraft:green_terracotta",
+      "name_es": "Terracota verde",
+      "name_en": "Green Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/green_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 157,
+      "block_id": "minecraft:green_wool",
+      "name_es": "Lana verde",
+      "name_en": "Green Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/green_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/green_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 158,
+      "block_id": "minecraft:hay_block",
+      "name_es": "Bala de heno",
+      "name_en": "Hay Bale",
+      "block_class": "HayBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/hay_block",
+        "minecraft:block/hay_block_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/hay_block_side",
+        "minecraft:block/hay_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 159,
+      "block_id": "minecraft:honey_block",
+      "name_es": "Bloque de miel",
+      "name_en": "Honey Block",
+      "block_class": "HoneyBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/honey_block"
+      ],
+      "source_textures": [
+        "minecraft:block/honey_block_bottom",
+        "minecraft:block/honey_block_side",
+        "minecraft:block/honey_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 160,
+      "block_id": "minecraft:honeycomb_block",
+      "name_es": "Bloque de panal",
+      "name_en": "Honeycomb Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/honeycomb_block"
+      ],
+      "source_textures": [
+        "minecraft:block/honeycomb_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 161,
+      "block_id": "minecraft:horn_coral_block",
+      "name_es": "Bloque de coral de cuerno",
+      "name_en": "Horn Coral Block",
+      "block_class": "CoralBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/horn_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/horn_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 162,
+      "block_id": "minecraft:ice",
+      "name_es": "Hielo",
+      "name_en": "Ice",
+      "block_class": "IceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/ice"
+      ],
+      "source_textures": [
+        "minecraft:block/ice"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 163,
+      "block_id": "minecraft:iron_block",
+      "name_es": "Bloque de hierro",
+      "name_en": "Block of Iron",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/iron_block"
+      ],
+      "source_textures": [
+        "minecraft:block/iron_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 164,
+      "block_id": "minecraft:iron_ore",
+      "name_es": "Mena de hierro",
+      "name_en": "Iron Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/iron_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/iron_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 165,
+      "block_id": "minecraft:jack_o_lantern",
+      "name_es": "Calabaza de Halloween",
+      "name_en": "Jack o'Lantern",
+      "block_class": "CarvedPumpkinBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/jack_o_lantern"
+      ],
+      "source_textures": [
+        "minecraft:block/jack_o_lantern",
+        "minecraft:block/pumpkin_side",
+        "minecraft:block/pumpkin_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 166,
+      "block_id": "minecraft:jungle_leaves",
+      "name_es": "Hojas de jungla",
+      "name_en": "Jungle Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/jungle_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/jungle_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 167,
+      "block_id": "minecraft:jungle_log",
+      "name_es": "Tronco de jungla",
+      "name_en": "Jungle Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/jungle_log",
+        "minecraft:block/jungle_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/jungle_log",
+        "minecraft:block/jungle_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 168,
+      "block_id": "minecraft:jungle_planks",
+      "name_es": "Tablones de jungla",
+      "name_en": "Jungle Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/jungle_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/jungle_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 169,
+      "block_id": "minecraft:jungle_wood",
+      "name_es": "Leño de jungla",
+      "name_en": "Jungle Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/jungle_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/jungle_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 170,
+      "block_id": "minecraft:lapis_block",
+      "name_es": "Bloque de lapislázuli",
+      "name_en": "Block of Lapis Lazuli",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lapis_block"
+      ],
+      "source_textures": [
+        "minecraft:block/lapis_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 171,
+      "block_id": "minecraft:lapis_ore",
+      "name_es": "Mena de lapislázuli",
+      "name_en": "Lapis Lazuli Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lapis_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/lapis_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 172,
+      "block_id": "minecraft:light_blue_concrete",
+      "name_es": "Hormigón azul claro",
+      "name_en": "Light Blue Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 173,
+      "block_id": "minecraft:light_blue_concrete_powder",
+      "name_es": "Cemento azul claro",
+      "name_en": "Light Blue Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 174,
+      "block_id": "minecraft:light_blue_glazed_terracotta",
+      "name_es": "Azulejo azul claro",
+      "name_en": "Light Blue Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 175,
+      "block_id": "minecraft:light_blue_stained_glass",
+      "name_es": "Cristal tintado de azul claro",
+      "name_en": "Light Blue Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 176,
+      "block_id": "minecraft:light_blue_terracotta",
+      "name_es": "Terracota azul claro",
+      "name_en": "Light Blue Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 177,
+      "block_id": "minecraft:light_blue_wool",
+      "name_es": "Lana azul claro",
+      "name_en": "Light Blue Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_blue_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/light_blue_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 178,
+      "block_id": "minecraft:light_gray_concrete",
+      "name_es": "Hormigón gris claro",
+      "name_en": "Light Gray Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 179,
+      "block_id": "minecraft:light_gray_concrete_powder",
+      "name_es": "Cemento gris claro",
+      "name_en": "Light Gray Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 180,
+      "block_id": "minecraft:light_gray_glazed_terracotta",
+      "name_es": "Azulejo gris claro",
+      "name_en": "Light Gray Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 181,
+      "block_id": "minecraft:light_gray_stained_glass",
+      "name_es": "Cristal tintado de gris claro",
+      "name_en": "Light Gray Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 182,
+      "block_id": "minecraft:light_gray_terracotta",
+      "name_es": "Terracota gris claro",
+      "name_en": "Light Gray Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 183,
+      "block_id": "minecraft:light_gray_wool",
+      "name_es": "Lana gris claro",
+      "name_en": "Light Gray Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/light_gray_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/light_gray_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 184,
+      "block_id": "minecraft:lime_concrete",
+      "name_es": "Hormigón verde lima",
+      "name_en": "Lime Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 185,
+      "block_id": "minecraft:lime_concrete_powder",
+      "name_es": "Cemento verde lima",
+      "name_en": "Lime Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 186,
+      "block_id": "minecraft:lime_glazed_terracotta",
+      "name_es": "Azulejo verde lima",
+      "name_en": "Lime Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 187,
+      "block_id": "minecraft:lime_stained_glass",
+      "name_es": "Cristal tintado de verde lima",
+      "name_en": "Lime Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 188,
+      "block_id": "minecraft:lime_terracotta",
+      "name_es": "Terracota verde lima",
+      "name_en": "Lime Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 189,
+      "block_id": "minecraft:lime_wool",
+      "name_es": "Lana verde lima",
+      "name_en": "Lime Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lime_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/lime_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 190,
+      "block_id": "minecraft:lodestone",
+      "name_es": "Magnetita",
+      "name_en": "Lodestone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/lodestone"
+      ],
+      "source_textures": [
+        "minecraft:block/lodestone_side",
+        "minecraft:block/lodestone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 191,
+      "block_id": "minecraft:loom",
+      "name_es": "Telar",
+      "name_en": "Loom",
+      "block_class": "LoomBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/loom"
+      ],
+      "source_textures": [
+        "minecraft:block/loom_bottom",
+        "minecraft:block/loom_front",
+        "minecraft:block/loom_side",
+        "minecraft:block/loom_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 192,
+      "block_id": "minecraft:magenta_concrete",
+      "name_es": "Hormigón magenta",
+      "name_en": "Magenta Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 193,
+      "block_id": "minecraft:magenta_concrete_powder",
+      "name_es": "Cemento magenta",
+      "name_en": "Magenta Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 194,
+      "block_id": "minecraft:magenta_glazed_terracotta",
+      "name_es": "Azulejo magenta",
+      "name_en": "Magenta Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 195,
+      "block_id": "minecraft:magenta_stained_glass",
+      "name_es": "Cristal tintado de magenta",
+      "name_en": "Magenta Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 196,
+      "block_id": "minecraft:magenta_terracotta",
+      "name_es": "Terracota magenta",
+      "name_en": "Magenta Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 197,
+      "block_id": "minecraft:magenta_wool",
+      "name_es": "Lana magenta",
+      "name_en": "Magenta Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magenta_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/magenta_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 198,
+      "block_id": "minecraft:magma_block",
+      "name_es": "Bloque de magma",
+      "name_en": "Magma Block",
+      "block_class": "MagmaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/magma_block"
+      ],
+      "source_textures": [
+        "minecraft:block/magma"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 199,
+      "block_id": "minecraft:mangrove_leaves",
+      "name_es": "Hojas de mangle",
+      "name_en": "Mangrove Leaves",
+      "block_class": "MangroveLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mangrove_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/mangrove_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 200,
+      "block_id": "minecraft:mangrove_log",
+      "name_es": "Tronco de mangle",
+      "name_en": "Mangrove Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mangrove_log",
+        "minecraft:block/mangrove_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/mangrove_log",
+        "minecraft:block/mangrove_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 201,
+      "block_id": "minecraft:mangrove_planks",
+      "name_es": "Tablones de mangle",
+      "name_en": "Mangrove Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mangrove_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/mangrove_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 202,
+      "block_id": "minecraft:mangrove_roots",
+      "name_es": "Raíces de mangle",
+      "name_en": "Mangrove Roots",
+      "block_class": "MangroveRootsBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mangrove_roots"
+      ],
+      "source_textures": [
+        "minecraft:block/mangrove_roots_side",
+        "minecraft:block/mangrove_roots_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 203,
+      "block_id": "minecraft:mangrove_wood",
+      "name_es": "Leño de mangle",
+      "name_en": "Mangrove Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mangrove_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/mangrove_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 204,
+      "block_id": "minecraft:melon",
+      "name_es": "Sandía",
+      "name_en": "Melon",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/melon"
+      ],
+      "source_textures": [
+        "minecraft:block/melon_side",
+        "minecraft:block/melon_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 205,
+      "block_id": "minecraft:moss_block",
+      "name_es": "Bloque de musgo",
+      "name_en": "Moss Block",
+      "block_class": "BonemealableFeaturePlacerBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/moss_block"
+      ],
+      "source_textures": [
+        "minecraft:block/moss_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 206,
+      "block_id": "minecraft:mossy_cobblestone",
+      "name_es": "Roca musgosa",
+      "name_en": "Mossy Cobblestone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mossy_cobblestone"
+      ],
+      "source_textures": [
+        "minecraft:block/mossy_cobblestone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 207,
+      "block_id": "minecraft:mossy_stone_bricks",
+      "name_es": "Ladrillos de piedra musgosos",
+      "name_en": "Mossy Stone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mossy_stone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/mossy_stone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 208,
+      "block_id": "minecraft:mud",
+      "name_es": "Barro",
+      "name_en": "Mud",
+      "block_class": "MudBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mud"
+      ],
+      "source_textures": [
+        "minecraft:block/mud"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 209,
+      "block_id": "minecraft:mud_bricks",
+      "name_es": "Ladrillos de adobe",
+      "name_en": "Mud Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mud_bricks_north_west_mirrored"
+      ],
+      "source_textures": [
+        "minecraft:block/mud_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 210,
+      "block_id": "minecraft:muddy_mangrove_roots",
+      "name_es": "Raíces de mangle embarradas",
+      "name_en": "Muddy Mangrove Roots",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/muddy_mangrove_roots"
+      ],
+      "source_textures": [
+        "minecraft:block/muddy_mangrove_roots_side",
+        "minecraft:block/muddy_mangrove_roots_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 211,
+      "block_id": "minecraft:mushroom_stem",
+      "name_es": "Tallo de champiñón",
+      "name_en": "Mushroom Stem",
+      "block_class": "HugeMushroomBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mushroom_block_inside",
+        "minecraft:block/mushroom_stem"
+      ],
+      "source_textures": [
+        "minecraft:block/mushroom_block_inside",
+        "minecraft:block/mushroom_stem"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 212,
+      "block_id": "minecraft:mycelium",
+      "name_es": "Micelio",
+      "name_en": "Mycelium",
+      "block_class": "MyceliumBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/grass_block_snow",
+        "minecraft:block/mycelium"
+      ],
+      "source_textures": [
+        "minecraft:block/dirt",
+        "minecraft:block/grass_block_snow",
+        "minecraft:block/grass_block_top",
+        "minecraft:block/mycelium_side",
+        "minecraft:block/mycelium_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 213,
+      "block_id": "minecraft:nether_bricks",
+      "name_es": "Ladrillos del Nether",
+      "name_en": "Nether Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/nether_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/nether_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 214,
+      "block_id": "minecraft:nether_gold_ore",
+      "name_es": "Mena de oro del Nether",
+      "name_en": "Nether Gold Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/nether_gold_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/nether_gold_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 215,
+      "block_id": "minecraft:nether_quartz_ore",
+      "name_es": "Mena de cuarzo del Nether",
+      "name_en": "Nether Quartz Ore",
+      "block_class": "DropExperienceBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/nether_quartz_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/nether_quartz_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 216,
+      "block_id": "minecraft:nether_wart_block",
+      "name_es": "Bloque de verrugas del Nether",
+      "name_en": "Nether Wart Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/nether_wart_block"
+      ],
+      "source_textures": [
+        "minecraft:block/nether_wart_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 217,
+      "block_id": "minecraft:netherite_block",
+      "name_es": "Bloque de netherita",
+      "name_en": "Block of Netherite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/netherite_block"
+      ],
+      "source_textures": [
+        "minecraft:block/netherite_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 218,
+      "block_id": "minecraft:netherrack",
+      "name_es": "Netherrack",
+      "name_en": "Netherrack",
+      "block_class": "NetherrackBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/netherrack"
+      ],
+      "source_textures": [
+        "minecraft:block/netherrack"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 219,
+      "block_id": "minecraft:note_block",
+      "name_es": "Bloque musical",
+      "name_en": "Note Block",
+      "block_class": "NoteBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/note_block"
+      ],
+      "source_textures": [
+        "minecraft:block/note_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 220,
+      "block_id": "minecraft:oak_leaves",
+      "name_es": "Hojas de roble",
+      "name_en": "Oak Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oak_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/oak_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 221,
+      "block_id": "minecraft:oak_log",
+      "name_es": "Tronco de roble",
+      "name_en": "Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oak_log",
+        "minecraft:block/oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/oak_log",
+        "minecraft:block/oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 222,
+      "block_id": "minecraft:oak_planks",
+      "name_es": "Tablones de roble",
+      "name_en": "Oak Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oak_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 223,
+      "block_id": "minecraft:oak_wood",
+      "name_es": "Leño de roble",
+      "name_en": "Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 224,
+      "block_id": "minecraft:observer",
+      "name_es": "Observador",
+      "name_en": "Observer",
+      "block_class": "ObserverBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/observer",
+        "minecraft:block/observer_on"
+      ],
+      "source_textures": [
+        "minecraft:block/observer_back",
+        "minecraft:block/observer_back_on",
+        "minecraft:block/observer_front",
+        "minecraft:block/observer_side",
+        "minecraft:block/observer_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 225,
+      "block_id": "minecraft:obsidian",
+      "name_es": "Obsidiana",
+      "name_en": "Obsidian",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/obsidian"
+      ],
+      "source_textures": [
+        "minecraft:block/obsidian"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 226,
+      "block_id": "minecraft:ochre_froglight",
+      "name_es": "Ranaluz ocre",
+      "name_en": "Ochre Froglight",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/ochre_froglight",
+        "minecraft:block/ochre_froglight_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/ochre_froglight_side",
+        "minecraft:block/ochre_froglight_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 227,
+      "block_id": "minecraft:orange_concrete",
+      "name_es": "Hormigón naranja",
+      "name_en": "Orange Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 228,
+      "block_id": "minecraft:orange_concrete_powder",
+      "name_es": "Cemento naranja",
+      "name_en": "Orange Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 229,
+      "block_id": "minecraft:orange_glazed_terracotta",
+      "name_es": "Azulejo naranja",
+      "name_en": "Orange Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 230,
+      "block_id": "minecraft:orange_stained_glass",
+      "name_es": "Cristal tintado de naranja",
+      "name_en": "Orange Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 231,
+      "block_id": "minecraft:orange_terracotta",
+      "name_es": "Terracota naranja",
+      "name_en": "Orange Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 232,
+      "block_id": "minecraft:orange_wool",
+      "name_es": "Lana naranja",
+      "name_en": "Orange Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/orange_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/orange_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 233,
+      "block_id": "minecraft:oxidized_chiseled_copper",
+      "name_es": "Cobre cincelado oxidado",
+      "name_en": "Oxidized Chiseled Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oxidized_chiseled_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/oxidized_chiseled_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 234,
+      "block_id": "minecraft:oxidized_copper",
+      "name_es": "Cobre oxidado",
+      "name_en": "Oxidized Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oxidized_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/oxidized_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 235,
+      "block_id": "minecraft:oxidized_copper_bulb",
+      "name_es": "Lámpara de cobre oxidado",
+      "name_en": "Oxidized Copper Bulb",
+      "block_class": "CopperBulbBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oxidized_copper_bulb",
+        "minecraft:block/oxidized_copper_bulb_lit",
+        "minecraft:block/oxidized_copper_bulb_lit_powered",
+        "minecraft:block/oxidized_copper_bulb_powered"
+      ],
+      "source_textures": [
+        "minecraft:block/oxidized_copper_bulb",
+        "minecraft:block/oxidized_copper_bulb_lit",
+        "minecraft:block/oxidized_copper_bulb_lit_powered",
+        "minecraft:block/oxidized_copper_bulb_powered"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 236,
+      "block_id": "minecraft:oxidized_copper_grate",
+      "name_es": "Rejilla de cobre oxidado",
+      "name_en": "Oxidized Copper Grate",
+      "block_class": "WaterloggedTransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oxidized_copper_grate"
+      ],
+      "source_textures": [
+        "minecraft:block/oxidized_copper_grate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 237,
+      "block_id": "minecraft:oxidized_cut_copper",
+      "name_es": "Cobre cortado oxidado",
+      "name_en": "Oxidized Cut Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/oxidized_cut_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/oxidized_cut_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 238,
+      "block_id": "minecraft:packed_ice",
+      "name_es": "Hielo compacto",
+      "name_en": "Packed Ice",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/packed_ice"
+      ],
+      "source_textures": [
+        "minecraft:block/packed_ice"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 239,
+      "block_id": "minecraft:packed_mud",
+      "name_es": "Adobe",
+      "name_en": "Packed Mud",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/packed_mud"
+      ],
+      "source_textures": [
+        "minecraft:block/packed_mud"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 240,
+      "block_id": "minecraft:pale_moss_block",
+      "name_es": "Bloque de musgo pálido",
+      "name_en": "Pale Moss Block",
+      "block_class": "BonemealableFeaturePlacerBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pale_moss_block"
+      ],
+      "source_textures": [
+        "minecraft:block/pale_moss_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 241,
+      "block_id": "minecraft:pale_oak_leaves",
+      "name_es": "Hojas de roble pálido",
+      "name_en": "Pale Oak Leaves",
+      "block_class": "UntintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pale_oak_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/pale_oak_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 242,
+      "block_id": "minecraft:pale_oak_log",
+      "name_es": "Tronco de roble pálido",
+      "name_en": "Pale Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pale_oak_log",
+        "minecraft:block/pale_oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/pale_oak_log",
+        "minecraft:block/pale_oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 243,
+      "block_id": "minecraft:pale_oak_planks",
+      "name_es": "Tablones de roble pálido",
+      "name_en": "Pale Oak Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pale_oak_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/pale_oak_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 244,
+      "block_id": "minecraft:pale_oak_wood",
+      "name_es": "Leño de roble pálido",
+      "name_en": "Pale Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pale_oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/pale_oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 245,
+      "block_id": "minecraft:pearlescent_froglight",
+      "name_es": "Ranaluz nacarada",
+      "name_en": "Pearlescent Froglight",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pearlescent_froglight",
+        "minecraft:block/pearlescent_froglight_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/pearlescent_froglight_side",
+        "minecraft:block/pearlescent_froglight_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 246,
+      "block_id": "minecraft:pink_concrete",
+      "name_es": "Hormigón rosa",
+      "name_en": "Pink Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 247,
+      "block_id": "minecraft:pink_concrete_powder",
+      "name_es": "Cemento rosa",
+      "name_en": "Pink Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 248,
+      "block_id": "minecraft:pink_glazed_terracotta",
+      "name_es": "Azulejo rosa",
+      "name_en": "Pink Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 249,
+      "block_id": "minecraft:pink_stained_glass",
+      "name_es": "Cristal tintado de rosa",
+      "name_en": "Pink Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 250,
+      "block_id": "minecraft:pink_terracotta",
+      "name_es": "Terracota rosa",
+      "name_en": "Pink Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 251,
+      "block_id": "minecraft:pink_wool",
+      "name_es": "Lana rosa",
+      "name_en": "Pink Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pink_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/pink_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 252,
+      "block_id": "minecraft:podzol",
+      "name_es": "Podsol",
+      "name_en": "Podzol",
+      "block_class": "SnowyBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/grass_block_snow",
+        "minecraft:block/podzol"
+      ],
+      "source_textures": [
+        "minecraft:block/dirt",
+        "minecraft:block/grass_block_snow",
+        "minecraft:block/grass_block_top",
+        "minecraft:block/podzol_side",
+        "minecraft:block/podzol_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 253,
+      "block_id": "minecraft:polished_andesite",
+      "name_es": "Andesita pulida",
+      "name_en": "Polished Andesite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_andesite"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_andesite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 254,
+      "block_id": "minecraft:polished_basalt",
+      "name_es": "Basalto pulido",
+      "name_en": "Polished Basalt",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_basalt"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_basalt_side",
+        "minecraft:block/polished_basalt_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 255,
+      "block_id": "minecraft:polished_blackstone",
+      "name_es": "Piedra negra pulida",
+      "name_en": "Polished Blackstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_blackstone"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_blackstone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 256,
+      "block_id": "minecraft:polished_blackstone_bricks",
+      "name_es": "Ladrillos de piedra negra pulida",
+      "name_en": "Polished Blackstone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_blackstone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_blackstone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 257,
+      "block_id": "minecraft:polished_cinnabar",
+      "name_es": "Cinabrio pulido",
+      "name_en": "Polished Cinnabar",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_cinnabar"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_cinnabar"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 258,
+      "block_id": "minecraft:polished_deepslate",
+      "name_es": "Pizarra profunda pulida",
+      "name_en": "Polished Deepslate",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_deepslate"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_deepslate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 259,
+      "block_id": "minecraft:polished_diorite",
+      "name_es": "Diorita pulida",
+      "name_en": "Polished Diorite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_diorite"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_diorite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 260,
+      "block_id": "minecraft:polished_granite",
+      "name_es": "Granito pulido",
+      "name_en": "Polished Granite",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_granite"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_granite"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 261,
+      "block_id": "minecraft:polished_sulfur",
+      "name_es": "Azufre pulido",
+      "name_en": "Polished Sulfur",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_sulfur"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_sulfur"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 262,
+      "block_id": "minecraft:polished_tuff",
+      "name_es": "Toba pulida",
+      "name_en": "Polished Tuff",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/polished_tuff"
+      ],
+      "source_textures": [
+        "minecraft:block/polished_tuff"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 263,
+      "block_id": "minecraft:powder_snow",
+      "name_es": "Nieve polvo",
+      "name_en": "Powder Snow",
+      "block_class": "PowderSnowBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/powder_snow"
+      ],
+      "source_textures": [
+        "minecraft:block/powder_snow"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 264,
+      "block_id": "minecraft:prismarine",
+      "name_es": "Prismarina",
+      "name_en": "Prismarine",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/prismarine"
+      ],
+      "source_textures": [
+        "minecraft:block/prismarine"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 265,
+      "block_id": "minecraft:prismarine_bricks",
+      "name_es": "Ladrillos de prismarina",
+      "name_en": "Prismarine Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/prismarine_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/prismarine_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 266,
+      "block_id": "minecraft:pumpkin",
+      "name_es": "Calabaza",
+      "name_en": "Pumpkin",
+      "block_class": "PumpkinBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/pumpkin"
+      ],
+      "source_textures": [
+        "minecraft:block/pumpkin_side",
+        "minecraft:block/pumpkin_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 267,
+      "block_id": "minecraft:purple_concrete",
+      "name_es": "Hormigón morado",
+      "name_en": "Purple Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 268,
+      "block_id": "minecraft:purple_concrete_powder",
+      "name_es": "Cemento morado",
+      "name_en": "Purple Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 269,
+      "block_id": "minecraft:purple_glazed_terracotta",
+      "name_es": "Azulejo morado",
+      "name_en": "Purple Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 270,
+      "block_id": "minecraft:purple_stained_glass",
+      "name_es": "Cristal tintado de morado",
+      "name_en": "Purple Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 271,
+      "block_id": "minecraft:purple_terracotta",
+      "name_es": "Terracota morada",
+      "name_en": "Purple Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 272,
+      "block_id": "minecraft:purple_wool",
+      "name_es": "Lana morada",
+      "name_en": "Purple Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purple_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/purple_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 273,
+      "block_id": "minecraft:purpur_block",
+      "name_es": "Bloque de purpur",
+      "name_en": "Purpur Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purpur_block"
+      ],
+      "source_textures": [
+        "minecraft:block/purpur_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 274,
+      "block_id": "minecraft:purpur_pillar",
+      "name_es": "Pilar de purpur",
+      "name_en": "Purpur Pillar",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/purpur_pillar",
+        "minecraft:block/purpur_pillar_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/purpur_pillar_side",
+        "minecraft:block/purpur_pillar_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 275,
+      "block_id": "minecraft:quartz_block",
+      "name_es": "Cuarzo",
+      "name_en": "Block of Quartz",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/quartz_block"
+      ],
+      "source_textures": [
+        "minecraft:block/quartz_block_side",
+        "minecraft:block/quartz_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 276,
+      "block_id": "minecraft:quartz_bricks",
+      "name_es": "Ladrillos de cuarzo",
+      "name_en": "Quartz Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/quartz_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/quartz_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 277,
+      "block_id": "minecraft:quartz_pillar",
+      "name_es": "Pilar de cuarzo",
+      "name_en": "Quartz Pillar",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/quartz_pillar",
+        "minecraft:block/quartz_pillar_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/quartz_pillar_side",
+        "minecraft:block/quartz_pillar_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 278,
+      "block_id": "minecraft:raw_copper_block",
+      "name_es": "Bloque de cobre en bruto",
+      "name_en": "Block of Raw Copper",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/raw_copper_block"
+      ],
+      "source_textures": [
+        "minecraft:block/raw_copper_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 279,
+      "block_id": "minecraft:raw_gold_block",
+      "name_es": "Bloque de oro en bruto",
+      "name_en": "Block of Raw Gold",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/raw_gold_block"
+      ],
+      "source_textures": [
+        "minecraft:block/raw_gold_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 280,
+      "block_id": "minecraft:raw_iron_block",
+      "name_es": "Bloque de hierro en bruto",
+      "name_en": "Block of Raw Iron",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/raw_iron_block"
+      ],
+      "source_textures": [
+        "minecraft:block/raw_iron_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 281,
+      "block_id": "minecraft:red_concrete",
+      "name_es": "Hormigón rojo",
+      "name_en": "Red Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/red_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 282,
+      "block_id": "minecraft:red_concrete_powder",
+      "name_es": "Cemento rojo",
+      "name_en": "Red Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/red_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 283,
+      "block_id": "minecraft:red_glazed_terracotta",
+      "name_es": "Azulejo rojo",
+      "name_en": "Red Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/red_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 284,
+      "block_id": "minecraft:red_mushroom_block",
+      "name_es": "Bloque de champiñón rojo",
+      "name_en": "Red Mushroom Block",
+      "block_class": "HugeMushroomBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/mushroom_block_inside",
+        "minecraft:block/red_mushroom_block"
+      ],
+      "source_textures": [
+        "minecraft:block/mushroom_block_inside",
+        "minecraft:block/red_mushroom_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 285,
+      "block_id": "minecraft:red_nether_bricks",
+      "name_es": "Ladrillos del Nether rojos",
+      "name_en": "Red Nether Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_nether_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/red_nether_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 286,
+      "block_id": "minecraft:red_sand",
+      "name_es": "Arena roja",
+      "name_en": "Red Sand",
+      "block_class": "SandBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_sand"
+      ],
+      "source_textures": [
+        "minecraft:block/red_sand"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 287,
+      "block_id": "minecraft:red_sandstone",
+      "name_es": "Arenisca roja",
+      "name_en": "Red Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/red_sandstone",
+        "minecraft:block/red_sandstone_bottom",
+        "minecraft:block/red_sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 288,
+      "block_id": "minecraft:red_stained_glass",
+      "name_es": "Cristal tintado de rojo",
+      "name_en": "Red Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/red_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 289,
+      "block_id": "minecraft:red_terracotta",
+      "name_es": "Terracota roja",
+      "name_en": "Red Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/red_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 290,
+      "block_id": "minecraft:red_wool",
+      "name_es": "Lana roja",
+      "name_en": "Red Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/red_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/red_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 291,
+      "block_id": "minecraft:redstone_block",
+      "name_es": "Bloque de redstone",
+      "name_en": "Block of Redstone",
+      "block_class": "PoweredBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/redstone_block"
+      ],
+      "source_textures": [
+        "minecraft:block/redstone_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 292,
+      "block_id": "minecraft:redstone_lamp",
+      "name_es": "Lámpara de redstone",
+      "name_en": "Redstone Lamp",
+      "block_class": "RedstoneLampBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/redstone_lamp",
+        "minecraft:block/redstone_lamp_on"
+      ],
+      "source_textures": [
+        "minecraft:block/redstone_lamp",
+        "minecraft:block/redstone_lamp_on"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 293,
+      "block_id": "minecraft:redstone_ore",
+      "name_es": "Mena de redstone",
+      "name_en": "Redstone Ore",
+      "block_class": "RedStoneOreBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/redstone_ore"
+      ],
+      "source_textures": [
+        "minecraft:block/redstone_ore"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 294,
+      "block_id": "minecraft:reinforced_deepslate",
+      "name_es": "Pizarra profunda reforzada",
+      "name_en": "Reinforced Deepslate",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/reinforced_deepslate"
+      ],
+      "source_textures": [
+        "minecraft:block/reinforced_deepslate_bottom",
+        "minecraft:block/reinforced_deepslate_side",
+        "minecraft:block/reinforced_deepslate_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 295,
+      "block_id": "minecraft:resin_block",
+      "name_es": "Bloque de resina",
+      "name_en": "Block of Resin",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/resin_block"
+      ],
+      "source_textures": [
+        "minecraft:block/resin_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 296,
+      "block_id": "minecraft:resin_bricks",
+      "name_es": "Ladrillos de resina",
+      "name_en": "Resin Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/resin_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/resin_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 297,
+      "block_id": "minecraft:respawn_anchor",
+      "name_es": "Nexo de reaparición",
+      "name_en": "Respawn Anchor",
+      "block_class": "RespawnAnchorBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/respawn_anchor_0",
+        "minecraft:block/respawn_anchor_1",
+        "minecraft:block/respawn_anchor_2",
+        "minecraft:block/respawn_anchor_3",
+        "minecraft:block/respawn_anchor_4"
+      ],
+      "source_textures": [
+        "minecraft:block/respawn_anchor_bottom",
+        "minecraft:block/respawn_anchor_side0",
+        "minecraft:block/respawn_anchor_side1",
+        "minecraft:block/respawn_anchor_side2",
+        "minecraft:block/respawn_anchor_side3",
+        "minecraft:block/respawn_anchor_side4",
+        "minecraft:block/respawn_anchor_top",
+        "minecraft:block/respawn_anchor_top_off"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 298,
+      "block_id": "minecraft:rooted_dirt",
+      "name_es": "Tierra enraizada",
+      "name_en": "Rooted Dirt",
+      "block_class": "RootedDirtBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/rooted_dirt"
+      ],
+      "source_textures": [
+        "minecraft:block/rooted_dirt"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 299,
+      "block_id": "minecraft:sand",
+      "name_es": "Arena",
+      "name_en": "Sand",
+      "block_class": "SandBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sand"
+      ],
+      "source_textures": [
+        "minecraft:block/sand"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 300,
+      "block_id": "minecraft:sandstone",
+      "name_es": "Arenisca",
+      "name_en": "Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/sandstone",
+        "minecraft:block/sandstone_bottom",
+        "minecraft:block/sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 301,
+      "block_id": "minecraft:sculk",
+      "name_es": "Sculk",
+      "name_en": "Sculk",
+      "block_class": "SculkBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sculk",
+        "minecraft:block/sculk_mirrored"
+      ],
+      "source_textures": [
+        "minecraft:block/sculk"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 302,
+      "block_id": "minecraft:sea_lantern",
+      "name_es": "Linterna marina",
+      "name_en": "Sea Lantern",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sea_lantern"
+      ],
+      "source_textures": [
+        "minecraft:block/sea_lantern"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 303,
+      "block_id": "minecraft:shroomlight",
+      "name_es": "Brillongo",
+      "name_en": "Shroomlight",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/shroomlight"
+      ],
+      "source_textures": [
+        "minecraft:block/shroomlight"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 304,
+      "block_id": "minecraft:slime_block",
+      "name_es": "Bloque de slime",
+      "name_en": "Slime Block",
+      "block_class": "SlimeBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/slime_block"
+      ],
+      "source_textures": [
+        "minecraft:block/slime_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 305,
+      "block_id": "minecraft:smithing_table",
+      "name_es": "Mesa de herrería",
+      "name_en": "Smithing Table",
+      "block_class": "SmithingTableBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smithing_table"
+      ],
+      "source_textures": [
+        "minecraft:block/smithing_table_bottom",
+        "minecraft:block/smithing_table_front",
+        "minecraft:block/smithing_table_side",
+        "minecraft:block/smithing_table_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 306,
+      "block_id": "minecraft:smooth_basalt",
+      "name_es": "Basalto liso",
+      "name_en": "Smooth Basalt",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smooth_basalt"
+      ],
+      "source_textures": [
+        "minecraft:block/smooth_basalt"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 307,
+      "block_id": "minecraft:smooth_quartz",
+      "name_es": "Bloque de cuarzo liso",
+      "name_en": "Smooth Quartz Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smooth_quartz"
+      ],
+      "source_textures": [
+        "minecraft:block/quartz_block_bottom"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 308,
+      "block_id": "minecraft:smooth_red_sandstone",
+      "name_es": "Arenisca roja lisa",
+      "name_en": "Smooth Red Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smooth_red_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/red_sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 309,
+      "block_id": "minecraft:smooth_sandstone",
+      "name_es": "Arenisca lisa",
+      "name_en": "Smooth Sandstone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smooth_sandstone"
+      ],
+      "source_textures": [
+        "minecraft:block/sandstone_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 310,
+      "block_id": "minecraft:smooth_stone",
+      "name_es": "Piedra lisa",
+      "name_en": "Smooth Stone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/smooth_stone"
+      ],
+      "source_textures": [
+        "minecraft:block/smooth_stone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 311,
+      "block_id": "minecraft:snow_block",
+      "name_es": "Bloque de nieve",
+      "name_en": "Snow Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/snow_block"
+      ],
+      "source_textures": [
+        "minecraft:block/snow"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 312,
+      "block_id": "minecraft:soul_sand",
+      "name_es": "Arena de almas",
+      "name_en": "Soul Sand",
+      "block_class": "SoulSandBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/soul_sand"
+      ],
+      "source_textures": [
+        "minecraft:block/soul_sand"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 313,
+      "block_id": "minecraft:soul_soil",
+      "name_es": "Tierra de almas",
+      "name_en": "Soul Soil",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/soul_soil"
+      ],
+      "source_textures": [
+        "minecraft:block/soul_soil"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 314,
+      "block_id": "minecraft:sponge",
+      "name_es": "Esponja",
+      "name_en": "Sponge",
+      "block_class": "SpongeBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sponge"
+      ],
+      "source_textures": [
+        "minecraft:block/sponge"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 315,
+      "block_id": "minecraft:spruce_leaves",
+      "name_es": "Hojas de abeto",
+      "name_en": "Spruce Leaves",
+      "block_class": "TintedParticleLeavesBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/spruce_leaves"
+      ],
+      "source_textures": [
+        "minecraft:block/spruce_leaves"
+      ],
+      "uses_tint": true
+    },
+    {
+      "proposed_paint_id": 316,
+      "block_id": "minecraft:spruce_log",
+      "name_es": "Tronco de abeto",
+      "name_en": "Spruce Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/spruce_log",
+        "minecraft:block/spruce_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/spruce_log",
+        "minecraft:block/spruce_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 317,
+      "block_id": "minecraft:spruce_planks",
+      "name_es": "Tablones de abeto",
+      "name_en": "Spruce Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/spruce_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/spruce_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 318,
+      "block_id": "minecraft:spruce_wood",
+      "name_es": "Leño de abeto",
+      "name_en": "Spruce Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/spruce_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/spruce_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 319,
+      "block_id": "minecraft:stone",
+      "name_es": "Piedra",
+      "name_en": "Stone",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stone",
+        "minecraft:block/stone_mirrored"
+      ],
+      "source_textures": [
+        "minecraft:block/stone"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 320,
+      "block_id": "minecraft:stone_bricks",
+      "name_es": "Ladrillos de piedra",
+      "name_en": "Stone Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stone_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/stone_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 321,
+      "block_id": "minecraft:stripped_acacia_log",
+      "name_es": "Tronco de acacia sin corteza",
+      "name_en": "Stripped Acacia Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_acacia_log",
+        "minecraft:block/stripped_acacia_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_acacia_log",
+        "minecraft:block/stripped_acacia_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 322,
+      "block_id": "minecraft:stripped_acacia_wood",
+      "name_es": "Leño de acacia sin corteza",
+      "name_en": "Stripped Acacia Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_acacia_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_acacia_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 323,
+      "block_id": "minecraft:stripped_bamboo_block",
+      "name_es": "Bloque de bambú pelado",
+      "name_en": "Block of Stripped Bamboo",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_bamboo_block_x",
+        "minecraft:block/stripped_bamboo_block_y",
+        "minecraft:block/stripped_bamboo_block_z"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_bamboo_block",
+        "minecraft:block/stripped_bamboo_block_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 324,
+      "block_id": "minecraft:stripped_birch_log",
+      "name_es": "Tronco de abedul sin corteza",
+      "name_en": "Stripped Birch Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_birch_log",
+        "minecraft:block/stripped_birch_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_birch_log",
+        "minecraft:block/stripped_birch_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 325,
+      "block_id": "minecraft:stripped_birch_wood",
+      "name_es": "Leño de abedul sin corteza",
+      "name_en": "Stripped Birch Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_birch_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_birch_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 326,
+      "block_id": "minecraft:stripped_cherry_log",
+      "name_es": "Tronco de cerezo sin corteza",
+      "name_en": "Stripped Cherry Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_cherry_log_x",
+        "minecraft:block/stripped_cherry_log_y",
+        "minecraft:block/stripped_cherry_log_z"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_cherry_log",
+        "minecraft:block/stripped_cherry_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 327,
+      "block_id": "minecraft:stripped_cherry_wood",
+      "name_es": "Leño de cerezo sin corteza",
+      "name_en": "Stripped Cherry Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_cherry_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_cherry_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 328,
+      "block_id": "minecraft:stripped_crimson_hyphae",
+      "name_es": "Hifas carmesí peladas",
+      "name_en": "Stripped Crimson Hyphae",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_crimson_hyphae"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_crimson_stem"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 329,
+      "block_id": "minecraft:stripped_crimson_stem",
+      "name_es": "Tallo carmesí pelado",
+      "name_en": "Stripped Crimson Stem",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_crimson_stem"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_crimson_stem",
+        "minecraft:block/stripped_crimson_stem_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 330,
+      "block_id": "minecraft:stripped_dark_oak_log",
+      "name_es": "Tronco de roble oscuro sin corteza",
+      "name_en": "Stripped Dark Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_dark_oak_log",
+        "minecraft:block/stripped_dark_oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_dark_oak_log",
+        "minecraft:block/stripped_dark_oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 331,
+      "block_id": "minecraft:stripped_dark_oak_wood",
+      "name_es": "Leño de roble oscuro sin corteza",
+      "name_en": "Stripped Dark Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_dark_oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_dark_oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 332,
+      "block_id": "minecraft:stripped_jungle_log",
+      "name_es": "Tronco de jungla sin corteza",
+      "name_en": "Stripped Jungle Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_jungle_log",
+        "minecraft:block/stripped_jungle_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_jungle_log",
+        "minecraft:block/stripped_jungle_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 333,
+      "block_id": "minecraft:stripped_jungle_wood",
+      "name_es": "Leño de jungla sin corteza",
+      "name_en": "Stripped Jungle Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_jungle_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_jungle_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 334,
+      "block_id": "minecraft:stripped_mangrove_log",
+      "name_es": "Tronco de mangle sin corteza",
+      "name_en": "Stripped Mangrove Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_mangrove_log",
+        "minecraft:block/stripped_mangrove_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_mangrove_log",
+        "minecraft:block/stripped_mangrove_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 335,
+      "block_id": "minecraft:stripped_mangrove_wood",
+      "name_es": "Leño de mangle sin corteza",
+      "name_en": "Stripped Mangrove Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_mangrove_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_mangrove_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 336,
+      "block_id": "minecraft:stripped_oak_log",
+      "name_es": "Tronco de roble sin corteza",
+      "name_en": "Stripped Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_oak_log",
+        "minecraft:block/stripped_oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_oak_log",
+        "minecraft:block/stripped_oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 337,
+      "block_id": "minecraft:stripped_oak_wood",
+      "name_es": "Leño de roble sin corteza",
+      "name_en": "Stripped Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 338,
+      "block_id": "minecraft:stripped_pale_oak_log",
+      "name_es": "Tronco de roble pálido sin corteza",
+      "name_en": "Stripped Pale Oak Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_pale_oak_log",
+        "minecraft:block/stripped_pale_oak_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_pale_oak_log",
+        "minecraft:block/stripped_pale_oak_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 339,
+      "block_id": "minecraft:stripped_pale_oak_wood",
+      "name_es": "Leño de roble pálido sin corteza",
+      "name_en": "Stripped Pale Oak Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_pale_oak_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_pale_oak_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 340,
+      "block_id": "minecraft:stripped_spruce_log",
+      "name_es": "Tronco de abeto sin corteza",
+      "name_en": "Stripped Spruce Log",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_spruce_log",
+        "minecraft:block/stripped_spruce_log_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_spruce_log",
+        "minecraft:block/stripped_spruce_log_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 341,
+      "block_id": "minecraft:stripped_spruce_wood",
+      "name_es": "Leño de abeto sin corteza",
+      "name_en": "Stripped Spruce Wood",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_spruce_wood"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_spruce_log"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 342,
+      "block_id": "minecraft:stripped_warped_hyphae",
+      "name_es": "Hifas distorsionadas peladas",
+      "name_en": "Stripped Warped Hyphae",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_warped_hyphae"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_warped_stem"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 343,
+      "block_id": "minecraft:stripped_warped_stem",
+      "name_es": "Tallo distorsionado pelado",
+      "name_en": "Stripped Warped Stem",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/stripped_warped_stem"
+      ],
+      "source_textures": [
+        "minecraft:block/stripped_warped_stem",
+        "minecraft:block/stripped_warped_stem_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 344,
+      "block_id": "minecraft:sulfur",
+      "name_es": "Azufre",
+      "name_en": "Sulfur",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sulfur"
+      ],
+      "source_textures": [
+        "minecraft:block/sulfur"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 345,
+      "block_id": "minecraft:sulfur_bricks",
+      "name_es": "Ladrillos de azufre",
+      "name_en": "Sulfur Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/sulfur_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/sulfur_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 346,
+      "block_id": "minecraft:target",
+      "name_es": "Diana",
+      "name_en": "Target",
+      "block_class": "TargetBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/target"
+      ],
+      "source_textures": [
+        "minecraft:block/target_side",
+        "minecraft:block/target_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 347,
+      "block_id": "minecraft:terracotta",
+      "name_es": "Terracota",
+      "name_en": "Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 348,
+      "block_id": "minecraft:tinted_glass",
+      "name_es": "Cristal opaco",
+      "name_en": "Tinted Glass",
+      "block_class": "TintedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/tinted_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/tinted_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 349,
+      "block_id": "minecraft:tnt",
+      "name_es": "Dinamita",
+      "name_en": "TNT",
+      "block_class": "TntBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/tnt"
+      ],
+      "source_textures": [
+        "minecraft:block/tnt_bottom",
+        "minecraft:block/tnt_side",
+        "minecraft:block/tnt_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 350,
+      "block_id": "minecraft:tube_coral_block",
+      "name_es": "Bloque de coral de tubo",
+      "name_en": "Tube Coral Block",
+      "block_class": "CoralBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/tube_coral_block"
+      ],
+      "source_textures": [
+        "minecraft:block/tube_coral_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 351,
+      "block_id": "minecraft:tuff",
+      "name_es": "Toba",
+      "name_en": "Tuff",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/tuff"
+      ],
+      "source_textures": [
+        "minecraft:block/tuff"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 352,
+      "block_id": "minecraft:tuff_bricks",
+      "name_es": "Ladrillos de toba",
+      "name_en": "Tuff Bricks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/tuff_bricks"
+      ],
+      "source_textures": [
+        "minecraft:block/tuff_bricks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 353,
+      "block_id": "minecraft:verdant_froglight",
+      "name_es": "Ranaluz verde",
+      "name_en": "Verdant Froglight",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/verdant_froglight",
+        "minecraft:block/verdant_froglight_horizontal"
+      ],
+      "source_textures": [
+        "minecraft:block/verdant_froglight_side",
+        "minecraft:block/verdant_froglight_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 354,
+      "block_id": "minecraft:warped_hyphae",
+      "name_es": "Hifas distorsionadas",
+      "name_en": "Warped Hyphae",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/warped_hyphae"
+      ],
+      "source_textures": [
+        "minecraft:block/warped_stem"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 355,
+      "block_id": "minecraft:warped_nylium",
+      "name_es": "Necelio distorsionado",
+      "name_en": "Warped Nylium",
+      "block_class": "NyliumBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/warped_nylium"
+      ],
+      "source_textures": [
+        "minecraft:block/netherrack",
+        "minecraft:block/warped_nylium",
+        "minecraft:block/warped_nylium_side"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 356,
+      "block_id": "minecraft:warped_planks",
+      "name_es": "Tablones distorsionados",
+      "name_en": "Warped Planks",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/warped_planks"
+      ],
+      "source_textures": [
+        "minecraft:block/warped_planks"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 357,
+      "block_id": "minecraft:warped_stem",
+      "name_es": "Tallo distorsionado",
+      "name_en": "Warped Stem",
+      "block_class": "RotatedPillarBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/warped_stem"
+      ],
+      "source_textures": [
+        "minecraft:block/warped_stem",
+        "minecraft:block/warped_stem_top"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 358,
+      "block_id": "minecraft:warped_wart_block",
+      "name_es": "Bloque de verrugas distorsionadas",
+      "name_en": "Warped Wart Block",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/warped_wart_block"
+      ],
+      "source_textures": [
+        "minecraft:block/warped_wart_block"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 359,
+      "block_id": "minecraft:weathered_chiseled_copper",
+      "name_es": "Cobre cincelado degradado",
+      "name_en": "Weathered Chiseled Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/weathered_chiseled_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/weathered_chiseled_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 360,
+      "block_id": "minecraft:weathered_copper",
+      "name_es": "Cobre degradado",
+      "name_en": "Weathered Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/weathered_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/weathered_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 361,
+      "block_id": "minecraft:weathered_copper_bulb",
+      "name_es": "Lámpara de cobre degradado",
+      "name_en": "Weathered Copper Bulb",
+      "block_class": "CopperBulbBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/weathered_copper_bulb",
+        "minecraft:block/weathered_copper_bulb_lit",
+        "minecraft:block/weathered_copper_bulb_lit_powered",
+        "minecraft:block/weathered_copper_bulb_powered"
+      ],
+      "source_textures": [
+        "minecraft:block/weathered_copper_bulb",
+        "minecraft:block/weathered_copper_bulb_lit",
+        "minecraft:block/weathered_copper_bulb_lit_powered",
+        "minecraft:block/weathered_copper_bulb_powered"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 362,
+      "block_id": "minecraft:weathered_copper_grate",
+      "name_es": "Rejilla de cobre degradado",
+      "name_en": "Weathered Copper Grate",
+      "block_class": "WaterloggedTransparentBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/weathered_copper_grate"
+      ],
+      "source_textures": [
+        "minecraft:block/weathered_copper_grate"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 363,
+      "block_id": "minecraft:weathered_cut_copper",
+      "name_es": "Cobre cortado degradado",
+      "name_en": "Weathered Cut Copper",
+      "block_class": "WeatheringCopperFullBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/weathered_cut_copper"
+      ],
+      "source_textures": [
+        "minecraft:block/weathered_cut_copper"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 364,
+      "block_id": "minecraft:wet_sponge",
+      "name_es": "Esponja mojada",
+      "name_en": "Wet Sponge",
+      "block_class": "WetSpongeBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/wet_sponge"
+      ],
+      "source_textures": [
+        "minecraft:block/wet_sponge"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 365,
+      "block_id": "minecraft:white_concrete",
+      "name_es": "Hormigón blanco",
+      "name_en": "White Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/white_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 366,
+      "block_id": "minecraft:white_concrete_powder",
+      "name_es": "Cemento blanco",
+      "name_en": "White Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/white_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 367,
+      "block_id": "minecraft:white_glazed_terracotta",
+      "name_es": "Azulejo blanco",
+      "name_en": "White Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/white_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 368,
+      "block_id": "minecraft:white_stained_glass",
+      "name_es": "Cristal tintado de blanco",
+      "name_en": "White Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/white_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 369,
+      "block_id": "minecraft:white_terracotta",
+      "name_es": "Terracota blanca",
+      "name_en": "White Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/white_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 370,
+      "block_id": "minecraft:white_wool",
+      "name_es": "Lana blanca",
+      "name_en": "White Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/white_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/white_wool"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 371,
+      "block_id": "minecraft:yellow_concrete",
+      "name_es": "Hormigón amarillo",
+      "name_en": "Yellow Concrete",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_concrete"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_concrete"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 372,
+      "block_id": "minecraft:yellow_concrete_powder",
+      "name_es": "Cemento amarillo",
+      "name_en": "Yellow Concrete Powder",
+      "block_class": "ConcretePowderBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_concrete_powder"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_concrete_powder"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 373,
+      "block_id": "minecraft:yellow_glazed_terracotta",
+      "name_es": "Azulejo amarillo",
+      "name_en": "Yellow Glazed Terracotta",
+      "block_class": "GlazedTerracottaBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_glazed_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_glazed_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 374,
+      "block_id": "minecraft:yellow_stained_glass",
+      "name_es": "Cristal tintado de amarillo",
+      "name_en": "Yellow Stained Glass",
+      "block_class": "StainedGlassBlock",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_stained_glass"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_stained_glass"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 375,
+      "block_id": "minecraft:yellow_terracotta",
+      "name_es": "Terracota amarilla",
+      "name_en": "Yellow Terracotta",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_terracotta"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_terracotta"
+      ],
+      "uses_tint": false
+    },
+    {
+      "proposed_paint_id": 376,
+      "block_id": "minecraft:yellow_wool",
+      "name_es": "Lana amarilla",
+      "name_en": "Yellow Wool",
+      "block_class": "Block",
+      "has_block_entity": false,
+      "source_models": [
+        "minecraft:block/yellow_wool"
+      ],
+      "source_textures": [
+        "minecraft:block/yellow_wool"
+      ],
+      "uses_tint": false
+    }
+  ],
+  "duplicates": [
+    {
+      "excluded_block": "minecraft:infested_chiseled_stone_bricks",
+      "same_appearance_as": "minecraft:chiseled_stone_bricks",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_cobblestone",
+      "same_appearance_as": "minecraft:cobblestone",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_cracked_stone_bricks",
+      "same_appearance_as": "minecraft:cracked_stone_bricks",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_deepslate",
+      "same_appearance_as": "minecraft:deepslate",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_mossy_stone_bricks",
+      "same_appearance_as": "minecraft:mossy_stone_bricks",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_stone",
+      "same_appearance_as": "minecraft:stone",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:infested_stone_bricks",
+      "same_appearance_as": "minecraft:stone_bricks",
+      "reason": "infested_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_chiseled_copper",
+      "same_appearance_as": "minecraft:chiseled_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_copper_block",
+      "same_appearance_as": "minecraft:copper_block",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_copper_bulb",
+      "same_appearance_as": "minecraft:copper_bulb",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_copper_grate",
+      "same_appearance_as": "minecraft:copper_grate",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_cut_copper",
+      "same_appearance_as": "minecraft:cut_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_exposed_chiseled_copper",
+      "same_appearance_as": "minecraft:exposed_chiseled_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_exposed_copper",
+      "same_appearance_as": "minecraft:exposed_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_exposed_copper_bulb",
+      "same_appearance_as": "minecraft:exposed_copper_bulb",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_exposed_copper_grate",
+      "same_appearance_as": "minecraft:exposed_copper_grate",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_exposed_cut_copper",
+      "same_appearance_as": "minecraft:exposed_cut_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_oxidized_chiseled_copper",
+      "same_appearance_as": "minecraft:oxidized_chiseled_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_oxidized_copper",
+      "same_appearance_as": "minecraft:oxidized_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_oxidized_copper_bulb",
+      "same_appearance_as": "minecraft:oxidized_copper_bulb",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_oxidized_copper_grate",
+      "same_appearance_as": "minecraft:oxidized_copper_grate",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_oxidized_cut_copper",
+      "same_appearance_as": "minecraft:oxidized_cut_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_weathered_chiseled_copper",
+      "same_appearance_as": "minecraft:weathered_chiseled_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_weathered_copper",
+      "same_appearance_as": "minecraft:weathered_copper",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_weathered_copper_bulb",
+      "same_appearance_as": "minecraft:weathered_copper_bulb",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_weathered_copper_grate",
+      "same_appearance_as": "minecraft:weathered_copper_grate",
+      "reason": "waxed_variant"
+    },
+    {
+      "excluded_block": "minecraft:waxed_weathered_cut_copper",
+      "same_appearance_as": "minecraft:weathered_cut_copper",
+      "reason": "waxed_variant"
+    }
+  ],
+  "excluded_cube_models_with_block_entities": [
+    {
+      "block_id": "minecraft:barrel",
+      "block_class": "BarrelBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:beacon",
+      "block_class": "BeaconBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:bee_nest",
+      "block_class": "BeehiveBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:beehive",
+      "block_class": "BeehiveBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:blast_furnace",
+      "block_class": "BlastFurnaceBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:chain_command_block",
+      "block_class": "CommandBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:command_block",
+      "block_class": "CommandBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:crafter",
+      "block_class": "CrafterBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:creaking_heart",
+      "block_class": "CreakingHeartBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:dispenser",
+      "block_class": "DispenserBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:dropper",
+      "block_class": "DropperBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:furnace",
+      "block_class": "FurnaceBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:jigsaw",
+      "block_class": "JigsawBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:jukebox",
+      "block_class": "JukeboxBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:potent_sulfur",
+      "block_class": "PotentSulfurBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:repeating_command_block",
+      "block_class": "CommandBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:sculk_catalyst",
+      "block_class": "SculkCatalystBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:smoker",
+      "block_class": "SmokerBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:spawner",
+      "block_class": "SpawnerBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:structure_block",
+      "block_class": "StructureBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:suspicious_gravel",
+      "block_class": "BrushableBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:suspicious_sand",
+      "block_class": "BrushableBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:test_block",
+      "block_class": "TestBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:test_instance_block",
+      "block_class": "TestInstanceBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:trial_spawner",
+      "block_class": "TrialSpawnerBlock",
+      "reason": "EntityBlock"
+    },
+    {
+      "block_id": "minecraft:vault",
+      "block_class": "VaultBlock",
+      "reason": "EntityBlock"
+    }
+  ]
+}
